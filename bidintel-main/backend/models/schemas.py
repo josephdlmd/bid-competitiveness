@@ -299,6 +299,204 @@ class BidDocument(Base):
         }
 
 
+class AwardedContract(Base):
+    """
+    Awarded Contract model - tracks contracts that have been awarded.
+
+    This is different from BidNotice which tracks open bids.
+    AwardedContract tracks the final outcome: who won, for how much, etc.
+
+    Data Source:
+    - Index: https://philgeps.gov.ph/Indexes/viewMoreAward
+    - Detail: /Indexes/viewAwardNotice/{award_id}/MORE
+    """
+
+    __tablename__ = 'awarded_contracts'
+
+    # Meta fields
+    id = Column(Integer, primary_key=True, autoincrement=True)
+
+    # PRIMARY IDENTIFIER
+    award_notice_number = Column(String(100), unique=True, nullable=False, index=True)  # e.g., "1998"
+
+    # LINK TO ORIGINAL BID
+    bid_reference_number = Column(String(100), index=True)  # Links to BidNotice.reference_number (e.g., "6793")
+    control_number = Column(String(100), index=True)  # e.g., "2510239"
+
+    # AWARD INFORMATION (CRITICAL FIELDS)
+    award_title = Column(String(500))  # e.g., "Various Electromagnetic Flowmeter"
+    award_type = Column(String(100))  # e.g., "Award Notice"
+    award_date = Column(DateTime, index=True)  # When the contract was awarded
+
+    # AWARDEE (WINNER) INFORMATION
+    awardee_name = Column(String(300), index=True)  # e.g., "LOUISE AND AEDAN ENTERPRISE INC."
+    awardee_address = Column(Text)  # Full address of winner
+    awardee_contact_person = Column(String(200))  # Contact person at winning company
+    awardee_corporate_title = Column(String(100))  # e.g., "Proprietor", "CEO"
+
+    # FINANCIAL INFORMATION (KEY FIELDS FOR ANALYSIS)
+    approved_budget = Column(Float)  # ABC - Approved Budget for Contract (e.g., PHP 1,375,000.00)
+    contract_amount = Column(Float, index=True)  # AWARDED PRICE - What they actually won for (e.g., PHP 750,000.00)
+
+    # CONTRACT DETAILS
+    contract_number = Column(String(100))  # Official contract number
+    contract_effectivity_date = Column(DateTime)  # When contract starts
+    contract_end_date = Column(DateTime)  # When contract ends
+    period_of_contract = Column(String(100))  # e.g., "30-Day(s)"
+    proceed_date = Column(DateTime)  # Date to proceed
+
+    # PROCUREMENT DETAILS (from original bid)
+    procurement_mode = Column(String(100))  # e.g., "Small Value Procurement"
+    classification = Column(String(100))  # Goods, Services, Infrastructure
+    category = Column(String(200))  # Business category
+    procurement_rules = Column(String(200))  # Applicable rules
+    funding_source = Column(String(300))  # Source of funds
+
+    # PROCURING ENTITY (BUYER)
+    procuring_entity = Column(String(300))  # Government agency
+    agency_address = Column(Text)  # Agency address
+    delivery_location = Column(String(300))  # Where goods/services delivered
+
+    # TIMELINE FIELDS
+    publish_date = Column(DateTime, index=True)  # When award notice was published
+    date_created = Column(DateTime)  # When record was created in PhilGEPS
+    date_last_updated = Column(DateTime)  # Last update in PhilGEPS
+
+    # DESCRIPTION
+    description = Column(Text)  # Detailed description
+
+    # ADDITIONAL INFO
+    created_by = Column(String(200))  # PhilGEPS user who created the award notice
+
+    # METADATA
+    url = Column(String(500))  # Source URL
+    scraped_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+
+    # RELATIONSHIPS
+    line_items = relationship("AwardLineItem", back_populates="awarded_contract", cascade="all, delete-orphan")
+    documents = relationship("AwardDocument", back_populates="awarded_contract", cascade="all, delete-orphan")
+
+    def __repr__(self):
+        return f"<AwardedContract(award_number='{self.award_notice_number}', awardee='{self.awardee_name}')>"
+
+    def to_dict(self):
+        """Convert model to dictionary."""
+        return {
+            'id': self.id,
+            'award_notice_number': self.award_notice_number,
+            'bid_reference_number': self.bid_reference_number,
+            'control_number': self.control_number,
+            'award_title': self.award_title,
+            'award_type': self.award_type,
+            'award_date': self.award_date.isoformat() if self.award_date else None,
+            'awardee_name': self.awardee_name,
+            'awardee_address': self.awardee_address,
+            'awardee_contact_person': self.awardee_contact_person,
+            'awardee_corporate_title': self.awardee_corporate_title,
+            'approved_budget': self.approved_budget,
+            'contract_amount': self.contract_amount,
+            'contract_number': self.contract_number,
+            'contract_effectivity_date': self.contract_effectivity_date.isoformat() if self.contract_effectivity_date else None,
+            'contract_end_date': self.contract_end_date.isoformat() if self.contract_end_date else None,
+            'period_of_contract': self.period_of_contract,
+            'proceed_date': self.proceed_date.isoformat() if self.proceed_date else None,
+            'procurement_mode': self.procurement_mode,
+            'classification': self.classification,
+            'category': self.category,
+            'procurement_rules': self.procurement_rules,
+            'funding_source': self.funding_source,
+            'procuring_entity': self.procuring_entity,
+            'agency_address': self.agency_address,
+            'delivery_location': self.delivery_location,
+            'publish_date': self.publish_date.isoformat() if self.publish_date else None,
+            'date_created': self.date_created.isoformat() if self.date_created else None,
+            'date_last_updated': self.date_last_updated.isoformat() if self.date_last_updated else None,
+            'description': self.description,
+            'created_by': self.created_by,
+            'url': self.url,
+            'line_items': [item.to_dict() for item in self.line_items] if self.line_items else [],
+            'documents': [doc.to_dict() for doc in self.documents] if self.documents else [],
+            'scraped_at': self.scraped_at.isoformat() if self.scraped_at else None,
+            'updated_at': self.updated_at.isoformat() if self.updated_at else None,
+        }
+
+    def get_savings_amount(self):
+        """Calculate savings amount (ABC - Contract Amount)."""
+        if self.approved_budget and self.contract_amount:
+            return self.approved_budget - self.contract_amount
+        return None
+
+    def get_savings_percentage(self):
+        """Calculate savings percentage."""
+        if self.approved_budget and self.contract_amount and self.approved_budget > 0:
+            return ((self.approved_budget - self.contract_amount) / self.approved_budget) * 100
+        return None
+
+
+class AwardLineItem(Base):
+    """
+    Line items for awarded contracts.
+    Similar to LineItem but for awarded contracts.
+    """
+
+    __tablename__ = 'award_line_items'
+
+    id = Column(Integer, primary_key=True)
+    awarded_contract_id = Column(Integer, ForeignKey('awarded_contracts.id'), nullable=False)
+
+    item_number = Column(Integer)
+    unspsc_code = Column(String(50))
+    lot_name = Column(String(300))
+    lot_description = Column(Text)
+    quantity = Column(Float)
+    unit_of_measure = Column(String(50))
+
+    # Relationship
+    awarded_contract = relationship("AwardedContract", back_populates="line_items")
+
+    def to_dict(self):
+        return {
+            'item_number': self.item_number,
+            'unspsc_code': self.unspsc_code,
+            'lot_name': self.lot_name,
+            'lot_description': self.lot_description,
+            'quantity': self.quantity,
+            'unit_of_measure': self.unit_of_measure,
+        }
+
+
+class AwardDocument(Base):
+    """
+    Documents for awarded contracts.
+    Similar to BidDocument but for awarded contracts.
+    """
+
+    __tablename__ = 'award_documents'
+
+    id = Column(Integer, primary_key=True)
+    awarded_contract_id = Column(Integer, ForeignKey('awarded_contracts.id'), nullable=False)
+
+    filename = Column(String(500))
+    document_url = Column(String(1000), nullable=False)
+    document_type = Column(String(100))
+    file_size = Column(Integer)
+    scraped_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+    # Relationship
+    awarded_contract = relationship("AwardedContract", back_populates="documents")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'filename': self.filename,
+            'document_url': self.document_url,
+            'document_type': self.document_type,
+            'file_size': self.file_size,
+            'scraped_at': self.scraped_at.isoformat() if self.scraped_at else None,
+        }
+
+
 class ScrapingLog(Base):
     """Scraping Log model - tracks scraping sessions."""
 

@@ -724,3 +724,469 @@ class PhilGEPSParser:
             return 'Supplement/Amendment'
         else:
             return 'Document'
+
+    # =========================================================================
+    # AWARDED CONTRACTS PARSING METHODS
+    # =========================================================================
+
+    def parse_awarded_contract(self) -> Dict:
+        """
+        Parse an awarded contract detail page.
+
+        Data Source:
+        - Index: https://philgeps.gov.ph/Indexes/viewMoreAward
+        - Detail: /Indexes/viewAwardNotice/{award_id}/MORE
+
+        Returns all fields for AwardedContract model including:
+        - Award Notice Number (primary ID)
+        - Bid Reference Number (link to original bid)
+        - Awardee information (winner)
+        - ABC and Contract Amount (awarded price)
+        - Contract details and dates
+
+        Returns:
+            dict: Extracted awarded contract data
+        """
+        try:
+            logger.debug("Parsing awarded contract detail page")
+
+            data = {
+                # PRIMARY IDENTIFIERS
+                'award_notice_number': self._extract_award_notice_number(),
+                'bid_reference_number': self._extract_bid_reference_number(),
+                'control_number': self._extract_control_number(),
+
+                # AWARD INFORMATION
+                'award_title': self._extract_title(),  # Reuse existing method
+                'award_type': self._extract_award_type(),
+                'award_date': self._extract_award_date(),
+
+                # AWARDEE (WINNER) INFORMATION
+                'awardee_name': self._extract_awardee_name(),
+                'awardee_address': self._extract_awardee_address(),
+                'awardee_contact_person': self._extract_awardee_contact_person(),
+                'awardee_corporate_title': self._extract_awardee_corporate_title(),
+
+                # FINANCIAL INFORMATION (CRITICAL)
+                'approved_budget': self._extract_budget(),  # Reuse existing (ABC)
+                'contract_amount': self._extract_contract_amount(),  # NEW - Awarded price
+
+                # CONTRACT DETAILS
+                'contract_number': self._extract_contract_number(),
+                'contract_effectivity_date': self._extract_contract_effectivity_date(),
+                'contract_end_date': self._extract_contract_end_date(),
+                'period_of_contract': self._extract_period_of_contract(),
+                'proceed_date': self._extract_proceed_date(),
+
+                # PROCUREMENT DETAILS (reuse existing methods)
+                'procurement_mode': self._extract_procurement_mode(),
+                'classification': self._extract_classification(),
+                'category': self._extract_category(),
+                'procurement_rules': self._extract_procurement_rules(),
+                'funding_source': self._extract_funding_source(),
+
+                # PROCURING ENTITY
+                'procuring_entity': self._extract_procuring_entity(),
+                'agency_address': self._extract_agency_address(),
+                'delivery_location': self._extract_delivery_location(),
+
+                # TIMELINE
+                'publish_date': self._extract_publish_date(),
+                'date_created': self._extract_date_created(),
+                'date_last_updated': self._extract_date_last_updated(),
+
+                # DESCRIPTION
+                'description': self._extract_description(),
+
+                # ADDITIONAL
+                'created_by': self._extract_created_by(),
+
+                # LINE ITEMS (reuse existing)
+                'line_items': self._extract_line_items(),
+
+                # META
+                'scraped_at': datetime.now(timezone.utc)
+            }
+
+            logger.debug(f"Parsed awarded contract: {data.get('award_notice_number')}")
+            return data
+
+        except Exception as e:
+            logger.error(f"Error parsing awarded contract: {str(e)}")
+            raise
+
+    def _extract_award_notice_number(self) -> Optional[str]:
+        """
+        Extract Award Notice Number (primary identifier).
+
+        HTML Example:
+        <label>Award Notice Number :1998 </label>
+
+        Returns:
+            str: Award notice number (e.g., "1998")
+        """
+        try:
+            # Method 1: Look for "Award Notice Number" label
+            label = self.soup.find('label', string=re.compile(r'Award Notice Number', re.I))
+            if label:
+                text = label.get_text(strip=True)
+                match = re.search(r'(\d+)', text)
+                if match:
+                    return match.group(1).strip()
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting award notice number: {e}")
+            return None
+
+    def _extract_bid_reference_number(self) -> Optional[str]:
+        """
+        Extract Bid Notice Reference Number (links to original bid).
+
+        HTML Example:
+        <label>Notice Reference Number:</label><br>6793 <br><br>
+
+        Returns:
+            str: Bid reference number (e.g., "6793")
+        """
+        try:
+            # Look for "Notice Reference Number" label
+            label = self.soup.find('label', string=re.compile(r'Notice Reference Number', re.I))
+            if label and label.next_sibling:
+                # Get text after <br> tag
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    ref_num = sibling.strip()
+                    if ref_num:
+                        return ref_num
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting bid reference number: {e}")
+            return None
+
+    def _extract_award_type(self) -> Optional[str]:
+        """
+        Extract Award Type.
+
+        HTML Example:
+        <label>Award Type:</label><br>Award Notice<br><br>
+
+        Returns:
+            str: Award type (e.g., "Award Notice")
+        """
+        try:
+            label = self.soup.find('label', string=re.compile(r'Award Type', re.I))
+            if label:
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    return sibling.strip()
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting award type: {e}")
+            return None
+
+    def _extract_award_date(self) -> Optional[datetime]:
+        """
+        Extract Award Date.
+
+        HTML Example:
+        <label>Award Date:</label><br>12-Nov-2025<br><br>
+
+        Returns:
+            datetime: Award date
+        """
+        try:
+            label = self.soup.find('label', string=re.compile(r'Award Date', re.I))
+            if label:
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    date_str = sibling.strip()
+                    return self._parse_date(date_str)
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting award date: {e}")
+            return None
+
+    def _extract_awardee_name(self) -> Optional[str]:
+        """
+        Extract Awardee Name (winner of the contract).
+
+        HTML Example:
+        <label class="tamoha_bold_twelvepx">Awardee:</label><br>
+        <label class="tamoha_twelvepx"> LOUISE AND AEDAN ENTERPRISE INC.</label>
+
+        Returns:
+            str: Awardee company name
+        """
+        try:
+            # Look for "Awardee:" label
+            label = self.soup.find('label', string=re.compile(r'Awardee\s*:', re.I))
+            if label:
+                # Try to find next label with class tamoha_twelvepx
+                next_label = label.find_next('label', class_='tamoha_twelvepx')
+                if next_label:
+                    return next_label.get_text(strip=True)
+
+                # Fallback: get text after <br>
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    awardee = sibling.strip()
+                    if awardee:
+                        return awardee
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting awardee name: {e}")
+            return None
+
+    def _extract_awardee_address(self) -> Optional[str]:
+        """
+        Extract Awardee Address.
+
+        HTML Example:
+        <label>Address:</label><br>
+        No. 19 Don Pedro Subdivision Talaibon, Ibaan, Batangas, Region IV-A, Philippines<br><br>
+
+        Returns:
+            str: Awardee address
+        """
+        try:
+            # Find "Address:" label within awardee section
+            labels = self.soup.find_all('label', string=re.compile(r'Address\s*:', re.I))
+
+            # There might be multiple "Address" labels, we want the one near "Awardee"
+            for label in labels:
+                # Check if this is in the awardee section by looking for nearby "Awardee" text
+                parent_text = label.parent.get_text() if label.parent else ''
+                if 'Awardee' in parent_text or 'Corporate Title' in parent_text:
+                    sibling = label.find_next_sibling(string=True)
+                    if sibling:
+                        address = sibling.strip()
+                        if address and len(address) > 5:  # Avoid empty or very short strings
+                            return address
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting awardee address: {e}")
+            return None
+
+    def _extract_awardee_contact_person(self) -> Optional[str]:
+        """
+        Extract Awardee Contact Person.
+
+        HTML Example:
+        <label>Awardee Contact Person:</label><br>
+        AXELL JAY  CATAPANG<br> <br>
+
+        Returns:
+            str: Contact person name
+        """
+        try:
+            label = self.soup.find('label', string=re.compile(r'Awardee Contact Person', re.I))
+            if label:
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    contact = sibling.strip()
+                    if contact:
+                        return contact
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting awardee contact person: {e}")
+            return None
+
+    def _extract_awardee_corporate_title(self) -> Optional[str]:
+        """
+        Extract Awardee Corporate Title.
+
+        HTML Example:
+        <label>Corporate Title:</label><br>
+        Proprietor<br> <br>
+
+        Returns:
+            str: Corporate title
+        """
+        try:
+            label = self.soup.find('label', string=re.compile(r'Corporate Title', re.I))
+            if label:
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    title = sibling.strip()
+                    if title:
+                        return title
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting corporate title: {e}")
+            return None
+
+    def _extract_contract_amount(self) -> Optional[float]:
+        """
+        Extract Contract Amount (AWARDED PRICE - the actual winning bid amount).
+
+        This is different from ABC (Approved Budget).
+        This is the actual price the contract was awarded for.
+
+        HTML Example:
+        <label>Contract Amount:</label><br>PHP 750,000.00<br><br>
+
+        Returns:
+            float: Contract amount in PHP
+        """
+        try:
+            label = self.soup.find('label', string=re.compile(r'Contract Amount', re.I))
+            if label:
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    amount_str = sibling.strip()
+                    # Remove "PHP", commas, and convert to float
+                    amount_str = re.sub(r'[^\d.]', '', amount_str)
+                    if amount_str:
+                        return float(amount_str)
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting contract amount: {e}")
+            return None
+
+    def _extract_contract_number(self) -> Optional[str]:
+        """
+        Extract Contract Number.
+
+        HTML Example:
+        <label>Contract No.:</label><br><br><br>
+        (might be empty)
+
+        Returns:
+            str: Contract number or None
+        """
+        try:
+            label = self.soup.find('label', string=re.compile(r'Contract No', re.I))
+            if label:
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    contract_no = sibling.strip()
+                    if contract_no and contract_no != '':
+                        return contract_no
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting contract number: {e}")
+            return None
+
+    def _extract_contract_effectivity_date(self) -> Optional[datetime]:
+        """
+        Extract Contract Effectivity Date.
+
+        HTML Example:
+        <label>Contract Effectivity Date:</label><br><br><br>
+        (might be empty)
+
+        Returns:
+            datetime: Contract start date or None
+        """
+        try:
+            label = self.soup.find('label', string=re.compile(r'Contract Effectivity Date', re.I))
+            if label:
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    date_str = sibling.strip()
+                    if date_str:
+                        return self._parse_date(date_str)
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting contract effectivity date: {e}")
+            return None
+
+    def _extract_contract_end_date(self) -> Optional[datetime]:
+        """
+        Extract Contract End Date.
+
+        HTML Example:
+        <label>Contract End Date:</label><br><br><br>
+        (might be empty)
+
+        Returns:
+            datetime: Contract end date or None
+        """
+        try:
+            label = self.soup.find('label', string=re.compile(r'Contract End Date', re.I))
+            if label:
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    date_str = sibling.strip()
+                    if date_str:
+                        return self._parse_date(date_str)
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting contract end date: {e}")
+            return None
+
+    def _extract_period_of_contract(self) -> Optional[str]:
+        """
+        Extract Period of Contract.
+
+        HTML Example:
+        <label>Period of Contract :</label><br>
+        30-Day(s)<br><br>
+
+        Returns:
+            str: Period description (e.g., "30-Day(s)")
+        """
+        try:
+            label = self.soup.find('label', string=re.compile(r'Period of Contract', re.I))
+            if label:
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    period = sibling.strip()
+                    if period:
+                        return period
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting period of contract: {e}")
+            return None
+
+    def _extract_proceed_date(self) -> Optional[datetime]:
+        """
+        Extract Proceed Date.
+
+        HTML Example:
+        <label>Proceed Date:</label><br><br><br>
+        (might be empty)
+
+        Returns:
+            datetime: Proceed date or None
+        """
+        try:
+            label = self.soup.find('label', string=re.compile(r'Proceed Date', re.I))
+            if label:
+                sibling = label.find_next_sibling(string=True)
+                if sibling:
+                    date_str = sibling.strip()
+                    if date_str:
+                        return self._parse_date(date_str)
+
+            return None
+
+        except Exception as e:
+            logger.debug(f"Error extracting proceed date: {e}")
+            return None
