@@ -1,13 +1,17 @@
-# 🚀 How to Run the PhilGEPS Intelligence Application
+# 🚀 How to Run the PhilGEPS Awarded Contracts Intelligence System
+
+> **Project Focus**: This system is specifically designed for **AWARDED CONTRACTS** intelligence - tracking who wins government contracts and for how much.
 
 ## Quick Answer: YES, Everything is Already Connected! ✅
 
 **Frontend ↔️ Backend ↔️ Database** are all connected and ready to use.
 
-- **Frontend**: React app that displays bid data in a beautiful dashboard
+- **Frontend**: React app that displays awarded contracts data in a beautiful dashboard
 - **Backend API**: FastAPI server that provides data to the frontend
-- **Database**: SQLite database that stores all scraped bid opportunities
-- **Scrapers**: Python scripts that collect data from PhilGEPS
+- **Database**: SQLite database that stores all scraped awarded contracts
+- **Scraper**: Python script (`run_awarded_scraper.py`) that collects awarded contracts from PhilGEPS
+
+**Note**: While the codebase contains references to a bid opportunities scraper (legacy from previous project), the primary focus is **awarded contracts intelligence**.
 
 ---
 
@@ -142,7 +146,7 @@ All scripts are in `bidintel-main/scripts/`:
 - `start.bat` - Start both backend and frontend
 - `start-backend.bat` - Start backend API only
 - `start-frontend.bat` - Start frontend only
-- `run-scraper.bat` - Run the bid opportunities scraper
+- `run-scraper.bat` - Run the awarded contracts scraper ⭐
 - `stop.bat` - Stop all services
 
 ### Mac/Linux (.sh files)
@@ -150,35 +154,36 @@ All scripts are in `bidintel-main/scripts/`:
 - `start.sh` - Start both backend and frontend
 - `start-backend.sh` - Start backend API only
 - `start-frontend.sh` - Start frontend only
-- `run-scraper.sh` - Run the bid opportunities scraper
+- `run-scraper.sh` - Run the awarded contracts scraper ⭐
 
 ---
 
 ## 📊 How to Populate the Dashboard with Data
 
-The frontend will show **no data** initially because the database is empty. To get data:
+The frontend will show **no data** initially because the database is empty. To collect awarded contracts data:
 
-### Option 1: Run the Bid Opportunities Scraper
-
-```bash
-cd bidintel-main/backend
-python run_public_scraper.py --workers 2
-```
-
-This scrapes active bid opportunities from PhilGEPS.
-
-### Option 2: Run the Awarded Contracts Scraper
+### Run the Awarded Contracts Scraper
 
 ```bash
 cd bidintel-main/backend
 python run_awarded_scraper.py --workers 1
 ```
 
-This scrapes awarded contracts (who won bids and for how much).
+**What this does:**
+- Scrapes awarded contracts from https://philgeps.gov.ph/Indexes/viewMoreAward
+- Collects winner information, contract amounts, ABC values
+- Calculates savings (ABC - Contract Amount)
+- Stores in database for analysis
+
+**Recommended settings:**
+- Start with `--workers 1` for testing
+- Use `--workers 2` for production (faster, but more resource-intensive)
 
 ### Check the Data
 
-Once scrapers finish, refresh the frontend at http://localhost:5173 and you'll see real data!
+Once the scraper finishes, refresh the frontend at http://localhost:5173 and you'll see real awarded contracts data!
+
+**Note**: The codebase also contains `run_public_scraper.py` (legacy bid opportunities scraper from previous project), but the primary focus of this system is awarded contracts intelligence.
 
 ---
 
@@ -355,9 +360,9 @@ scripts\setup.bat
 # Start application
 scripts\start.bat
 
-# Run scraper
+# Run awarded contracts scraper ⭐
 cd backend
-python run_public_scraper.py --workers 2
+python run_awarded_scraper.py --workers 1
 
 # Stop everything
 scripts\stop.bat
@@ -373,9 +378,9 @@ bash scripts/setup.sh
 # Start application
 bash scripts/start.sh
 
-# Run scraper
+# Run awarded contracts scraper ⭐
 cd backend
-python run_public_scraper.py --workers 2
+python run_awarded_scraper.py --workers 1
 ```
 
 ---
@@ -396,6 +401,11 @@ After setup, you should have:
 
 ## 🎉 You're Ready!
 
-Everything is connected and ready to use. Just run the scrapers to populate your database with real PhilGEPS data, and the frontend will automatically display it!
+Everything is connected and ready to use. Just run the **awarded contracts scraper** to populate your database with real PhilGEPS awarded contracts data, and the frontend will automatically display competitive intelligence!
 
-**Questions?** Check the other documentation files or review the scripts in `bidintel-main/scripts/`
+**This system focuses on**: Awarded contracts intelligence - who wins, for how much, pricing patterns, and competitive analysis.
+
+**Questions?** Check the other documentation files:
+- **README.md** - Project overview and scope
+- **QUICK_START.md** - 3-step startup guide
+- **AWARDED_CONTRACTS_PROTOTYPE.md** - Technical details

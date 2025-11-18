@@ -1,9 +1,21 @@
-# PhilGEPS Public Scraper - Deployment Bundle
+# PhilGEPS Awarded Contracts Intelligence - Deployment Bundle
 
-A complete, deployment-ready application for scraping and monitoring Philippine Government Electronic Procurement System (PhilGEPS) bid opportunities using **public URLs** (no authentication required).
+> **Primary Focus**: This application is specifically designed for scraping and analyzing **AWARDED CONTRACTS** from PhilGEPS.
+
+A complete, deployment-ready application for tracking and analyzing Philippine Government Electronic Procurement System (PhilGEPS) **awarded contracts** - showing who wins government contracts, for how much, and competitive pricing intelligence.
+
+**Note**: While this codebase contains legacy references to a bid opportunities scraper (from a previous project), the primary focus and purpose is **awarded contracts intelligence**.
 
 ## Features
 
+### Awarded Contracts Intelligence (Primary Focus)
+- **Awarded Contracts Scraper**: Collects completed government contracts with winner and pricing data
+- **Competitive Intelligence**: Track who wins contracts and their pricing strategies
+- **Pricing Analysis**: ABC vs. Contract Amount comparison, savings calculations
+- **Winner Tracking**: Monitor competitor companies and their contract wins
+- **Agency Analytics**: Understand government agency procurement patterns
+
+### Technical Features
 - **Public Scraper**: Uses public PhilGEPS URLs - no login credentials needed
 - **Async Architecture**: Fast, concurrent scraping with multiple workers
 - **FastAPI Backend**: RESTful API with automatic documentation
@@ -15,26 +27,33 @@ A complete, deployment-ready application for scraping and monitoring Philippine 
 ## Architecture
 
 ```
-philgeps-public-bundle/
-├── backend/           # FastAPI backend & scraper
-│   ├── backend_api.py
-│   ├── run_public_scraper.py
-│   ├── scraper/       # Scraper modules
-│   ├── models/        # Database models
-│   ├── config/        # Configuration
-│   └── utils/         # Utilities
-├── frontend/          # React + Vite frontend
+bidintel-main/
+├── backend/                        # FastAPI backend & scraper
+│   ├── backend_api.py              # API server
+│   ├── run_awarded_scraper.py      # ⭐ Awarded contracts scraper (PRIMARY)
+│   ├── run_public_scraper.py       # (Legacy reference - bid opportunities)
+│   ├── scraper/                    # Scraper modules
+│   │   ├── awarded_contracts_scraper.py  # ⭐ Main awarded scraper
+│   │   └── parser.py               # HTML parsing logic
+│   ├── models/                     # Database models
+│   │   ├── schemas.py              # AwardedContract model ⭐
+│   │   └── database.py             # Database operations
+│   ├── config/                     # Configuration
+│   └── utils/                      # Utilities
+├── frontend/                       # React + Vite frontend
 │   ├── src/
+│   │   ├── components/             # UI components
+│   │   └── services/api.js         # Backend API client
 │   └── package.json
-├── scripts/           # Deployment scripts (.bat for Windows, .sh for Linux/Mac)
-│   ├── setup.sh / setup.bat
-│   ├── start.sh / start.bat
-│   ├── start-backend.sh / start-backend.bat
-│   ├── start-frontend.sh / start-frontend.bat
-│   └── run-scraper.sh / run-scraper.bat
-├── requirements.txt   # Python dependencies
-├── .env.example       # Configuration template
-└── README.md          # This file
+├── scripts/                        # Deployment scripts
+│   ├── setup.bat / setup.sh        # One-time setup
+│   ├── start.bat / start.sh        # Start everything
+│   ├── start-backend.bat / .sh     # Backend only
+│   ├── start-frontend.bat / .sh    # Frontend only
+│   └── run-scraper.bat             # Run awarded scraper
+├── requirements.txt                # Python dependencies
+├── .env.example                    # Configuration template
+└── README.md                       # This file
 ```
 
 ## Requirements
