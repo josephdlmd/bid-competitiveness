@@ -207,8 +207,11 @@ python test_awarded_parser.py
    ```bash
    cd bidintel-main
    pip install -r requirements.txt
-   playwright install chromium
    ```
+
+   Then install Playwright browsers:
+   - **Windows**: `python -m playwright install chromium`
+   - **Mac/Linux**: `playwright install chromium`
 
 2. **Configure settings** in `.env`:
    ```env

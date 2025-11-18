@@ -33,6 +33,17 @@ I've successfully created a **complete prototype** for scraping awarded contract
 ```bash
 cd bidintel-main
 pip install -r requirements.txt
+```
+
+**Then install Playwright browsers:**
+
+**On Windows (PowerShell/CMD):**
+```bash
+python -m playwright install chromium
+```
+
+**On Mac/Linux:**
+```bash
 playwright install chromium
 ```
 

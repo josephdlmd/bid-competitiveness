@@ -102,7 +102,11 @@ The issue might be this sandbox environment:
 git clone your-repo
 cd bid-competitiveness/bidintel-main
 pip install -r requirements.txt
-playwright install chromium
+
+# Install Playwright browsers:
+# Windows: python -m playwright install chromium
+# Mac/Linux: playwright install chromium
+
 python backend/run_awarded_scraper.py --workers 1 --visible
 ```
 

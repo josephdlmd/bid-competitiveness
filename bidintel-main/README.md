@@ -310,8 +310,12 @@ DATABASE_URL=postgresql://user:password@localhost:5432/philgeps_scraper
 **Problem**: Scraper fails with browser errors
 ```bash
 # Reinstall Playwright browsers
+# Mac/Linux:
 source venv/bin/activate
 playwright install chromium
+
+# Windows:
+python -m playwright install chromium
 ```
 
 **Problem**: "No bids found"
