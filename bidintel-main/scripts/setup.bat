@@ -48,7 +48,7 @@ echo Python dependencies installed
 REM Step 4: Install Playwright browsers
 echo.
 echo Step 4: Installing Playwright browsers...
-playwright install chromium
+python -m playwright install chromium
 echo Playwright browsers installed
 
 REM Step 5: Setup .env file
