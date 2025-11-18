@@ -1,0 +1,27 @@
+2025-11-18 13:24:05 | INFO     | __main__:main:78 - ======================================================================
+2025-11-18 13:24:05 | INFO     | __main__:main:79 - PhilGEPS Awarded Contracts Scraper
+2025-11-18 13:24:05 | INFO     | __main__:main:80 - ======================================================================
+2025-11-18 13:24:05 | INFO     | __main__:main:81 - Workers: 1
+2025-11-18 13:24:05 | INFO     | __main__:main:82 - Headless: True
+2025-11-18 13:24:05 | INFO     | __main__:main:83 - Database: sqlite:///philgeps_data.db
+2025-11-18 13:24:05 | INFO     | __main__:main:84 - ======================================================================
+2025-11-18 13:24:06 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-18 13:24:06 | INFO     | scraper.awarded_contracts_scraper:run:92 - ============================================================
+2025-11-18 13:24:06 | INFO     | scraper.awarded_contracts_scraper:run:93 - Starting AWARDED CONTRACTS scraping (1 workers)
+2025-11-18 13:24:06 | INFO     | scraper.awarded_contracts_scraper:run:94 - No authentication required - using public URLs
+2025-11-18 13:24:06 | INFO     | scraper.awarded_contracts_scraper:run:95 - ============================================================
+2025-11-18 13:24:06 | INFO     | scraper.awarded_contracts_scraper:run:98 - Initializing async browser...
+2025-11-18 13:24:07 | INFO     | scraper.awarded_contracts_scraper:_init_browser:342 - Using persistent profile with stealth: C:\Users\User\Documents\GitHub\bid-competitiveness\bidintel-main\backend\browser_profile
+2025-11-18 13:24:08 | INFO     | scraper.awarded_contracts_scraper:_init_browser:362 - ✓ Stealth measures applied to main page
+2025-11-18 13:24:08 | INFO     | scraper.awarded_contracts_scraper:_init_browser:381 - Async browser initialized successfully
+2025-11-18 13:24:08 | INFO     | scraper.awarded_contracts_scraper:run:102 - Navigating to awarded contracts page...
+2025-11-18 13:24:17 | INFO     | scraper.awarded_contracts_scraper:_get_all_awards_with_pagination:393 - Getting awards from page 1...
+2025-11-18 13:24:17 | INFO     | scraper.awarded_contracts_scraper:_get_all_awards_with_pagination:401 - Found 67 total pages, scraping all pages...
+2025-11-18 13:24:17 | INFO     | scraper.awarded_contracts_scraper:_get_all_awards_with_pagination:405 - Getting awards from page 2 of 67...
+2025-11-18 13:24:20 | INFO     | scraper.awarded_contracts_scraper:_get_all_awards_with_pagination:405 - Getting awards from page 3 of 67...
+2025-11-18 13:24:24 | INFO     | scraper.awarded_contracts_scraper:_get_all_awards_with_pagination:405 - Getting awards from page 4 of 67...
+2025-11-18 13:24:26 | ERROR    | scraper.awarded_contracts_scraper:_cleanup:580 - Error during cleanup: BrowserContext.close: Target page, context or browser has been closed
+2025-11-18 13:24:26 | INFO     | scraper.awarded_contracts_scraper:run:220 - ============================================================
+2025-11-18 13:24:26 | INFO     | scraper.awarded_contracts_scraper:run:221 - Awarded contracts scraping completed in 19.96 seconds
+2025-11-18 13:24:26 | INFO     | scraper.awarded_contracts_scraper:run:222 - Workers: 1, Total: 0, New: 0, Skipped: 0, Errors: 0
+2025-11-18 13:24:26 | INFO     | scraper.awarded_contracts_scraper:run:223 - ============================================================
