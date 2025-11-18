@@ -1,0 +1,85 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+!frontend/src/lib/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment variables
+.env
+.env.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+data/
+
+# Logs
+logs/
+*.log
+
+# Browser profiles
+browser_profile/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Node.js / Frontend
+node_modules/
+frontend/dist/
+frontend/build/
+frontend/.cache/
+frontend/coverage/
+frontend/.env
+frontend/.env.local
+frontend/.env.production.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Playwright
+.playwright/
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Testing
+.pytest_cache/
+.tox/
+
+# Scraper data
+scraper_config.json

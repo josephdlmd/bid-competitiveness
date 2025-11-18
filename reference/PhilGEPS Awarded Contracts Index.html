@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://philgeps.gov.ph/Indexes/viewMoreAward -->
+<html style="height: auto; min-height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="dynatrace_username" content="Anonymous(112.200.10.170,172.70.211.131:11056)">
+		<meta name="robots" content="noindex, nofollow">
+	
+        <script type="text/javascript">
+            var site_url = "https://philgeps.gov.ph";
+        </script>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+			PS-PhilGEPS		</title>
+		<!-- <link href="https://philgeps.gov.ph/favicon.ico" rel="icon"> -->
+		<link href="https://philgeps.gov.ph/plugins/RegnaMasterPage/img/favi.png" rel="icon">
+ 
+        <script src="./PhilGEPS Awarded Contracts Index_files/jquery.min.js.download"></script>
+		 <script src="./PhilGEPS Awarded Contracts Index_files/numscroller-1.0.js.download"></script>
+ 
+        <script src="./PhilGEPS Awarded Contracts Index_files/number_to_word.js.download"></script>
+       <!-- <script src="https://philgeps.gov.ph/js/jquery-1.10.2.min.js"></script>-->
+        <script src="./PhilGEPS Awarded Contracts Index_files/jQuery-2.1.4.min.js.download"></script>
+        <script src="./PhilGEPS Awarded Contracts Index_files/clock.js.download"></script>
+        <script src="./PhilGEPS Awarded Contracts Index_files/nxtAlert.js.download"></script>
+        <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/front_custom.css">
+
+        <script type="text/javascript">
+            var site_url = 'https://philgeps.gov.ph';
+            var nxtAlert = new CustomAlert(); // dhiraj add this js for Alert
+            var nxtConfirm = new CustomConfirm(); // dhiraj add this js for Confirm Alert
+        </script>
+
+		
+	<!--	echo $this->Html->css('bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css');  -->
+
+
+        <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/ionicons.min.css">
+        <!-- jvectormap -->
+        <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/jquery-jvectormap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/AdminLTE.min.css">
+		 <!-- select box -->
+        <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/select2.min.css"> 
+		<link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/front_custom.css">
+
+       
+
+
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+        folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/_all-skins.min.css">
+        <!-- Google Font -->
+        <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/css(2)">
+
+
+    
+      <link href="./PhilGEPS Awarded Contracts Index_files/main-style-new.css" rel="stylesheet">
+
+  
+  <!-- Nt Team datetimepicker js
+ <script src="https://philgeps.gov.ph/js/datetimepicker_css.js"></script>-->
+		
+
+ 
+    <!-- timepicker picker -->
+	<link rel="stylesheet" media="all" type="text/css" href="./PhilGEPS Awarded Contracts Index_files/jquery-ui.css">
+	<link rel="stylesheet" media="all" type="text/css" href="./PhilGEPS Awarded Contracts Index_files/jquery-ui-timepicker-addon.css">
+	<script type="text/javascript" src="./PhilGEPS Awarded Contracts Index_files/jquery-1.11.1.min.js.download"></script> 
+	<script type="text/javascript" src="./PhilGEPS Awarded Contracts Index_files/jquery-ui.min.js.download"></script>
+	<script type="text/javascript" src="./PhilGEPS Awarded Contracts Index_files/jquery-ui-timepicker-addon.js.download"></script>	
+   <!-- timepicker picker -->
+	
+    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;box-sizing: content-box;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+
+    <body class="sidebar-mini skin-blue sidebar-collapse" style="height: auto; min-height: 100%;"><div style="position:fixed;top:0px;left:0px;width:0;height:0;" id="scrollzipPoint"></div>
+
+
+<script type="text/javascript">
+$(document).ready(function ()
+{
+	$("form").attr('autocomplete', 'off');
+	
+	$('#progressbar_div').hide();
+	$('a[rel*=facebox]').click(function (e)
+	{ 
+		$('#progressbar_div').show();
+		$('.modal-container').load($(this).attr("href_path"), function (result) {
+			$('#facebox_div').modal({show: true});
+		   $('#progressbar_div').hide();
+		});
+	});
+				
+	var FromEndDate = new Date();
+
+	$('.only-DateTimeFormat').datetimepicker(
+		{
+			changeMonth: true,
+			changeYear: true,
+			showSecond: false,
+			timeFormat:'HH:mm:ss',
+			dateFormat: 'dd-M-yy' 
+		
+		});
+	
+	$('.only-DateTimeSecFormat').datetimepicker(
+		{
+			changeMonth: true,
+			changeYear: true,
+			showSecond: true,
+			amNames: true,
+			pmNames: true,
+			timeFormat:'HH:mm:ss',
+			dateFormat: 'dd-M-yy' 
+			
+		});
+ 
+ 
+	$(".only-dateFormat").datepicker(
+		{
+			changeMonth: true,
+			changeYear: true,
+			timeFormat: 'HH:mm',
+			showSecond: false,
+			dateFormat:'dd-M-yy',
+			separator: '='
+			
+		 }).on('change', function() {
+				$(this).valid();
+			});	
+	
+ });
+function nxt_js_alert_box(title, masssage)
+{
+	if (document.getElementById('nxt_alert_box') != null)
+	{
+		$('#nxt_alert_box').remove();
+	}
+	var nxt_alert_box = $('<div id="nxt_alert_box"><table border="0" width="100%"><tr><td>' + masssage + '</td></tr></table></div>');
+	nxt_alert_box.dialog({
+		width: 510,
+		modal: true,
+		overlay: {
+			backgroundColor: '#FFFFFF',
+			opacity: 0.5
+		},
+		title: title,
+		show: 'clip',
+		hide: 'clip',
+		position: 'center',
+		buttons: [
+			/* {text: "Cancel", click: function() 
+			 {
+			 $(this).dialog("close");
+			 }
+			 }, */
+			{text: "Ok", click: function ()
+				{
+					$(this).dialog("close");
+				}
+			}
+		]
+	});
+
+
+}
+
+  
+(function () {
+   
+	$(".only-dateFormatend").datepicker(
+	{
+		changeMonth: true,
+		changeYear: true,
+		timeFormat: 'HH:mm',
+		showSecond: false,
+		dateFormat:'dd-M-yy',
+		separator: '=',
+		maxDate: 'now',
+		
+	 }).on('change', function() {
+		$(this).valid();
+	});	
+
+	
+	$(".only-dateFormatplatinum").datepicker(
+	{
+		changeMonth: true,
+		changeYear: true,
+		timeFormat: 'HH:mm',
+		showSecond: false,
+		dateFormat:'dd-M-yy',
+		separator: '=',
+		minDate: 0,
+	}).on('change', function() {
+		$(this).valid();
+	});	
+				
+				
+}.call(this));		
+</script>
+<div class="wrapper" style="height: auto; min-height: 100%;">
+			<div id="header">
+			<div id="header-container">
+			
+  <header id="headerbar" class="">
+    <div class="mx-5">
+
+      <div id="logo" class="pull-left"> 
+	            <a href="https://philgeps.gov.ph/"> <img src="./PhilGEPS Awarded Contracts Index_files/1580614963_PS-PhilGEPS.png"> </a>  
+		        <h1><a href="https://philgeps.gov.ph/">PS-PhilGEPS</a></h1>
+		 
+      </div>
+  
+	<nav id="">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="https://philgeps.gov.ph/">Home</a></li>
+
+          <li><a href="https://philgeps.gov.ph/Indexes/viewMoreAward#about">About</a>
+			<ul>
+				<li><a href="https://philgeps.gov.ph/CmsHomePages/training_grid">Training</a></li>
+				<li><a href="https://philgeps.gov.ph/Indexes/viewMoreAward#">Help</a>
+				<ul>
+				<li><a href="https://philgeps.gov.ph/CmsHomePages/user_manual_grid">Manuals</a></li>
+				<li><a href="https://philgeps.gov.ph/CmsHomePages/view_faq">FAQ</a></li>
+				</ul>
+				</li>
+				<li><a href="https://philgeps.gov.ph/CmsHomePages/view_downloading"> Download </a></li>
+				<!--<li><a href="#">Download</a></li>-->
+			 </ul>
+		  </li>
+          <li><a href="https://philgeps.gov.ph/CmsHomePages/view_announcement">Announcement</a></li>
+
+          <li><a href="https://philgeps.gov.ph/CmsHomePages/services_grid">Services</a></li>
+
+        
+          <!-- <li><a href="/Indexes/index">Bulletin Board</a></li> -->
+		  <!-- <li><a href="#sign_up">Statistical Bulletin</a>
+			<ul>
+				<li><a href="/help_document_download/ps-dbm-statistical-bulletin-2023-latest.pdf" target="20251118101506">2023</a></li>						
+			</ul>	  
+		</li> -->
+          <li>	
+				<!-- <a  href="/CmsHomePages/open_data_grid">Open Data</a> Fwd: Open Data redirection page on dated Oct 26, 2022 -->
+				<!-- <a target="_blank" href="https://open.philgeps.gov.ph">Open Data</a> -->
+				<!-- a href="/CmsHomePages/open-data">Open Data</a -->
+				<a href="https://philgeps.gov.ph/Indexes/viewMoreAward#open-data">Open Data</a>
+				<ul>
+					<li><a href="https://philgeps.gov.ph/Indexes/index">Bulletin Board</a></li>
+					<li><a href="https://ps-philgeps.gov.ph/home/index.php/what-we-sell/common-use-items/main-office" target="20251118101506">e-Catalogue</a></li>
+					<li><a href="https://philgeps.gov.ph/CmsHomePages/reg_merchants">Merchant Registry</a></li>
+					<li><a a="" href="https://philgeps.gov.ph/CmsHomePages/open-data">Procurement Dashboard</a></li>						
+					<li><a href="https://philgeps.gov.ph/Indexes/viewMoreAward#sign_up">Statistical Bulletin</a>
+						<ul>
+							<li><a href="https://philgeps.gov.ph/help_document_download/ps-dbm-statistical-bulletin-2023-latest.pdf" target="20251118101506">2023</a></li>						
+							<li><span style="color: #999; cursor: not-allowed; padding: 7px 10px; display: inline-block; text-decoration: none;">2024</span></li>
+						</ul>	  
+					</li>
+				</ul>	
+		  </li>
+		  <!-- <li><a href="https://ps-philgeps.gov.ph/home/index.php/what-we-sell/common-use-items/main-office" target="20251118101506">eCatalogue</a></li> -->
+         <li><a href="https://philgeps.gov.ph/Indexes/login">Login</a></li>
+          <li><a href="https://philgeps.gov.ph/Indexes/viewMoreAward#sign_up">Sign up</a>
+		  <ul>
+		  		<!-- li><a href="https://notices.philgeps.gov.ph/GEPSNONPILOT/RegOnline/register_as_buyerorg.aspx">Agency Registration</a></li -->
+				<li><a href="https://philgeps.gov.ph/Suppliers/add">Merchant Registration</a></li>
+				<li><a href="https://philgeps.gov.ph/CsoRegistrations/register_cso">Observer Registration</a></li>
+		  </ul>	  
+		  </li>
+         
+		  
+           <!--li><a href="/CmsHomePages/view_contact_us">Contact Us</a></li-->
+		   <li></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+	    <div class="date-time-section">
+		     <ul>
+			
+				<li>
+				Date: <font id="ClockDateTimeSeconds">18-Nov-2025 10:17:24 AM</font>
+				<font id="ClockDateTime" style="display:none;">11-18-2025 10:17</font> 
+				<font id="ClockDate" style="display:none;">11-18-2025</font>
+				</li>
+			
+			</ul>
+			
+		</div>
+    </div>
+  </header><!-- #header -->
+
+
+<script language="JavaScript" type="text/javascript"> 
+/*   set up variables used to init clock in BODY's onLoad handler */
+ 
+var clockLocalStartTime = new Date();
+var dt = '2025/11/18 10:15:06';
+var clockServerStartTime = new Date(Date.parse(dt,"Y/m/d H:i:s"));
+ 
+
+function check_server_time()
+{ 
+ 
+	$.ajax({
+	type: "GET",
+		url: site_url+"/Indexes/get_server_time/0", 
+	cache: false,
+	async:true, 
+	success: function(data)
+	{ 
+		if(data!='')
+		{
+			var clockLocalStartTime = new Date();
+			var clockServerStartTime = new Date(Date.parse(data,"Y/m/d H:i:s"));
+			clockInit(clockLocalStartTime, clockServerStartTime);
+			clockOnLoad();
+				setTimeout("check_server_time();",90000);  // 90000 = 1.5 minutes 
+				 
+			}
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+
+		}
+	});
+}
+
+$(window).load(function(){	
+		setTimeout("check_server_time();",100); 
+		clockInit(clockLocalStartTime, clockServerStartTime);
+		clockOnLoad();
+});
+
+</script>			<div id="front-header-container">
+				<div class="header">
+<div class="container">
+<div class="row"> 
+
+     <div class="col-md-12 mobile-logo"> 
+	    <div class="main-logo">
+		<a href="https://philgeps.gov.ph/">
+			<img border="0" src="./PhilGEPS Awarded Contracts Index_files/main-logo-mobile.png">
+		</a>
+		</div>
+	</div> 
+	
+	<div class="col-xs-3 col-sm-3 col-md-3 hide-mobile"> 
+	  <!--  <div class="main-logo">
+		<a href="https://philgeps.gov.ph">
+			<img border="0" src="https://philgeps.gov.ph/img/PortalLogo/main-logo.png">
+		</a>
+		</div>-->
+	</div> 
+ 	<div class="col-xs-12 col-sm-12 col-md-7"> 
+		<div class="header-name">
+			<center>
+				Modernized Government e-Procurement System <br>PS-PhilGEPS			</center>
+		</div>
+	</div>
+	<div class="col-xs-2 col-sm-2 col-md-2 hide-mobile">
+	  <!--<div class="logo-right">
+		<a href="https://philgeps.gov.ph">
+			<img border="0" src="https://philgeps.gov.ph/img/PortalLogo/logo-2.png">
+		</a>  
+       </div>-->		
+	</div> 
+	
+ </div>
+ </div>
+ </div>
+
+ 			</div>
+		  	
+						
+			</div>
+			</div>
+			
+					      
+			
+			<div class="content">
+  <style>
+  /* Services Section
+--------------------------------*/
+#services {
+  background: #fff;
+  background-size: cover;
+  padding: 80px 0 60px 0;
+}
+
+#services .box {
+  border: 0px solid;
+  padding: 50px 20px;
+  
+  text-align: center;
+  height: 115px;
+  position: relative;
+  background: #fff;
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+#services .box:hover {
+	 /*  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+}
+
+#services .icon {
+ cursor: pointer;
+  position: absolute;
+  top: -36px;
+  left: calc(50% - 36px);
+  transition: 0.2s;
+  border-radius: 50%;
+  display: inline-block;
+  border: 6px solid #fff;
+}
+
+#services .icon span {
+  display: inline-block;
+  background: #2f57d4;
+  border: 2px solid #2f57d4;
+  padding: 16px;
+  border-radius: 50%;
+  transition: 0.3s;
+      width: 65px;
+    height: 65px;
+}
+
+#services .icon i {
+  color: #fff;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+#services .box:hover .icon i {
+  color: #2f57d4;
+}
+
+#services .box:hover .icon span {
+  color: #2f57d4;
+  background: #fff;
+}
+
+#services .title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+#services .title a {
+  color: #111;
+}
+
+#services .description {
+  font-size: 13px;
+  line-height: 24px;
+}
+
+.section-title {
+	text-align: center;
+	margin: 0 0 20px;
+}
+.section-title h3 {
+    font-size: 26px;
+    letter-spacing: 0px;
+    padding: 0;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    color: #191919;
+}
+.section-header .section-title {
+  font-size: 32px;
+  color: #111;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.section-header .section-description {
+  text-align: center;
+  padding-bottom: 40px;
+  color: #999;
+}
+.left-line:before {
+	bottom: -6px;
+	content: "";
+	display: inline-block;
+	height: 15px;
+	margin: auto;
+	overflow: auto;
+	position: absolute;
+	right: 0;
+	transform: rotate(45deg);
+	width: 15px;
+	z-index: 2;
+	background: #313d85;
+}
+.left-line {
+	display: inline-block;
+	height: 2px;
+	line-height: 2px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	position: relative;
+	width: 150px;
+	background: #313d85;
+}
+.right-line:before {
+	bottom: -6px;
+	content: "";
+	display: inline-block;
+	height: 15px;
+	left: 0;
+	margin: auto;
+	overflow: auto;
+	position: absolute;
+	transform: rotate(45deg);
+	width: 15px;
+	z-index: 2;
+	background: #313d85;
+}
+.right-line {
+	display: inline-block;
+	height: 2px;
+	line-height: 2px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	position: relative;
+	width: 150px;
+	background: #313d85;
+}
+
+  </style>
+	<section class="login-wrapper">	
+		
+		<div class="container">
+      <div class="section-title">
+				<h3><span class="left-line"></span>Bulletin Board<span class="right-line"></span></h3>
+		    </div>
+		<div class="new-home">
+       
+        <!-- Tab panes -->
+		<div class="tab-content-header">
+			<form class="form-inline front-header-search-bar" name="frmSearch" id="frmSearch" method="post" action="https://philgeps.gov.ph/Indexes/viewMoreAward" autocomplete="off">
+			<div class="front-search-box">
+								<input type="hidden" name="_csrfToken" autocomplete="off" value="97cb66bcb2f2d793959b6a5af8b1b2416c8495dc58b4e4fd516f887b6a9f95177cc26399d648d8b3c0190e34dc4df6096fa5bef0c08f7ab59af736431aee8569">
+				<div class="form-group">
+					<input type="text" placeholder="Keyword" id="searchKeyword" name="searchKeyword" class="form-control" value="" onkeypress="return is_alphaNumeric(event)" title="Award Title / Ref No / Awardee">
+				</div>
+				<div class="form-group">
+					<select class="form-control" id="searchClassification" name="searchClassification">
+						<option value="">--Select Classification--</option>
+													<option value="1">Civil Works - Infra Project</option>
+															<option value="4">Consulting Services</option>
+															<option value="2">Goods</option>
+															<option value="3">Goods - General Support Services</option>
+											</select>
+				</div>
+				
+				<div class="form-group">
+					<select name="searchModeProc" id="searchModeProc" class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+						<option value="">--Select Mode of Procurement--</option>
+													<option value="1">Competitive Bidding (Public Bidding)</option>
+													<option value="27">Competitive Dialogue</option>
+													<option value="29">Direct Acquisition</option>
+													<option value="3">Direct Contracting</option>
+													<option value="31">Direct Procurement for Science, Technology and Innovation</option>
+													<option value="24">Direct Retail Purchase of POL and Airline Tickets</option>
+													<option value="30">Direct Sales</option>
+													<option value="21">International Competitive Bidding - Others</option>
+													<option value="2">Limited Source Bidding</option>
+													<option value="9">Negotiated Procurement  - Adjacent / Contiguous</option>
+													<option value="10">Negotiated Procurement - Agency to Agency</option>
+													<option value="17">Negotiated Procurement - Community Participation</option>
+													<option value="13">Negotiated Procurement - Defense Cooperation Agreement</option>
+													<option value="7">Negotiated Procurement - Emergency Cases</option>
+													<option value="12">Negotiated Procurement - Highly Technical Consultants</option>
+													<option value="15">Negotiated Procurement - Lease of Real Property and Venue</option>
+													<option value="16">Negotiated Procurement - NGO Participation</option>
+													<option value="8">Negotiated Procurement  - Take-over of Contracts</option>
+													<option value="6">Negotiated Procurement - Two Failed Biddings</option>
+													<option value="18">Negotiated Procurement - United Nations Agencies</option>
+													<option value="11">NP - Scientific, Scholarly/Artistic Work, Exclusive Tech. &amp; Media Service</option>
+													<option value="25">Renewal of Contract per Appendix 21 (WETI)</option>
+													<option value="26">Renewal of Regular and Recurring Sevices per Appendix 37</option>
+													<option value="4">Repeat Order</option>
+													<option value="14">Small Value Procurement</option>
+													<option value="28">Unsolicited Offer with Bid Matching</option>
+									</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 454px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-searchModeProc-container"><span class="select2-selection__rendered" id="select2-searchModeProc-container" title="--Select Mode of Procurement--">--Select Mode of Procurement--</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+				</div>
+				<div class="form-group">
+					<select class="form-control" id="searchApplicableProcRule" name="searchApplicableProcRule">
+						<option value="">--Select Applicable Procurement Rule--</option>
+											<option value="3">ADB Procurement Guidelines</option>
+													<option value="1">Implementing Rules and Regulations</option>
+													<option value="2">International Executive Agreement</option>
+													<option value="6">Japan International Cooperation Agency</option>
+													<option value="5">Other</option>
+													<option value="4">World Bank Procurement Guidelines</option>
+									
+					</select>
+				</div>
+				<div class="form-group">
+					<select name="searchSourceFund" id="searchSourceFund" class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+						<option value="">--Select Source of Fund--</option>
+											<option value="1">Business Related Funds (06000000)</option>
+											<option value="2">Foreign Assisted Projects Fund (02000000)</option>
+											<option value="3">Special Account - Foreign Assisted/Foreign Grants Fund (04000000)</option>
+											<option value="4">Internally Generated Funds (05000000)</option>
+											<option value="5">Special Account - Locally Funded/Domestic Grants Fund (03000000)</option>
+											<option value="6">Regular Agency Fund (01000000)</option>
+											<option value="7">Trust Receipts (07000000)</option>
+				
+					</select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" style="width: 437px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-searchSourceFund-container"><span class="select2-selection__rendered" id="select2-searchSourceFund-container" title="--Select Source of Fund--">--Select Source of Fund--</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+				</div>
+				
+				<div class="form-group">
+					<select name="searchBussCat" id="searchBussCat" class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+						<option value="">--Select Business Category--</option>
+												<option value="395">Accommodation furniture</option>
+											<option value="480">Accounting and bookkeeping services</option>
+											<option value="101">Additives</option>
+											<option value="191">Adhesives and sealants</option>
+											<option value="355">Adrenergic blocking agents</option>
+											<option value="469">Advertising</option>
+											<option value="158">Aerospace systems and components and equipment</option>
+											<option value="352">Agents affecting water and electrolytes</option>
+											<option value="121">Agricultural and forestry and landscape machinery and equipment</option>
+											<option value="152">Aircraft</option>
+											<option value="96">Alloys</option>
+											<option value="488">Alternative and holistic medicine</option>
+											<option value="493">Alternative educational systems</option>
+											<option value="343">Amebicides and trichomonacides and antiprotozoals</option>
+											<option value="356">Anaesthetic drugs and related adjuncts and analeptics</option>
+											<option value="63">Animal containment and habitats</option>
+											<option value="62">Animal feed</option>
+											<option value="374">Anthelmintics</option>
+											<option value="345">Antiarrythmics and antianginals and cardioplegics and drugs for heart failure</option>
+											<option value="357">Antibacterials</option>
+											<option value="358">Antidepressants</option>
+											<option value="359">Antifungal drugs</option>
+											<option value="360">Antihistamines or H1 blockers</option>
+											<option value="361">Antihyperlipidemic and hypocholesterolemic agents</option>
+											<option value="372">Antihypertensive drugs</option>
+											<option value="344">Antineoplastic agents</option>
+											<option value="362">Antipsychotics</option>
+											<option value="376">Antiseptics</option>
+											<option value="363">Antiviral drugs</option>
+											<option value="402">Arts and crafts equipment and accessories and supplies</option>
+											<option value="163">Atomic and nuclear energy machinery and equipment</option>
+											<option value="263">Audio and visual presentation and composing equipment</option>
+											<option value="219">Automation control devices and components and accessories</option>
+											<option value="167">Automotive specialty tools</option>
+											<option value="348">Autonomic nervous system drugs</option>
+											<option value="405">Bank offered products </option>
+											<option value="481">Banking and investment</option>
+											<option value="160">Batteries and generators and kinetic power transmission</option>
+											<option value="188">Bearings and bushings and wheels and gears</option>
+											<option value="378">Bedclothes and table and kitchen linen and towels</option>
+											<option value="309">Beverages</option>
+											<option value="468">Biological science services</option>
+											<option value="307">Bread and bakery products</option>
+											<option value="425">Building and facility maintenance and repair services</option>
+											<option value="459">Business administration services</option>
+											<option value="289">Camping and outdoor equipment and accessories</option>
+											<option value="318">Canned or jarred fruit</option>
+											<option value="336">Canned or jarred non GMO fruits</option>
+											<option value="341">Canned or jarred Non GMO vegetables</option>
+											<option value="319">Canned or jarred organic fruit</option>
+											<option value="329">Canned or jarred organic vegetables</option>
+											<option value="328">Canned or jarred vegetables</option>
+											<option value="181">Castings and casting assemblies</option>
+											<option value="347">Central nervous system drugs</option>
+											<option value="311">Cereal and pulse products</option>
+											<option value="135">Chicken processing machinery and equipment</option>
+											<option value="305">Chocolate and sugars and sweeteners and confectionary products</option>
+											<option value="519">Civic organizations and associations and movements</option>
+											<option value="397">Classroom and instructional and institutional furniture and fixtures</option>
+											<option value="401">Classroom decoratives and supplies</option>
+											<option value="440">Cleaning and janitorial services</option>
+											<option value="283">Cleaning and janitorial supplies</option>
+											<option value="244">Clinical nutrition</option>
+											<option value="384">Clothing</option>
+											<option value="518">Clubs</option>
+											<option value="288">Collectibles and awards</option>
+											<option value="102">Colorants</option>
+											<option value="396">Commercial and industrial furniture</option>
+											<option value="501">Commercial sports</option>
+											<option value="254">Communications Devices and Accessories</option>
+											<option value="512">Community and social services</option>
+											<option value="255">Components for information technology or broadcasting or telecommunications</option>
+											<option value="105">Compounds and mixtures</option>
+											<option value="484">Comprehensive health services</option>
+											<option value="256">Computer Equipment and Accessories</option>
+											<option value="462">Computer services</option>
+											<option value="169">Concrete and cement and plaster</option>
+											<option value="177">Construction and maintenance support equipment</option>
+											<option value="382">Consumer electronics</option>
+											<option value="145">Containers and storage</option>
+											<option value="366">Controlled substance analgesics</option>
+											<option value="268">Conventional war weapons</option>
+											<option value="371">Corticosteroids</option>
+											<option value="483">Credit agencies</option>
+											<option value="414">Crop production and management and protection</option>
+											<option value="303">Dairy products and eggs</option>
+											<option value="257">Data Voice or Multimedia Network Equipment or Platforms and Accessories</option>
+											<option value="491">Death and dying support services</option>
+											<option value="439">Decontamination services</option>
+											<option value="399">Decorative adornments</option>
+											<option value="277">Defense and law enforcement and security and safety training equipment</option>
+											<option value="236">Dental equipment and supplies</option>
+											<option value="479">Development finance</option>
+											<option value="400">Developmental and professional teaching aids and materials and accessories and supplies</option>
+											<option value="237">Dialysis equipment and supplies</option>
+											<option value="215">Discrete semiconductor devices</option>
+											<option value="485">Disease prevention and control</option>
+											<option value="504">Domestic and personal assistance</option>
+											<option value="380">Domestic appliances</option>
+											<option value="381">Domestic kitchenware and kitchen supplies</option>
+											<option value="61">Domestic pet products</option>
+											<option value="383">Domestic wall treatments</option>
+											<option value="175">Doors and windows and glass</option>
+											<option value="83">Dried cut blooms of high species or variety count flowers</option>
+											<option value="84">Dried cut blooms of low species or variety count flowers</option>
+											<option value="86">Dried cut carnations</option>
+											<option value="85">Dried cut chrysanthemums</option>
+											<option value="87">Dried cut orchids</option>
+											<option value="82">Dried cut roses</option>
+											<option value="314">Dried fruit</option>
+											<option value="334">Dried non GMO fruits</option>
+											<option value="339">Dried Non GMO vegetables</option>
+											<option value="315">Dried organic fruit</option>
+											<option value="325">Dried organic vegetables</option>
+											<option value="324">Dried vegetables</option>
+											<option value="354">Drugs affecting the ears, eye, nose and skin</option>
+											<option value="350">Drugs affecting the gastrointestinal system</option>
+											<option value="349">Drugs affecting the respiratory tract</option>
+											<option value="193">Dyeing and tanning extracts</option>
+											<option value="90">Earth and stone</option>
+											<option value="466">Earth science services</option>
+											<option value="463">Economics</option>
+											<option value="304">Edible oils and fats</option>
+											<option value="496">Educational facilities</option>
+											<option value="494">Educational institutions</option>
+											<option value="222">Electrical equipment and components and supplies</option>
+											<option value="161">Electrical wire and cable and harness</option>
+											<option value="223">Electrical wire management devices and accessories and supplies</option>
+											<option value="218">Electron tube devices and accessories</option>
+											<option value="217">Electronic hardware and component parts and accessories</option>
+											<option value="134">Electronic manufacturing machinery and equipment and accessories</option>
+											<option value="393">Electronic reference material</option>
+											<option value="100">Elements and gases</option>
+											<option value="238">Emergency and field medical services products</option>
+											<option value="502">Entertainment services</option>
+											<option value="443">Environmental management</option>
+											<option value="444">Environmental protection</option>
+											<option value="364">Estrogens and progestins and internal contraceptives</option>
+											<option value="99">Explosive materials</option>
+											<option value="173">Exterior finishing materials</option>
+											<option value="182">Extrusions</option>
+											<option value="203">Fabricated bar stock assemblies</option>
+											<option value="202">Fabricated pipe assemblies</option>
+											<option value="207">Fabricated plate assemblies</option>
+											<option value="205">Fabricated sheet assemblies</option>
+											<option value="204">Fabricated structural assemblies</option>
+											<option value="206">Fabricated tube assemblies</option>
+											<option value="95">Fabrics and leather materials</option>
+											<option value="67">Fertilizers and plant nutrients and herbicides</option>
+											<option value="434">Fibers and textiles and fabric industries</option>
+											<option value="94">Fibers and threads and yarns</option>
+											<option value="293">Field and court sports equipment</option>
+											<option value="475">Film and theater production support services</option>
+											<option value="276">Fire protection</option>
+											<option value="410">Fisheries and aquaculture</option>
+											<option value="122">Fishing and aquaculture equipment</option>
+											<option value="290">Fishing and hunting equipment</option>
+											<option value="296">Fitness equipment</option>
+											<option value="377">Floor coverings</option>
+											<option value="66">Floriculture and silviculture products</option>
+											<option value="225">Fluid and gas distribution</option>
+											<option value="433">Food and beverage industries</option>
+											<option value="489">Food and nutrition services</option>
+											<option value="385">Footwear</option>
+											<option value="415">Forestry</option>
+											<option value="184">Forgings</option>
+											<option value="130">Foundry machines and equipment and supplies</option>
+											<option value="76">Fresh cut blooms of high species or variety count flowers</option>
+											<option value="77">Fresh cut blooms of low species or variety count flowers</option>
+											<option value="80">Fresh cut carnations</option>
+											<option value="78">Fresh cut chrysanthemums</option>
+											<option value="79">Fresh cut floral bouquets</option>
+											<option value="88">Fresh cut greenery</option>
+											<option value="81">Fresh cut orchids</option>
+											<option value="75">Fresh cut rose</option>
+											<option value="320">Fresh fruit purees</option>
+											<option value="312">Fresh fruits</option>
+											<option value="330">Fresh vegetable purees</option>
+											<option value="322">Fresh vegetables</option>
+											<option value="316">Frozen fruit</option>
+											<option value="335">Frozen non GMO fruits</option>
+											<option value="340">Frozen Non GMO vegetables</option>
+											<option value="317">Frozen organic fruit</option>
+											<option value="327">Frozen organic vegetables</option>
+											<option value="326">Frozen vegetables</option>
+											<option value="115">Fuel for nuclear reactors</option>
+											<option value="112">Fuels</option>
+											<option value="287">Funeral equipment and materials</option>
+											<option value="286">Gambling or wagering equipment</option>
+											<option value="113">Gaseous fuels and additives</option>
+											<option value="211">Gaskets</option>
+											<option value="391">Gemstones</option>
+											<option value="408">General agreements and contracts</option>
+											<option value="409">Governmental property right conferrals</option>
+											<option value="473">Graphic design</option>
+											<option value="190">Grinding and polishing and smoothing materials</option>
+											<option value="294">Gymnastics and boxing equipment</option>
+											<option value="164">Hand tools</option>
+											<option value="187">Hardware</option>
+											<option value="224">Heating and ventilation and air circulation</option>
+											<option value="123">Heavy construction machinery and equipment</option>
+											<option value="428">Heavy construction services</option>
+											<option value="346">Hematolic drugs</option>
+											<option value="375">Herbal drugs</option>
+											<option value="351">Hormones and hormone antagonists</option>
+											<option value="411">Horticulture</option>
+											<option value="498">Hotels and lodging and meeting facilities</option>
+											<option value="197">Housings and cabinets and casings</option>
+											<option value="454">Human resources services</option>
+											<option value="511">Humanitarian aid and relief</option>
+											<option value="165">Hydraulic machinery and equipment</option>
+											<option value="365">Hypnotics</option>
+											<option value="353">Immunomodulating drugs</option>
+											<option value="242">Independent living aids for the physically challenged</option>
+											<option value="227">Industrial filtering and purification</option>
+											<option value="131">Industrial food and beverage equipment</option>
+											<option value="281">Industrial laundry and dry cleaning equipment</option>
+											<option value="142">Industrial machine tools</option>
+											<option value="195">Industrial optics</option>
+											<option value="129">Industrial process machinery and equipment and supplies</option>
+											<option value="226">Industrial pumps and compressors</option>
+											<option value="147">Industrial refrigeration</option>
+											<option value="111">Industrial use papers</option>
+											<option value="478">Information services</option>
+											<option value="467">Information Technology Service Delivery</option>
+											<option value="284">Institutional food services equipment</option>
+											<option value="172">Insulation</option>
+											<option value="407">Insurable interest contracts</option>
+											<option value="482">Insurance and retirement services</option>
+											<option value="174">Interior finishing materials</option>
+											<option value="510">International relations</option>
+											<option value="243">Intravenous and arterial administration products</option>
+											<option value="282">Janitorial equipment</option>
+											<option value="389">Jewelry</option>
+											<option value="230">Laboratory and scientific equipment</option>
+											<option value="232">Laboratory supplies and fixtures</option>
+											<option value="220">Lamps and lightbulbs and lamp components</option>
+											<option value="413">Land and soil preparation and management and protection</option>
+											<option value="520">Land parcels</option>
+											<option value="127">Lapidary machinery and equipment</option>
+											<option value="271">Launchers</option>
+											<option value="272">Law enforcement</option>
+											<option value="128">Leatherworking repairing machinery and equipment</option>
+											<option value="455">Legal services</option>
+											<option value="267">Light weapons and ammunition</option>
+											<option value="221">Lighting Fixtures and Accessories</option>
+											<option value="60">Live animals</option>
+											<option value="73">Live carnations</option>
+											<option value="72">Live chrysanthemums</option>
+											<option value="74">Live orchids</option>
+											<option value="70">Live plants of high species or variety count flowers</option>
+											<option value="71">Live plants of low species or variety count flowers</option>
+											<option value="69">Live rose bushes</option>
+											<option value="412">Livestock services</option>
+											<option value="114">Lubricants and oils and greases and anti corrosives</option>
+											<option value="386">Luggage and handbags and packs and cases</option>
+											<option value="198">Machine made parts</option>
+											<option value="183">Machined castings</option>
+											<option value="200">Machined extrusions</option>
+											<option value="201">Machined forgings</option>
+											<option value="194">Machined raw stock</option>
+											<option value="436">Machinery and transport equipment manufacture</option>
+											<option value="438">Machining and processing services</option>
+											<option value="210">Machinings</option>
+											<option value="209">Magnets and magnetic materials</option>
+											<option value="447">Mail and cargo transport</option>
+											<option value="453">Management advisory services</option>
+											<option value="437">Manufacture of electrical goods and precision instruments</option>
+											<option value="435">Manufacturing support services</option>
+											<option value="465">Manufacturing technologies</option>
+											<option value="150">Marine transport</option>
+											<option value="457">Marketing and distribution</option>
+											<option value="133">Mass transfer equipment</option>
+											<option value="144">Material handling machinery and equipment</option>
+											<option value="449">Material packing and handling</option>
+											<option value="231">Measuring and observing and testing instruments</option>
+											<option value="301">Meat and poultry products</option>
+											<option value="234">Medical apparel and textiles</option>
+											<option value="241">Medical diagnostic imaging and nuclear medicine products</option>
+											<option value="240">Medical facility products</option>
+											<option value="486">Medical practice</option>
+											<option value="487">Medical science research and experimentation</option>
+											<option value="249">Medical sterilization products</option>
+											<option value="490">Medical Surgical Equipment Maintenance Refurbishment and Repair Services</option>
+											<option value="251">Medical training and education supplies</option>
+											<option value="398">Merchandising furniture and accessories</option>
+											<option value="432">Metal and mineral industries</option>
+											<option value="137">Metal cutting machinery and accessories</option>
+											<option value="138">Metal forming machinery and accessories</option>
+											<option value="97">Metal oxide</option>
+											<option value="141">Metal treatment machinery</option>
+											<option value="98">Metal waste scrap and by products</option>
+											<option value="506">Military services and national defense</option>
+											<option value="279">Military weapon and ammunition disarmament and disposal equipment and related products</option>
+											<option value="89">Minerals and ores and metals</option>
+											<option value="116">Mining and quarrying machinery and equipment</option>
+											<option value="418">Mining services</option>
+											<option value="269">Missiles</option>
+											<option value="132">Mixers and their parts and accessories</option>
+											<option value="185">Moldings</option>
+											<option value="149">Motor vehicles</option>
+											<option value="403">Musical Instruments and parts and accessories</option>
+											<option value="92">Non edible animal products</option>
+											<option value="91">Non edible plant and forestry products</option>
+											<option value="337">Non GMO fresh fruit purees</option>
+											<option value="333">Non GMO fresh fruits</option>
+											<option value="342">Non GMO fresh vegetable purees</option>
+											<option value="338">Non GMO fresh vegetables</option>
+											<option value="154">Non motorized cycles</option>
+											<option value="427">Nonresidential building construction services</option>
+											<option value="367">Nonsteroidal anti inflammatory drugs NSAIDs</option>
+											<option value="332">Nutritional supplements</option>
+											<option value="300">Nuts and seeds</option>
+											<option value="260">Office and desk accessories</option>
+											<option value="259">Office machines and their supplies and accessories</option>
+											<option value="261">Office supplies</option>
+											<option value="423">Oil and gas data management and processing services</option>
+											<option value="118">Oil and gas drilling and exploration equipment</option>
+											<option value="119">Oil and gas drilling and operation materials</option>
+											<option value="419">Oil and gas exploration services</option>
+											<option value="421">Oil and gas extraction and production enhancement services</option>
+											<option value="120">Oil and gas operating and production equipment</option>
+											<option value="422">Oil and gas restoration and reclamation services</option>
+											<option value="424">Oil and gas well project management services</option>
+											<option value="321">Organic fresh fruit purees</option>
+											<option value="313">Organic fresh fruits</option>
+											<option value="331">Organic fresh vegetable purees</option>
+											<option value="323">Organic fresh vegetables</option>
+											<option value="245">Orthopedic and prosthetic and sports medicine products</option>
+											<option value="253">Orthopedic surgical implants</option>
+											<option value="297">Other sports</option>
+											<option value="146">Packaging materials</option>
+											<option value="148">Packing supplies</option>
+											<option value="189">Packings glands boots and covers</option>
+											<option value="192">Paints and primers and finishes</option>
+											<option value="109">Paper materials</option>
+											<option value="110">Paper products</option>
+											<option value="448">Passenger transport</option>
+											<option value="216">Passive discrete components</option>
+											<option value="235">Patient care and treatment products and supplies</option>
+											<option value="239">Patient exam and monitoring products</option>
+											<option value="500">Performing arts</option>
+											<option value="522">Permanent buildings and structures</option>
+											<option value="503">Personal appearance</option>
+											<option value="387">Personal care products</option>
+											<option value="275">Personal safety and protection</option>
+											<option value="68">Pest control products</option>
+											<option value="125">Petroleum processing machinery</option>
+											<option value="106">Pharmaceutical drug precursors</option>
+											<option value="265">Photographic and recording media</option>
+											<option value="266">Photographic filmmaking supplies</option>
+											<option value="264">Photographic or filming or video equipment</option>
+											<option value="472">Photographic services</option>
+											<option value="246">Physical and occupational therapy and rehabilitation products</option>
+											<option value="228">Pipe piping and pipe fittings</option>
+											<option value="430">Plastic and chemical industries</option>
+											<option value="176">Plumbing fixtures</option>
+											<option value="196">Pneumatic and hydraulic and electric control systems</option>
+											<option value="166">Pneumatic machinery and equipment</option>
+											<option value="508">Political systems and institutions</option>
+											<option value="446">Pollutants tracking and monitoring and rehabilitation services</option>
+											<option value="445">Pollution tracking and monitoring and rehabilitation</option>
+											<option value="523">Portable buildings and structures</option>
+											<option value="178">Portable Structure Building Components</option>
+											<option value="247">Postmortem and mortuary equipment and supplies</option>
+											<option value="162">Power generation</option>
+											<option value="159">Power sources</option>
+											<option value="524">Prefabricated buildings and structures</option>
+											<option value="308">Prepared and preserved foods</option>
+											<option value="214">Printed circuits and integrated circuits and microassemblies</option>
+											<option value="392">Printed media</option>
+											<option value="262">Printing and publishing equipment</option>
+											<option value="474">Professional artists and performers</option>
+											<option value="461">Professional engineering services</option>
+											<option value="513">Public administration and finance services</option>
+											<option value="505">Public order and safety</option>
+											<option value="460">Public relations and professional communications services</option>
+											<option value="273">Public safety and control</option>
+											<option value="373">Radiopharmaceuticals and contrast media</option>
+											<option value="151">Railway and tramway machinery and equipment</option>
+											<option value="139">Rapid prototyping machinery and accessories</option>
+											<option value="124">Raw materials processing machinery</option>
+											<option value="456">Real estate services</option>
+											<option value="299">Recreation and playground and swimming and spa equipment and supplies</option>
+											<option value="208">Refractories</option>
+											<option value="441">Refuse disposal and treatment</option>
+											<option value="517">Religious organizations</option>
+											<option value="471">Reproduction services</option>
+											<option value="426">Residential building construction services</option>
+											<option value="108">Resins and rosins and other resin derived materials</option>
+											<option value="248">Respiratory and anesthesia and resuscitation products</option>
+											<option value="497">Restaurants and catering</option>
+											<option value="170">Roads and landscape</option>
+											<option value="270">Rockets and subsystems</option>
+											<option value="186">Rope and chain and cable and wire and strap</option>
+											<option value="107">Rubber and elastomers</option>
+											<option value="64">Saddlery and harness goods</option>
+											<option value="136">Sawmilling and lumber processing machinery and equipment</option>
+											<option value="93">Scrap and waste materials</option>
+											<option value="302">Seafood</option>
+											<option value="212">Seals</option>
+											<option value="306">Seasonings and preservatives</option>
+											<option value="406">Securities</option>
+											<option value="507">Security and personal safety</option>
+											<option value="274">Security surveillance and detection</option>
+											<option value="65">Seeds and bulbs and seedlings and cuttings</option>
+											<option value="388">Sewing supplies and accessories</option>
+											<option value="394">Signage and accessories</option>
+											<option value="213">Sintered parts</option>
+											<option value="509">Socio political conditions</option>
+											<option value="258">Software</option>
+											<option value="104">Solvents</option>
+											<option value="153">Spacecraft</option>
+											<option value="495">Specialized educational services</option>
+											<option value="429">Specialized trade construction and maintenance services</option>
+											<option value="298">Sports equipment and accessories</option>
+											<option value="199">Stampings and sheet components</option>
+											<option value="464">Statistics</option>
+											<option value="450">Storage</option>
+											<option value="171">Structural building products</option>
+											<option value="168">Structural components and basic shapes</option>
+											<option value="180">Structural materials</option>
+											<option value="250">Surgical products</option>
+											<option value="368">Sympathomimetic or adrenergic drugs</option>
+											<option value="295">Target and table games and equipment</option>
+											<option value="514">Taxation</option>
+											<option value="477">Telecommunications media services</option>
+											<option value="126">Textile and fabric machinery and accessories</option>
+											<option value="521">Thoroughfares</option>
+											<option value="390">Timepieces</option>
+											<option value="310">Tobacco and smoking products and substitutes</option>
+											<option value="442">Toxic and hazardous waste cleanup</option>
+											<option value="404">Toys and games</option>
+											<option value="515">Trade policy and regulation</option>
+											<option value="458">Trade policy and services</option>
+											<option value="369">Tranquilizers and antimanic and antianxiety drugs</option>
+											<option value="451">Transport services</option>
+											<option value="155">Transportation components and systems</option>
+											<option value="452">Transportation repair or maintenance services</option>
+											<option value="157">Transportation services equipment</option>
+											<option value="499">Travel facilitation</option>
+											<option value="229">Tubes tubing and tube fittings</option>
+											<option value="179">Underground mining structures and materials</option>
+											<option value="476">Utilities</option>
+											<option value="370">Vasodilators</option>
+											<option value="156">Vehicle bodies and trailers</option>
+											<option value="285">Vending machines</option>
+											<option value="233">Veterinary equipment and supplies</option>
+											<option value="492">Vocational training</option>
+											<option value="280">Water and wastewater treatment supply and disposal</option>
+											<option value="417">Water resources development and oversight</option>
+											<option value="291">Watersports equipment</option>
+											<option value="103">Waxes and oils</option>
+											<option value="140">Welding and soldering and brazing machinery and accessories and supplies</option>
+											<option value="420">Well drilling and construction services</option>
+											<option value="117">Well drilling and operation equipment</option>
+											<option value="416">Wildlife and flora</option>
+											<option value="379">Window treatments</option>
+											<option value="292">Winter sports equipment</option>
+											<option value="143">Wire machinery and equipment</option>
+											<option value="431">Wood and paper industries</option>
+											<option value="516">Work related organizations</option>
+											<option value="278">Workplace safety equipment and supplies and training materials</option>
+											<option value="252">Wound care products</option>
+											<option value="470">Writing and translations</option>
+								</select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" style="width: 590px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-searchBussCat-container"><span class="select2-selection__rendered" id="select2-searchBussCat-container" title="--Select Business Category--">--Select Business Category--</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>	
+				</div>
+				
+				<div class="form-group">
+					<input type="text" placeholder="Area of delivery" id="searchAreaDel" name="searchAreaDel" class="form-control" value="" readonly="">
+					<a rel="facebox" href_path="/Indexes/selectProvinceFilter" class="btn bg-purple">Select
+					
+					</a>
+				</div>
+				<div class="form-group">
+					<input type="text" placeholder="Publish Date From" id="searchPublishDateFrom" name="searchPublishDateFrom" class="form-control only-dateFormat hasDatepicker" value="" readonly="">
+				</div>
+				<div class="form-group">
+					<input type="text" placeholder="Publish Date To" id="searchPublishDateTo" name="searchPublishDateTo" class="form-control only-dateFormat hasDatepicker" value="" readonly="">
+				</div>
+				<div class="form-group">
+					<input type="text" placeholder="Approved Budget From" id="searchBudgetFrom" name="searchBudgetFrom" class="form-control" value="" onkeypress="return isNumber(event)">
+				</div>
+				<div class="form-group">
+					<input type="text" placeholder="Approved Budget To" id="searchBudgetTo" name="searchBudgetTo" class="form-control" value="" onkeypress="return isNumber(event)">
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn bg-purple" id="btnSearch" value="Search" title="Search" onclick="return search_content()">
+					<input type="button" class="btn bg-purple" id="btnClear" value="Clear" title="Clear" onclick="clear_search()">
+				</div>
+			</div>
+			</form>
+		</div>
+        <div class="tab-content">
+		
+          
+		  
+		  
+			<div class="tab-pane active">
+		  
+				<div class="responsive-card-table"> 
+					<table class="table table-bordered table-hover text-center">
+					<thead>
+						<tr>
+							<th scope="col" width="10%">Award Notice Number</th>
+									<th scope="col" width="10%">Bid Notice Reference number</th>
+									<th scope="col" width="35%">Award Title</th>
+									<th scope="col" width="30%">Awardee</th>
+									<th scope="col" width="10%">Award Date</th>
+							
+						</tr>
+					</thead>
+								<tbody><tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1998/MORE">1998</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6793</td>
+							<td data-label="Award Title" style="text-align:left !important;">Various Electromagnetic Flowmeter</td>
+							<td data-label="Awardee" style="text-align:left !important;">LOUISE AND AEDAN ENTERPRISE INC.</td>
+							<td data-label="Award Date">12-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1997/MORE">1997</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6810</td>
+							<td data-label="Award Title" style="text-align:left !important;">Supply of Data Logger, Integration with existing of Online Dashboard (Web-based and mobile application) including instrumentation cable</td>
+							<td data-label="Awardee" style="text-align:left !important;">HIRAYA TECHNOLOGY SOLUTIONS, INC.</td>
+							<td data-label="Award Date">12-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1972/MORE">1972</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6488</td>
+							<td data-label="Award Title" style="text-align:left !important;">Procurement of Technical and Conference Integrator for the Hosting of ASEAN Summits and Related Meetings in 2026</td>
+							<td data-label="Awardee" style="text-align:left !important;">STAGE CRAFT INTERNATIONAL, INC.</td>
+							<td data-label="Award Date">12-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1959/MORE">1959</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">7168</td>
+							<td data-label="Award Title" style="text-align:left !important;">REPAIR OF OUTDOOR CEILING (OFFICE)</td>
+							<td data-label="Awardee" style="text-align:left !important;">DONG'S ENTERPRISE</td>
+							<td data-label="Award Date">11-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1999/MORE">1999</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6767</td>
+							<td data-label="Award Title" style="text-align:left !important;">Scaffolding</td>
+							<td data-label="Awardee" style="text-align:left !important;">KIMJA TRADING AND CONSTRUCTION CORPORATION</td>
+							<td data-label="Award Date">10-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1960/MORE">1960</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6806</td>
+							<td data-label="Award Title" style="text-align:left !important;">Dismantling , Supply, Installation and site configuration of one (1) Automatic/manual motor controller with standard accessories, appurtenances and protection device</td>
+							<td data-label="Awardee" style="text-align:left !important;">RADIANS AUTOMATION AND CONTROL SOLUTIONS, INC.</td>
+							<td data-label="Award Date">10-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1955/MORE">1955</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6746</td>
+							<td data-label="Award Title" style="text-align:left !important;">Procurement of Collaterals for CBC</td>
+							<td data-label="Awardee" style="text-align:left !important;">ARTSY CREATIONS</td>
+							<td data-label="Award Date">07-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1971/MORE">1971</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6917</td>
+							<td data-label="Award Title" style="text-align:left !important;">Deep Well Camera</td>
+							<td data-label="Awardee" style="text-align:left !important;">FANM ENTERPRISES</td>
+							<td data-label="Award Date">07-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1944/MORE">1944</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6990</td>
+							<td data-label="Award Title" style="text-align:left !important;">PROCUREMENT OF REPAIR MATERIALS OF OUTDOOR CEILING</td>
+							<td data-label="Awardee" style="text-align:left !important;">DONG'S ENTERPRISE</td>
+							<td data-label="Award Date">07-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1945/MORE">1945</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6858</td>
+							<td data-label="Award Title" style="text-align:left !important;">Supply and Delivery of Ultra-High End Laptops for High Performance Computing Use</td>
+							<td data-label="Awardee" style="text-align:left !important;">QUADSTAR SYSTEMS OPC</td>
+							<td data-label="Award Date">07-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1963/MORE">1963</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6795</td>
+							<td data-label="Award Title" style="text-align:left !important;">Various Construction Materials</td>
+							<td data-label="Awardee" style="text-align:left !important;">AL-FATIHAH TRADING</td>
+							<td data-label="Award Date">07-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1962/MORE">1962</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6790</td>
+							<td data-label="Award Title" style="text-align:left !important;">Materials for Development of DMA's in Poblacion Phase II, Pili, Cam. Sur</td>
+							<td data-label="Awardee" style="text-align:left !important;">JAYEL MARKETING</td>
+							<td data-label="Award Date">07-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1961/MORE">1961</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6765</td>
+							<td data-label="Award Title" style="text-align:left !important;">Photometer</td>
+							<td data-label="Awardee" style="text-align:left !important;">BLAISE-SCIENTIFIC TRADING</td>
+							<td data-label="Award Date">07-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1949/MORE">1949</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6910</td>
+							<td data-label="Award Title" style="text-align:left !important;">Window envelopes</td>
+							<td data-label="Awardee" style="text-align:left !important;">LEONARD PRINTS INC.</td>
+							<td data-label="Award Date">06-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1954/MORE">1954</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6910</td>
+							<td data-label="Award Title" style="text-align:left !important;">Paper weights</td>
+							<td data-label="Awardee" style="text-align:left !important;">LEONARD PRINTS INC.</td>
+							<td data-label="Award Date">06-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1953/MORE">1953</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6910</td>
+							<td data-label="Award Title" style="text-align:left !important;">Paper weights</td>
+							<td data-label="Awardee" style="text-align:left !important;">DEPENDABLE PACKAGING &amp; PRINTING HOUSE CORP.</td>
+							<td data-label="Award Date">06-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1952/MORE">1952</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6910</td>
+							<td data-label="Award Title" style="text-align:left !important;">Desk pads or its accessories</td>
+							<td data-label="Awardee" style="text-align:left !important;">LEONARD PRINTS INC.</td>
+							<td data-label="Award Date">06-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1951/MORE">1951</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6910</td>
+							<td data-label="Award Title" style="text-align:left !important;">Folders</td>
+							<td data-label="Awardee" style="text-align:left !important;">LMCMCC ELECTRONIC COMPONENTS OPC</td>
+							<td data-label="Award Date">06-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1943/MORE">1943</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6719</td>
+							<td data-label="Award Title" style="text-align:left !important;">Procurement of Brown and Pigmented Rice</td>
+							<td data-label="Awardee" style="text-align:left !important;">RAYURAY FARMERS AGRICULTURE COOPERATIVE</td>
+							<td data-label="Award Date">06-Nov-2025</td>
+						</tr>
+										<tr>
+							<td data-label="Award Notice Number">
+								<a href="https://philgeps.gov.ph/Indexes/viewAwardNotice/1950/MORE">1950</a>
+							</td>
+							<td data-label="Bid Notice Reference Number">6910</td>
+							<td data-label="Award Title" style="text-align:left !important;">Folders</td>
+							<td data-label="Awardee" style="text-align:left !important;">LEONARD PRINTS INC.</td>
+							<td data-label="Award Date">06-Nov-2025</td>
+						</tr>
+									</tbody></table>
+					<div class="col-md-12 col-sm-6 col-xs-12">
+						<div class="paginator" style="float:right;">
+							<ul class="pagination">
+																<li class="prev disabled"><a href="https://philgeps.gov.ph/Indexes/viewMoreAward" onclick="return false;">&lt; previous</a></li>								<li class="active"><a href="https://philgeps.gov.ph/Indexes/viewMoreAward">1</a></li><li><a href="https://philgeps.gov.ph/indexes/view-more-award?page=2">2</a></li><li><a href="https://philgeps.gov.ph/indexes/view-more-award?page=3">3</a></li><li><a href="https://philgeps.gov.ph/indexes/view-more-award?page=4">4</a></li><li><a href="https://philgeps.gov.ph/indexes/view-more-award?page=5">5</a></li><li><a href="https://philgeps.gov.ph/indexes/view-more-award?page=6">6</a></li><li><a href="https://philgeps.gov.ph/indexes/view-more-award?page=7">7</a></li><li><a href="https://philgeps.gov.ph/indexes/view-more-award?page=8">8</a></li><li><a href="https://philgeps.gov.ph/indexes/view-more-award?page=9">9</a></li>								<li class="next"><a rel="next" href="https://philgeps.gov.ph/indexes/view-more-award?page=2">next &gt;</a></li>								<li class="last"><a href="https://philgeps.gov.ph/indexes/view-more-award?page=67">last &gt;&gt;</a></li>							</ul>
+							<p>Page 1 of 67, showing 20 record(s) out of 1,323 total</p>
+						</div>	
+					</div>	
+				</div><!--End responsive-card-table-->
+			
+			</div>
+		  
+
+		</div>
+		</div>
+	</div>
+	</section>
+</div>
+<script>
+function is_alphaNumeric(e)
+{
+	var keyCode = e.keyCode || e.which;
+	var regex = /^[A-Za-z0-9 ]+$/;
+
+	var isValid = regex.test(String.fromCharCode(keyCode));
+	if (!isValid) {
+		return false;
+	}else{
+		return true;
+	}
+}
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+$(document).ready(function ()
+{	
+	$('.select2').select2();
+});
+function search_content()
+{
+	var searchKeyword 			= $('#searchKeyword').val();
+	var searchClassification 	= $('#searchClassification').val();
+	var searchModeProc 			= $('#searchModeProc').val();
+	var searchApplicableProcRule= $('#searchApplicableProcRule').val();
+	var searchSourceFund 		= $('#searchSourceFund').val();
+	var searchBussCat 			= $('#searchBussCat').val();
+	var searchAreaDel 			= $('#searchAreaDel').val();
+	var searchPublishDateFrom 	= $('#searchPublishDateFrom').val();
+	var searchPublishDateTo 	= $('#searchPublishDateTo').val();
+	var searchBudgetFrom 		= $('#searchBudgetFrom').val();
+	var searchBudgetTo 			= $('#searchBudgetTo').val();
+	
+	if(searchKeyword.trim() == '' &&  searchClassification.trim() == '' &&  searchModeProc.trim() == '' &&  searchApplicableProcRule.trim() == '' &&  searchSourceFund.trim() == '' &&  searchBussCat.trim() == ''  &&  searchAreaDel.trim() == '' &&  (searchPublishDateFrom.trim() == '' || searchPublishDateTo.trim() == '') && (searchBudgetFrom.trim() == '' || searchBudgetTo.trim() == '') )
+	{	
+		if(searchPublishDateFrom.trim() == '' && searchPublishDateTo.trim() != '')
+		{
+			nxtAlert.render('PS-PhilGEPS','Please enter Publish Date From.','warning');
+			return false;
+		}	
+		else if(searchPublishDateFrom.trim() != '' && searchPublishDateTo.trim() == '')
+		{
+			nxtAlert.render('PS-PhilGEPS','Please enter Publish Date To.','warning');
+			return false;
+		}
+		else if(searchPublishDateFrom.trim() != '' && searchPublishDateTo.trim() != '')
+		{
+			var fromDate = Date.parse(searchPublishDateFrom);
+			var toDate = Date.parse(searchPublishDateTo);
+			if(fromDate > toDate)
+			{
+				nxtConfirm.render('PS-PhilGEPS','Publish Date To should not be earlier than Publish Date From','warning');
+				return false;
+			}
+		}
+		else if(searchBudgetFrom.trim() == '' && searchBudgetTo.trim() != '')
+		{	
+			nxtAlert.render('PS-PhilGEPS','Please enter Approved Budget From.','warning');
+			return false;
+		}
+		else if(searchBudgetFrom.trim() != '' && searchBudgetTo.trim() == '')
+		{	
+			nxtAlert.render('PS-PhilGEPS','Please enter Approved Budget To.','warning');
+			return false;
+		}
+		else if(searchBudgetFrom.trim() != '' && searchBudgetTo.trim() != '' && (parseFloat(searchBudgetFrom) > parseFloat(searchBudgetTo)))
+		{	
+			nxtConfirm.render('PS-PhilGEPS','Approved Budget To should be greater than Approved Budget From','warning');
+			return false;
+		}
+		else{
+			nxtAlert.render('PS-PhilGEPS','Please enter Search Criteria.','warning');
+			return false;
+		}
+	}else{
+		
+		if(searchPublishDateFrom.trim() == '' && searchPublishDateTo.trim() != '')
+		{
+			nxtAlert.render('PS-PhilGEPS','Please enter Publish Date From.','warning');
+			return false;
+		}	
+		else if(searchPublishDateFrom.trim() != '' && searchPublishDateTo.trim() == '')
+		{
+			nxtAlert.render('PS-PhilGEPS','Please enter Publish Date To.','warning');
+			return false;
+		}
+		else if(searchPublishDateFrom.trim() != '' && searchPublishDateTo.trim() != '')
+		{
+			var fromDate = Date.parse(searchPublishDateFrom);
+			var toDate = Date.parse(searchPublishDateTo);
+			if(fromDate > toDate)
+			{
+				nxtConfirm.render('PS-PhilGEPS','Publish Date To should not be earlier than Publish Date From','warning');
+				return false;
+			}
+		}
+		else if(searchBudgetFrom.trim() == '' && searchBudgetTo.trim() != '')
+		{	
+			nxtAlert.render('PS-PhilGEPS','Please enter Approved Budget From.','warning');
+			return false;
+		}
+		else if(searchBudgetFrom.trim() != '' && searchBudgetTo.trim() == '')
+		{	
+			nxtAlert.render('PS-PhilGEPS','Please enter Approved Budget To.','warning');
+			return false;
+		}
+		else if(searchBudgetFrom.trim() != '' && searchBudgetTo.trim() != '' && (parseFloat(searchBudgetFrom) > parseFloat(searchBudgetTo)))
+		{	
+			nxtConfirm.render('PS-PhilGEPS','Approved Budget To should be greater than Approved Budget From','warning');
+			return false;
+		}
+		else{
+			return true;
+		}	
+	}
+}
+function clear_search()
+{
+	$('#searchKeyword').val('');
+	$('#searchClassification').val('');
+	$('#searchModeProc').val('');
+	$('#searchApplicableProcRule').val('');
+	$('#searchSourceFund').val('');
+	$('#searchBussCat').val('');
+	$('#searchAreaDel').val('');
+	$('#searchPublishDateFrom').val('');
+	$('#searchPublishDateTo').val('');
+	$('#searchBudgetFrom').val('');
+	$('#searchBudgetTo').val('');
+	window.location = site_url + "/Indexes/viewMoreAward";
+}
+
+</script> 
+			<footer>
+<section class="nb-footer">
+<div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3">
+               <div class="footer-single useful-links">
+	        <!-- <div class="footer-title"><h4>Usefull Links</h4></div>-->
+				 <ul class="list-unstyled">
+					   <li>
+							<a href="https://philgeps.gov.ph/CmsHomePages/view_goverment_links">Goverment Agency Links <i class="fa fa-angle-right pull-right"></i></a> 
+						</li>
+						<li> 
+								
+							<a href="https://philgeps.gov.ph/Indexes/viewMoreAward#" target="_blank"> Terms &amp; Conditions <i class="fa fa-angle-right pull-right"></i></a> 
+						</li>
+						<li>
+						 		
+							<a href="https://philgeps.gov.ph/Indexes/viewMoreAward#" target="_blank">Privacy Policy<i class="fa fa-angle-right pull-right"></i></a> 
+						</li>
+						<li>
+					       <a href_path="https://philgeps.gov.ph/CmsHomePages/show_disclaimer" rel="facebox"> Disclaimer Notice <i class="fa fa-angle-right pull-right"></i></a> 
+								 
+						</li>
+						
+						<li>
+							<a href="https://philgeps.gov.ph/CmsHomePages/view_contact_us" rel="facebox"> Contact Us <i class="fa fa-angle-right pull-right"></i></a> 
+						</li>
+				</ul>
+			   </div>
+            </div>
+            <div class="col-12 col-md-6">
+               
+			   			   <div class="footer-single useful-links">
+	               <!--<div class="footer-title"><h4>Support</h4></div>-->
+				
+										<div style="padding-left:31px;">
+					 <a href="https://www.dbm.gov.ph/" target="_blank"> <img width="145" src="./PhilGEPS Awarded Contracts Index_files/1580615043_DBM.png"></a>
+						
+						<a href="https://ps-philgeps.gov.ph/home/index.php/about-ps/transparency-seal" target="_blank"><img width="145" src="./PhilGEPS Awarded Contracts Index_files/1580615043_TRANSPARENCY SEAL.png"></a>
+						
+						<a href="https://ps-philgeps.gov.ph/home/index.php" target="_blank"><img width="145" src="./PhilGEPS Awarded Contracts Index_files/1580615043_FOI.png"></a>
+						
+						<!-- <a href="https://ps-philgeps.gov.ph/welcome/" target="_blank"><img width="120" height="120" src=""/></a> -->
+					
+					</div>
+				   
+				  <!--<p class="mbr-text">
+                    Address:                     <br>Phone:                     <br>Fax:                 </p>-->
+			   </div>
+			   
+            </div>
+            <div class="col-12 col-md-3">
+			
+			   <div class="footer-single useful-links">
+	             <!--<div class="footer-title"><h4>Address</h4></div>-->
+                <div class="google-map">
+				<iframe src="./PhilGEPS Awarded Contracts Index_files/embed.html" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+</section>	
+
+<section class="nb-copyright">
+<div class="container">
+<div class="row">
+<div class="col-sm-6 copyrt xs-center">
+	<!--Copyright &copy; 2018 <a href="http://www.nextenders.com"> Nextenders (India) Pvt Ltd </a>. All rights reserved.-->
+	 </div>
+<div class="col-sm-6 text-right xs-center">
+	<ul class="list-inline footer-social">
+	 
+	    <li>		<!-- 	  <span class='numscroller' data-min='1' data-max=278 data-delay='5' data-increment=278>278</span></li>
+		-->
+		
+		</li><li><a target="_blank" href="https://philgeps.gov.ph/Indexes/viewMoreAward"><i class="fa fa-facebook"></i></a></li>
+		<li><a target="_blank" href="https://philgeps.gov.ph/Indexes/viewMoreAward"><i class="fa fa-twitter"></i></a></li>
+		<li><a target="_blank" href="https://philgeps.gov.ph/Indexes/viewMoreAward"><i class="fa fa-youtube-play"></i></a></li>
+		<li><a target="_blank" href="https://philgeps.gov.ph/Indexes/viewMoreAward"><i class="fa fa-google-plus"></i></a></li>
+		<li><a target="_blank" href="https://philgeps.gov.ph/Indexes/viewMoreAward"><i class="fa fa-skype"></i></a></li>
+	</ul>
+</div>
+</div>
+</div>
+</section>
+</footer>  
+ 
+</div>
+ 
+<div style="height:1px;" id="check_tab_status"> 
+    <span class="mainWindow"></span>
+    <span class="childWindow"></span>
+</div>
+<div class="modal-container"> </div>	
+        <!--  FACE BOX  CODE DIV-->	  
+<div id="dialogoverlay"></div> 
+<div id="dialogbox">
+	<div class="panel-heading">
+		<h3 id="dialogboxhead" class="panel-title"></h3>
+	</div>
+	<div class="panel-body">
+		<div id="dialogboxbody"> 
+
+		</div>
+		<div id="dialogboxfoot"></div>
+	</div>
+</div> 	
+<!--  PROGRESSBAR  CODE dhiraj DIV-->	  
+<div id="progressbar_div" class="css_progressbar_div" style="display: none;">
+	<div id="loading_div_content">
+		<div class="progress">
+			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%;height:100%;"> 
+			</div>
+		</div> 
+	</div>
+</div> 		
+ 
+	
+
+
+ <script src="./PhilGEPS Awarded Contracts Index_files/jquery.validate.min.js.download"></script>
+ 
+ 
+ 
+ 
+     <!-- Main.js -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/main(1).js.download"></script> 
+		
+		<script src="./PhilGEPS Awarded Contracts Index_files/jquery.marquee.js.download"></script> 
+        <!-- date-range-picker -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/moment.min.js.download"></script> 
+        <!-- jQuery 3 -->
+
+        <!-- Bootstrap 3.3.7 -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/bootstrap.min.js.download"></script>
+        <!-- FastClick -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/fastclick.js.download"></script>
+        <!-- AdminLTE App -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/adminlte.min.js.download"></script>
+        <!-- Sparkline -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/jquery.sparkline.min.js.download"></script>
+        <!-- jvectormap  -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/jquery-jvectormap-1.2.2.min.js.download"></script>
+        <script src="./PhilGEPS Awarded Contracts Index_files/jquery-jvectormap-world-mill-en.js.download"></script>
+        <!-- SlimScroll -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/jquery.slimscroll.min.js.download"></script>
+        <!-- ChartJS -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/Chart.js.download"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) 
+        <script src="https://philgeps.gov.ph/admin_lte_theme/dist/js/pages/dashboard2.js"></script>-->
+        <!-- AdminLTE for demo purposes -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/demo.js.download"></script>
+
+
+
+
+        <!-- DataTables -->
+        <script src="./PhilGEPS Awarded Contracts Index_files/jquery.dataTables.min.js.download"></script>
+        <script src="./PhilGEPS Awarded Contracts Index_files/dataTables.bootstrap.min.js.download"></script>
+		
+		<!-- select box --> 
+		<script src="./PhilGEPS Awarded Contracts Index_files/select2.full.min.js.download"></script>
+		
+		
+<link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/font-awesome(1).min.css">
+     <link rel="stylesheet" href="./PhilGEPS Awarded Contracts Index_files/ionicons(1).min.css">
+	 
+	 
+        <div class="modal-container"> </div>	
+        <!--  FACE BOX  CODE DIV-->	  
+        <div id="dialogoverlay"></div> 
+        <div id="dialogbox">
+            <div class="panel-heading">
+                <h3 id="dialogboxhead" class="panel-title"></h3>
+            </div>
+            <div class="panel-body">
+                <div id="dialogboxbody"> 
+
+                </div>
+                <div id="dialogboxfoot"></div>
+            </div>
+        </div> 
+        <!--  PROGRESSBAR  CODE DIV-->	  
+       	
+<script defer="" src="./PhilGEPS Awarded Contracts Index_files/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;c5083c0422b243c2939ad8f991688c8e&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div><browser-mcp-container data-wxt-shadow-root=""><template shadowrootmode="open">
+<!-- saved from url=(0045)https://philgeps.gov.ph/Indexes/viewMoreAward -->
+<html><head><style>/*! tailwindcss v4.0.17 | MIT License | https://tailwindcss.com */@layer theme{:host,:host{--font-sans:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--color-red-700:oklch(.505 .213 27.518);--color-blue-300:oklch(.809 .105 251.813);--color-blue-700:oklch(.488 .243 264.376);--color-gray-50:oklch(.985 .002 247.839);--color-gray-100:oklch(.967 .003 264.542);--color-gray-300:oklch(.872 .01 258.338);--color-gray-400:oklch(.707 .022 261.325);--color-gray-500:oklch(.551 .027 264.364);--color-gray-700:oklch(.373 .034 259.733);--color-gray-800:oklch(.278 .033 256.848);--color-gray-900:oklch(.21 .034 264.665);--color-black:#000;--color-white:#fff;--spacing:4px;--container-lg:512px;--text-xs:12px;--text-xs--line-height:calc(1/.75);--text-sm:14px;--text-sm--line-height:calc(1.25/.875);--text-base:16px;--text-base--line-height: 1.5 ;--text-lg:18px;--text-lg--line-height:calc(1.75/1.125);--font-weight-medium:500;--font-weight-semibold:600;--tracking-tight:-.025em;--tracking-widest:.1em;--leading-relaxed:1.625;--radius-xs:2px;--ease-in:cubic-bezier(.4,0,1,1);--animate-spin:spin 1s linear infinite;--animate-pulse:pulse 2s cubic-bezier(.4,0,.6,1)infinite;--default-transition-duration:.15s;--default-transition-timing-function:cubic-bezier(.4,0,.2,1)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-feature-settings:initial;font-variation-settings:initial;-webkit-tap-highlight-color:transparent;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-feature-settings:initial;font-variation-settings:initial;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:color-mix(in oklab,currentColor 50%,transparent)}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){-webkit-appearance:button;-moz-appearance:button;appearance:button}::file-selector-button{-webkit-appearance:button;-moz-appearance:button;appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}*{border-color:var(--border);outline-color:color-mix(in oklab,var(--ring)50%,transparent)}body{background-color:var(--background);color:var(--foreground)}button:not(:disabled),[role=button]:not(:disabled){cursor:pointer}:host{all:initial!important;font-family:var(--font-sans)!important;font-size:var(--text-base)!important;line-height:var(--tw-leading,var(--text-base--line-height))!important}:host,:host *{border-color:var(--border)}:host{background-color:var(--background)!important;color:var(--foreground)!important}[type=text],input:where(:not([type])),[type=email],[type=url],[type=password],[type=number],[type=date],[type=datetime-local],[type=month],[type=search],[type=tel],[type=time],[type=week],[multiple],textarea,select{-webkit-appearance:none;-moz-appearance:none;appearance:none;border-color:#6a7282;--tw-shadow:0 0 #0000;background-color:#fff;border-width:1px;border-radius:0;padding:8px 12px;font-size:16px;line-height:24px}:is([type=text],input:where(:not([type])),[type=email],[type=url],[type=password],[type=number],[type=date],[type=datetime-local],[type=month],[type=search],[type=tel],[type=time],[type=week],[multiple],textarea,select):focus{outline-offset:2px;--tw-ring-inset:var(--tw-empty, );--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:oklch(.546 .245 262.881);--tw-ring-offset-shadow:var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset)0 0 0 calc(1px + var(--tw-ring-offset-width))var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow);border-color:#155dfc;outline:2px solid #0000}input::placeholder,textarea::placeholder{color:#6a7282;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em}::-webkit-date-and-time-value{text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit{padding-top:0;padding-bottom:0}::-webkit-datetime-edit-year-field{padding-top:0;padding-bottom:0}::-webkit-datetime-edit-month-field{padding-top:0;padding-bottom:0}::-webkit-datetime-edit-day-field{padding-top:0;padding-bottom:0}::-webkit-datetime-edit-hour-field{padding-top:0;padding-bottom:0}::-webkit-datetime-edit-minute-field{padding-top:0;padding-bottom:0}::-webkit-datetime-edit-second-field{padding-top:0;padding-bottom:0}::-webkit-datetime-edit-millisecond-field{padding-top:0;padding-bottom:0}::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{-webkit-print-color-adjust:exact;print-color-adjust:exact;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='oklch(0.551 0.027 264.364)' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 8px center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:40px}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;-webkit-print-color-adjust:unset;print-color-adjust:unset;padding-right:12px}[type=checkbox],[type=radio]{-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-print-color-adjust:exact;print-color-adjust:exact;vertical-align:middle;-webkit-user-select:none;user-select:none;width:16px;height:16px;color:#155dfc;border-color:#6a7282;--tw-shadow:0 0 #0000;background-color:#fff;background-origin:border-box;border-width:1px;flex-shrink:0;padding:0;display:inline-block}[type=checkbox]{border-radius:0}[type=radio]{border-radius:100%}[type=checkbox]:focus,[type=radio]:focus{outline-offset:2px;--tw-ring-inset:var(--tw-empty, );--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:oklch(.546 .245 262.881);--tw-ring-offset-shadow:var(--tw-ring-inset)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset)0 0 0 calc(2px + var(--tw-ring-offset-width))var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow);outline:2px solid #0000}[type=checkbox]:checked,[type=radio]:checked{background-color:currentColor;background-position:50%;background-repeat:no-repeat;background-size:100% 100%;border-color:#0000}[type=checkbox]:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e")}@media (forced-colors:active){[type=checkbox]:checked{-webkit-appearance:auto;-moz-appearance:auto;appearance:auto}}[type=radio]:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e")}@media (forced-colors:active){[type=radio]:checked{-webkit-appearance:auto;-moz-appearance:auto;appearance:auto}}[type=checkbox]:checked:hover,[type=checkbox]:checked:focus,[type=radio]:checked:hover,[type=radio]:checked:focus{background-color:currentColor;border-color:#0000}[type=checkbox]:indeterminate{background-color:currentColor;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");background-position:50%;background-repeat:no-repeat;background-size:100% 100%;border-color:#0000}@media (forced-colors:active){[type=checkbox]:indeterminate{-webkit-appearance:auto;-moz-appearance:auto;appearance:auto}}[type=checkbox]:indeterminate:hover,[type=checkbox]:indeterminate:focus{background-color:currentColor;border-color:#0000}[type=file]{background:unset;border-color:inherit;font-size:unset;line-height:inherit;border-width:0;border-radius:0;padding:0}[type=file]:focus{outline:1px solid buttontext;outline:1px auto -webkit-focus-ring-color}}@layer components;@layer utilities{.pointer-events-none{pointer-events:none}.visible{visibility:visible}.sr-only{clip:rect(0,0,0,0);white-space:nowrap;border-width:0;width:1px;height:1px;margin:-1px;padding:0;position:absolute;overflow:hidden}.absolute{position:absolute}.fixed{position:fixed}.relative{position:relative}.static{position:static}.sticky{position:sticky}.inset-0{inset:calc(var(--spacing)*0)}.-top-1{top:calc(var(--spacing)*-1)}.top-\(--line-offset\){top:var(--line-offset)}.top-\(--terminal-radius\){top:var(--terminal-radius)}.top-0{top:calc(var(--spacing)*0)}.top-2{top:calc(var(--spacing)*2)}.top-4{top:calc(var(--spacing)*4)}.top-\[50\%\]{top:50%}.right-\(--line-offset\){right:var(--line-offset)}.right-0{right:calc(var(--spacing)*0)}.right-2{right:calc(var(--spacing)*2)}.right-4{right:calc(var(--spacing)*4)}.bottom-\(--line-offset\){bottom:var(--line-offset)}.bottom-0{bottom:calc(var(--spacing)*0)}.-left-1{left:calc(var(--spacing)*-1)}.left-\(--line-offset\){left:var(--line-offset)}.left-\(--terminal-radius\){left:var(--terminal-radius)}.left-0{left:calc(var(--spacing)*0)}.left-2{left:calc(var(--spacing)*2)}.left-\[50\%\]{left:50%}.z-10{z-index:10}.z-20{z-index:20}.z-30{z-index:30}.z-50{z-index:50}.z-2147483647{z-index:2147483647}.col-start-2{grid-column-start:2}.container{width:100%}@media (width>=40rem){.container{max-width:640px}}@media (width>=48rem){.container{max-width:768px}}@media (width>=64rem){.container{max-width:1024px}}@media (width>=80rem){.container{max-width:1280px}}@media (width>=96rem){.container{max-width:1536px}}.-mx-1{margin-inline:calc(var(--spacing)*-1)}.mx-4{margin-inline:calc(var(--spacing)*4)}.my-1{margin-block:calc(var(--spacing)*1)}.my-4{margin-block:calc(var(--spacing)*4)}.mt-2{margin-top:calc(var(--spacing)*2)}.mt-4{margin-top:calc(var(--spacing)*4)}.mr-1{margin-right:calc(var(--spacing)*1)}.mr-2{margin-right:calc(var(--spacing)*2)}.mb-0{margin-bottom:calc(var(--spacing)*0)}.ml-auto{margin-left:auto}.box-border{box-sizing:border-box}.line-clamp-1{-webkit-line-clamp:1;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.block{display:block}.contents{display:contents}.flex{display:flex}.grid{display:grid}.inline{display:inline}.inline-flex{display:inline-flex}.table{display:table}.table-caption{display:table-caption}.table-cell{display:table-cell}.table-row{display:table-row}.field-sizing-content{field-sizing:content}.size-2{width:calc(var(--spacing)*2);height:calc(var(--spacing)*2)}.size-2\.5{width:calc(var(--spacing)*2.5);height:calc(var(--spacing)*2.5)}.size-3\.5{width:calc(var(--spacing)*3.5);height:calc(var(--spacing)*3.5)}.size-4{width:calc(var(--spacing)*4);height:calc(var(--spacing)*4)}.size-5{width:calc(var(--spacing)*5);height:calc(var(--spacing)*5)}.size-6{width:calc(var(--spacing)*6);height:calc(var(--spacing)*6)}.size-8{width:calc(var(--spacing)*8);height:calc(var(--spacing)*8)}.size-9{width:calc(var(--spacing)*9);height:calc(var(--spacing)*9)}.size-full{width:100%;height:100%}.h-\(--line-thickness\){height:var(--line-thickness)}.h-4{height:calc(var(--spacing)*4)}.h-5{height:calc(var(--spacing)*5)}.h-6{height:calc(var(--spacing)*6)}.h-8{height:calc(var(--spacing)*8)}.h-9{height:calc(var(--spacing)*9)}.h-10{height:calc(var(--spacing)*10)}.h-\[22px\]{height:22px}.h-\[var\(--radix-select-trigger-height\)\]{height:var(--radix-select-trigger-height)}.h-full{height:100%}.h-px{height:1px}.h-screen{height:100vh}.max-h-\(--radix-dropdown-menu-content-available-height\){max-height:var(--radix-dropdown-menu-content-available-height)}.max-h-80{max-height:calc(var(--spacing)*80)}.max-h-96{max-height:calc(var(--spacing)*96)}.min-h-4{min-height:calc(var(--spacing)*4)}.min-h-16{min-height:calc(var(--spacing)*16)}.w-\(--line-thickness\){width:var(--line-thickness)}.w-3\/4{width:75%}.w-9{width:calc(var(--spacing)*9)}.w-72{width:calc(var(--spacing)*72)}.w-fit{width:fit-content}.w-full{width:100%}.w-px{width:1px}.max-w-\[calc\(100\%-2rem\)\]{max-width:calc(100% - 32px)}.min-w-0{min-width:calc(var(--spacing)*0)}.min-w-\[8rem\]{min-width:128px}.min-w-\[300px\]{min-width:300px}.min-w-\[var\(--radix-select-trigger-width\)\]{min-width:var(--radix-select-trigger-width)}.flex-1{flex:1}.shrink-0{flex-shrink:0}.grow{flex-grow:1}.caption-bottom{caption-side:bottom}.translate-x-\[-50\%\]{--tw-translate-x:-50%;translate:var(--tw-translate-x)var(--tw-translate-y)}.translate-y-0\.5{--tw-translate-y:calc(var(--spacing)*.5);translate:var(--tw-translate-x)var(--tw-translate-y)}.translate-y-\[-50\%\]{--tw-translate-y:-50%;translate:var(--tw-translate-x)var(--tw-translate-y)}.translate-y-\[calc\(-50\%_-_2px\)\]{--tw-translate-y: calc(-50% - 2px) ;translate:var(--tw-translate-x)var(--tw-translate-y)}.rotate-45{rotate:45deg}.transform{transform:var(--tw-rotate-x)var(--tw-rotate-y)var(--tw-rotate-z)var(--tw-skew-x)var(--tw-skew-y)}.animate-caret-blink{animation:1.25s ease-out infinite caret-blink}.animate-pulse{animation:var(--animate-pulse)}.animate-spin{animation:var(--animate-spin)}.cursor-col-resize{cursor:col-resize}.cursor-default{cursor:default}.resize-none{resize:none}.scroll-my-1{scroll-margin-block:calc(var(--spacing)*1)}.grid-cols-\[0_1fr\]{grid-template-columns:0 1fr}.flex-col{flex-direction:column}.flex-col-reverse{flex-direction:column-reverse}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.justify-items-start{justify-items:start}.gap-1{gap:calc(var(--spacing)*1)}.gap-1\.5{gap:calc(var(--spacing)*1.5)}.gap-2{gap:calc(var(--spacing)*2)}.gap-4{gap:calc(var(--spacing)*4)}.gap-6{gap:calc(var(--spacing)*6)}:where(.space-y-1>:not(:last-child)){--tw-space-y-reverse:0;margin-block-start:calc(calc(var(--spacing)*1)*var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing)*1)*calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-2>:not(:last-child)){--tw-space-y-reverse:0;margin-block-start:calc(calc(var(--spacing)*2)*var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing)*2)*calc(1 - var(--tw-space-y-reverse)))}:where(.space-y-4>:not(:last-child)){--tw-space-y-reverse:0;margin-block-start:calc(calc(var(--spacing)*4)*var(--tw-space-y-reverse));margin-block-end:calc(calc(var(--spacing)*4)*calc(1 - var(--tw-space-y-reverse)))}:where(.space-x-0\.5>:not(:last-child)){--tw-space-x-reverse:0;margin-inline-start:calc(calc(var(--spacing)*.5)*var(--tw-space-x-reverse));margin-inline-end:calc(calc(var(--spacing)*.5)*calc(1 - var(--tw-space-x-reverse)))}:where(.space-x-2>:not(:last-child)){--tw-space-x-reverse:0;margin-inline-start:calc(calc(var(--spacing)*2)*var(--tw-space-x-reverse));margin-inline-end:calc(calc(var(--spacing)*2)*calc(1 - var(--tw-space-x-reverse)))}:where(.space-x-4>:not(:last-child)){--tw-space-x-reverse:0;margin-inline-start:calc(calc(var(--spacing)*4)*var(--tw-space-x-reverse));margin-inline-end:calc(calc(var(--spacing)*4)*calc(1 - var(--tw-space-x-reverse)))}.gap-y-0\.5{row-gap:calc(var(--spacing)*.5)}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-x-hidden{overflow-x:hidden}.overflow-y-auto{overflow-y:auto}.rounded-\[2px\]{border-radius:2px}.rounded-\[4px\]{border-radius:4px}.rounded-full{border-radius:3.40282e38px}.rounded-lg{border-radius:var(--radius)}.rounded-md{border-radius:calc(var(--radius) - 2px)}.rounded-sm{border-radius:calc(var(--radius) - 4px)}.rounded-xl{border-radius:calc(var(--radius) + 4px)}.rounded-xs{border-radius:var(--radius-xs)}.border{border-style:var(--tw-border-style);border-width:1px}.border-0{border-style:var(--tw-border-style);border-width:0}.border-2{border-style:var(--tw-border-style);border-width:2px}.border-y{border-block-style:var(--tw-border-style);border-block-width:1px}.border-t{border-top-style:var(--tw-border-style);border-top-width:1px}.border-r{border-right-style:var(--tw-border-style);border-right-width:1px}.border-b{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.border-l{border-left-style:var(--tw-border-style);border-left-width:1px}.border-gray-300{border-color:var(--color-gray-300)}.border-input{border-color:var(--input)}.border-transparent{border-color:#0000}.bg-background{background-color:var(--background)}.bg-background\/80{background-color:color-mix(in oklab,var(--background)80%,transparent)}.bg-black\/80{background-color:color-mix(in oklab,var(--color-black)80%,transparent)}.bg-blue-700{background-color:var(--color-blue-700)}.bg-border{background-color:var(--border)}.bg-card{background-color:var(--card)}.bg-destructive{background-color:var(--destructive)}.bg-foreground{background-color:var(--foreground)}.bg-gray-50{background-color:var(--color-gray-50)}.bg-gray-100{background-color:var(--color-gray-100)}.bg-gray-500{background-color:var(--color-gray-500)}.bg-gray-700{background-color:var(--color-gray-700)}.bg-muted{background-color:var(--muted)}.bg-muted\/50{background-color:color-mix(in oklab,var(--muted)50%,transparent)}.bg-popover{background-color:var(--popover)}.bg-primary{background-color:var(--primary)}.bg-primary\/10{background-color:color-mix(in oklab,var(--primary)10%,transparent)}.bg-secondary{background-color:var(--secondary)}.bg-transparent{background-color:#0000}.bg-white{background-color:var(--color-white)}.fill-black{fill:var(--color-black)}.fill-current{fill:currentColor}.fill-primary{fill:var(--primary)}.stroke-white{stroke:var(--color-white)}.stroke-\[1\.5\]{stroke-width:1.5px}.p-0{padding:calc(var(--spacing)*0)}.p-0\.5{padding:calc(var(--spacing)*.5)}.p-1{padding:calc(var(--spacing)*1)}.p-1\.5{padding:calc(var(--spacing)*1.5)}.p-2{padding:calc(var(--spacing)*2)}.p-3{padding:calc(var(--spacing)*3)}.p-4{padding:calc(var(--spacing)*4)}.p-6{padding:calc(var(--spacing)*6)}.px-1{padding-inline:calc(var(--spacing)*1)}.px-2{padding-inline:calc(var(--spacing)*2)}.px-3{padding-inline:calc(var(--spacing)*3)}.px-4{padding-inline:calc(var(--spacing)*4)}.px-6{padding-inline:calc(var(--spacing)*6)}.py-0{padding-block:calc(var(--spacing)*0)}.py-0\.5{padding-block:calc(var(--spacing)*.5)}.py-1{padding-block:calc(var(--spacing)*1)}.py-1\.5{padding-block:calc(var(--spacing)*1.5)}.py-2{padding-block:calc(var(--spacing)*2)}.py-3{padding-block:calc(var(--spacing)*3)}.py-4{padding-block:calc(var(--spacing)*4)}.py-6{padding-block:calc(var(--spacing)*6)}.py-\[1px\]{padding-block:1px}.pt-0{padding-top:calc(var(--spacing)*0)}.pt-2{padding-top:calc(var(--spacing)*2)}.pr-2{padding-right:calc(var(--spacing)*2)}.pr-8{padding-right:calc(var(--spacing)*8)}.pb-4{padding-bottom:calc(var(--spacing)*4)}.pl-2{padding-left:calc(var(--spacing)*2)}.pl-8{padding-left:calc(var(--spacing)*8)}.text-center{text-align:center}.text-left{text-align:left}.align-middle{vertical-align:middle}.font-mono{font-family:var(--font-mono)}.text-base{font-size:var(--text-base);line-height:var(--tw-leading,var(--text-base--line-height))}.text-lg{font-size:var(--text-lg);line-height:var(--tw-leading,var(--text-lg--line-height))}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-xs{font-size:var(--text-xs);line-height:var(--tw-leading,var(--text-xs--line-height))}.leading-none{--tw-leading:1;line-height:1}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.font-semibold{--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.tracking-tight{--tw-tracking:var(--tracking-tight);letter-spacing:var(--tracking-tight)}.tracking-widest{--tw-tracking:var(--tracking-widest);letter-spacing:var(--tracking-widest)}.text-balance{text-wrap:balance}.break-all{word-break:break-all}.whitespace-nowrap{white-space:nowrap}.whitespace-pre-wrap{white-space:pre-wrap}.text-black{color:var(--color-black)}.text-card-foreground{color:var(--card-foreground)}.text-current{color:currentColor}.text-destructive-foreground{color:var(--destructive-foreground)}.text-foreground{color:var(--foreground)}.text-gray-500{color:var(--color-gray-500)}.text-gray-700{color:var(--color-gray-700)}.text-gray-900{color:var(--color-gray-900)}.text-muted-foreground{color:var(--muted-foreground)}.text-popover-foreground{color:var(--popover-foreground)}.text-primary{color:var(--primary)}.text-primary-foreground{color:var(--primary-foreground)}.text-red-700{color:var(--color-red-700)}.text-secondary-foreground{color:var(--secondary-foreground)}.text-white{color:var(--color-white)}.underline-offset-4{text-underline-offset:4px}.opacity-0{opacity:0}.opacity-25{opacity:.25}.opacity-50{opacity:.5}.opacity-70{opacity:.7}.opacity-75{opacity:.75}.shadow-lg{--tw-shadow:0 10px 15px -3px var(--tw-shadow-color,#0000001a),0 4px 6px -4px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px var(--tw-shadow-color,#0000001a),0 2px 4px -2px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 3px 0 var(--tw-shadow-color,#0000001a),0 1px 2px -1px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-xs{--tw-shadow:0 1px 2px 0 var(--tw-shadow-color,#0000000d);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.ring-0{--tw-ring-shadow:var(--tw-ring-inset,)0 0 0 calc(0px + var(--tw-ring-offset-width))var(--tw-ring-color,currentColor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.ring-1{--tw-ring-shadow:var(--tw-ring-inset,)0 0 0 calc(1px + var(--tw-ring-offset-width))var(--tw-ring-color,currentColor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.ring-gray-500\/10{--tw-ring-color:color-mix(in oklab,var(--color-gray-500)10%,transparent)}.ring-offset-background{--tw-ring-offset-color:var(--background)}.outline-hidden{--tw-outline-style:none;outline-style:none}@media (forced-colors:active){.outline-hidden{outline-offset:2px;outline:2px solid #0000}}.outline{outline-style:var(--tw-outline-style);outline-width:1px}.transition-\[color\,box-shadow\]{transition-property:color,box-shadow;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-all{transition-property:all;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-colors{transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-opacity{transition-property:opacity;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-shadow{transition-property:box-shadow;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-transform{transition-property:transform,translate,scale,rotate;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-none{transition-property:none}.duration-200{--tw-duration:.2s;transition-duration:.2s}.duration-500{--tw-duration:.5s;transition-duration:.5s}.duration-1000{--tw-duration:1s;transition-duration:1s}.ease-in{--tw-ease:var(--ease-in);transition-timing-function:var(--ease-in)}.animate-in{--tw-enter-opacity:initial;--tw-enter-scale:initial;--tw-enter-rotate:initial;--tw-enter-translate-x:initial;--tw-enter-translate-y:initial;animation-name:enter;animation-duration:.15s}.outline-none{--tw-outline-style:none;outline-style:none}.select-none{-webkit-user-select:none;user-select:none}.duration-200{animation-duration:.2s}.duration-500{animation-duration:.5s}.duration-1000{animation-duration:1s}.ease-in{animation-timing-function:cubic-bezier(.4,0,1,1)}.fade-in-0{--tw-enter-opacity:0}.ring-inset{--tw-ring-inset:inset}.running{animation-play-state:running}.zoom-in-95{--tw-enter-scale:.95}@media (hover:hover){.group-hover\:opacity-100:is(:where(.group):hover *){opacity:1}}.group-data-\[disabled\=true\]\:pointer-events-none:is(:where(.group)[data-disabled=true] *){pointer-events:none}.group-data-\[disabled\=true\]\:opacity-50:is(:where(.group)[data-disabled=true] *){opacity:.5}.group-\[\.toast\]\:bg-muted:is(:where(.group).toast *){background-color:var(--muted)}.group-\[\.toast\]\:bg-primary:is(:where(.group).toast *){background-color:var(--primary)}.group-\[\.toast\]\:text-muted-foreground:is(:where(.group).toast *){color:var(--muted-foreground)}.group-\[\.toast\]\:text-primary-foreground:is(:where(.group).toast *){color:var(--primary-foreground)}.group-\[\.toaster\]\:border-border:is(:where(.group).toaster *){border-color:var(--border)}.group-\[\.toaster\]\:bg-background:is(:where(.group).toaster *){background-color:var(--background)}.group-\[\.toaster\]\:text-foreground:is(:where(.group).toaster *){color:var(--foreground)}.group-\[\.toaster\]\:shadow-lg:is(:where(.group).toaster *){--tw-shadow:0 10px 15px -3px var(--tw-shadow-color,#0000001a),0 4px 6px -4px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.peer-disabled\:cursor-not-allowed:is(:where(.peer):disabled~*){cursor:not-allowed}.peer-disabled\:opacity-50:is(:where(.peer):disabled~*){opacity:.5}.selection\:bg-primary ::selection{background-color:var(--primary)}.selection\:bg-primary::selection{background-color:var(--primary)}.selection\:text-primary-foreground ::selection{color:var(--primary-foreground)}.selection\:text-primary-foreground::selection{color:var(--primary-foreground)}.file\:inline-flex::file-selector-button{display:inline-flex}.file\:h-7::file-selector-button{height:calc(var(--spacing)*7)}.file\:border-0::file-selector-button{border-style:var(--tw-border-style);border-width:0}.file\:bg-transparent::file-selector-button{background-color:#0000}.file\:text-sm::file-selector-button{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.file\:font-medium::file-selector-button{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.file\:text-foreground::file-selector-button{color:var(--foreground)}.placeholder\:text-muted-foreground::placeholder{color:var(--muted-foreground)}.before\:absolute:before{content:var(--tw-content);position:absolute}.before\:top-\(--negative-terminal-size\):before{content:var(--tw-content);top:var(--negative-terminal-size)}.before\:top-\(--offset-terminal\):before{content:var(--tw-content);top:var(--offset-terminal)}.before\:right-\(--offset-terminal\):before{content:var(--tw-content);right:var(--offset-terminal)}.before\:bottom-\(--offset-terminal\):before{content:var(--tw-content);bottom:var(--offset-terminal)}.before\:left-\(--negative-terminal-size\):before{content:var(--tw-content);left:var(--negative-terminal-size)}.before\:left-\(--offset-terminal\):before{content:var(--tw-content);left:var(--offset-terminal)}.before\:h-\(--terminal-size\):before{content:var(--tw-content);height:var(--terminal-size)}.before\:w-\(--terminal-size\):before{content:var(--tw-content);width:var(--terminal-size)}.before\:rounded-full:before{content:var(--tw-content);border-radius:3.40282e38px}.before\:border-\(length\:--line-thickness\):before{content:var(--tw-content);border-style:var(--tw-border-style);border-width:var(--line-thickness)}.before\:border-solid:before{content:var(--tw-content);--tw-border-style:solid;border-style:solid}.before\:border-blue-700:before{content:var(--tw-content);border-color:var(--color-blue-700)}.before\:content-\[\'\'\]:before{--tw-content:"";content:var(--tw-content)}.first\:rounded-l-md:first-child{border-top-left-radius:calc(var(--radius) - 2px);border-bottom-left-radius:calc(var(--radius) - 2px)}.first\:border-l:first-child{border-left-style:var(--tw-border-style);border-left-width:1px}.last\:rounded-r-md:last-child{border-top-right-radius:calc(var(--radius) - 2px);border-bottom-right-radius:calc(var(--radius) - 2px)}.last\:border-b-0:last-child{border-bottom-style:var(--tw-border-style);border-bottom-width:0}@media (hover:hover){.hover\:bg-accent:hover{background-color:var(--accent)}.hover\:bg-background:hover{background-color:var(--background)}.hover\:bg-destructive\/90:hover{background-color:color-mix(in oklab,var(--destructive)90%,transparent)}.hover\:bg-gray-500:hover{background-color:var(--color-gray-500)}.hover\:bg-gray-800:hover{background-color:var(--color-gray-800)}.hover\:bg-muted\/50:hover{background-color:color-mix(in oklab,var(--muted)50%,transparent)}.hover\:bg-primary\/90:hover{background-color:color-mix(in oklab,var(--primary)90%,transparent)}.hover\:bg-secondary\/80:hover{background-color:color-mix(in oklab,var(--secondary)80%,transparent)}.hover\:text-accent-foreground:hover{color:var(--accent-foreground)}.hover\:text-gray-400:hover{color:var(--color-gray-400)}.hover\:underline:hover{text-decoration-line:underline}.hover\:opacity-100:hover{opacity:1}}.focus\:bg-accent:focus{background-color:var(--accent)}.focus\:bg-white:focus{background-color:var(--color-white)}.focus\:text-accent-foreground:focus{color:var(--accent-foreground)}.focus\:ring-2:focus{--tw-ring-shadow:var(--tw-ring-inset,)0 0 0 calc(2px + var(--tw-ring-offset-width))var(--tw-ring-color,currentColor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.focus\:ring-blue-300:focus{--tw-ring-color:var(--color-blue-300)}.focus\:ring-ring:focus{--tw-ring-color:var(--ring)}.focus\:ring-offset-2:focus{--tw-ring-offset-width:2px;--tw-ring-offset-shadow:var(--tw-ring-inset,)0 0 0 var(--tw-ring-offset-width)var(--tw-ring-offset-color)}.focus\:outline-hidden:focus{--tw-outline-style:none;outline-style:none}@media (forced-colors:active){.focus\:outline-hidden:focus{outline-offset:2px;outline:2px solid #0000}}.focus\:ring-inset:focus{--tw-ring-inset:inset}.focus-visible\:border-ring:focus-visible{border-color:var(--ring)}.focus-visible\:ring-\[3px\]:focus-visible{--tw-ring-shadow:var(--tw-ring-inset,)0 0 0 calc(3px + var(--tw-ring-offset-width))var(--tw-ring-color,currentColor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.focus-visible\:ring-destructive\/20:focus-visible{--tw-ring-color:color-mix(in oklab,var(--destructive)20%,transparent)}.focus-visible\:ring-ring\/50:focus-visible{--tw-ring-color:color-mix(in oklab,var(--ring)50%,transparent)}.focus-visible\:outline-1:focus-visible{outline-style:var(--tw-outline-style);outline-width:1px}.focus-visible\:outline-ring:focus-visible{outline-color:var(--ring)}.disabled\:pointer-events-none:disabled{pointer-events:none}.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:opacity-50:disabled,.has-disabled\:opacity-50:has(:disabled){opacity:.5}.has-\[\>svg\]\:grid-cols-\[calc\(var\(--spacing\)\*4\)_1fr\]:has(>svg){grid-template-columns:calc(var(--spacing)*4)1fr}.has-\[\>svg\]\:gap-x-3:has(>svg){column-gap:calc(var(--spacing)*3)}.has-\[\>svg\]\:px-2\.5:has(>svg){padding-inline:calc(var(--spacing)*2.5)}.has-\[\>svg\]\:px-3:has(>svg){padding-inline:calc(var(--spacing)*3)}.has-\[\>svg\]\:px-4:has(>svg){padding-inline:calc(var(--spacing)*4)}.aria-invalid\:border-destructive[aria-invalid=true]{border-color:var(--destructive)}.aria-invalid\:ring-destructive\/20[aria-invalid=true]{--tw-ring-color:color-mix(in oklab,var(--destructive)20%,transparent)}.data-\[active\=true\]\:z-10[data-active=true]{z-index:10}.data-\[active\=true\]\:border-ring[data-active=true]{border-color:var(--ring)}.data-\[active\=true\]\:ring-\[3px\][data-active=true]{--tw-ring-shadow:var(--tw-ring-inset,)0 0 0 calc(3px + var(--tw-ring-offset-width))var(--tw-ring-color,currentColor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.data-\[active\=true\]\:ring-ring\/50[data-active=true]{--tw-ring-color:color-mix(in oklab,var(--ring)50%,transparent)}.data-\[active\=true\]\:aria-invalid\:border-destructive[data-active=true][aria-invalid=true]{border-color:var(--destructive)}.data-\[active\=true\]\:aria-invalid\:ring-destructive\/20[data-active=true][aria-invalid=true]{--tw-ring-color:color-mix(in oklab,var(--destructive)20%,transparent)}.data-\[disabled\]\:pointer-events-none[data-disabled]{pointer-events:none}.data-\[disabled\]\:opacity-50[data-disabled]{opacity:.5}.data-\[error\=true\]\:text-destructive-foreground[data-error=true]{color:var(--destructive-foreground)}.data-\[inset\]\:pl-8[data-inset]{padding-left:calc(var(--spacing)*8)}.data-\[orientation\=horizontal\]\:h-px[data-orientation=horizontal]{height:1px}.data-\[orientation\=horizontal\]\:w-full[data-orientation=horizontal]{width:100%}.data-\[orientation\=vertical\]\:h-full[data-orientation=vertical]{height:100%}.data-\[orientation\=vertical\]\:w-px[data-orientation=vertical]{width:1px}.data-\[placeholder\]\:text-muted-foreground[data-placeholder]{color:var(--muted-foreground)}.data-\[side\=bottom\]\:translate-y-1[data-side=bottom]{--tw-translate-y:calc(var(--spacing)*1);translate:var(--tw-translate-x)var(--tw-translate-y)}.data-\[side\=bottom\]\:slide-in-from-top-2[data-side=bottom]{--tw-enter-translate-y:-8px}.data-\[side\=left\]\:-translate-x-1[data-side=left]{--tw-translate-x:calc(var(--spacing)*-1);translate:var(--tw-translate-x)var(--tw-translate-y)}.data-\[side\=left\]\:slide-in-from-right-2[data-side=left]{--tw-enter-translate-x:8px}.data-\[side\=right\]\:translate-x-1[data-side=right]{--tw-translate-x:calc(var(--spacing)*1);translate:var(--tw-translate-x)var(--tw-translate-y)}.data-\[side\=right\]\:slide-in-from-left-2[data-side=right]{--tw-enter-translate-x:-8px}.data-\[side\=top\]\:-translate-y-1[data-side=top]{--tw-translate-y:calc(var(--spacing)*-1);translate:var(--tw-translate-x)var(--tw-translate-y)}.data-\[side\=top\]\:slide-in-from-bottom-2[data-side=top]{--tw-enter-translate-y:8px}:is(.\*\:data-\[slot\=alert-description\]\:text-destructive-foreground\/80>*)[data-slot=alert-description]{color:color-mix(in oklab,var(--destructive-foreground)80%,transparent)}:is(.\*\:data-\[slot\=select-value\]\:line-clamp-1>*)[data-slot=select-value]{-webkit-line-clamp:1;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}:is(.\*\:data-\[slot\=select-value\]\:flex>*)[data-slot=select-value]{display:flex}:is(.\*\:data-\[slot\=select-value\]\:items-center>*)[data-slot=select-value]{align-items:center}:is(.\*\:data-\[slot\=select-value\]\:gap-2>*)[data-slot=select-value]{gap:calc(var(--spacing)*2)}.data-\[state\=active\]\:bg-background[data-state=active]{background-color:var(--background)}.data-\[state\=active\]\:text-foreground[data-state=active]{color:var(--foreground)}.data-\[state\=active\]\:shadow-sm[data-state=active]{--tw-shadow:0 1px 3px 0 var(--tw-shadow-color,#0000001a),0 1px 2px -1px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.data-\[state\=checked\]\:translate-x-4[data-state=checked]{--tw-translate-x:calc(var(--spacing)*4);translate:var(--tw-translate-x)var(--tw-translate-y)}.data-\[state\=checked\]\:border-primary[data-state=checked]{border-color:var(--primary)}.data-\[state\=checked\]\:bg-primary[data-state=checked]{background-color:var(--primary)}.data-\[state\=checked\]\:text-primary-foreground[data-state=checked]{color:var(--primary-foreground)}.data-\[state\=closed\]\:animate-accordion-up[data-state=closed]{animation:.2s ease-out accordion-up}.data-\[state\=closed\]\:animate-out[data-state=closed]{--tw-exit-opacity:initial;--tw-exit-scale:initial;--tw-exit-rotate:initial;--tw-exit-translate-x:initial;--tw-exit-translate-y:initial;animation-name:exit;animation-duration:.15s}.data-\[state\=closed\]\:fade-out-0[data-state=closed]{--tw-exit-opacity:0}.data-\[state\=closed\]\:zoom-out-95[data-state=closed]{--tw-exit-scale:.95}.data-\[state\=open\]\:animate-accordion-down[data-state=open]{animation:.2s ease-out accordion-down}.data-\[state\=open\]\:bg-accent[data-state=open]{background-color:var(--accent)}.data-\[state\=open\]\:text-accent-foreground[data-state=open]{color:var(--accent-foreground)}.data-\[state\=open\]\:text-muted-foreground[data-state=open]{color:var(--muted-foreground)}.data-\[state\=open\]\:animate-in[data-state=open]{--tw-enter-opacity:initial;--tw-enter-scale:initial;--tw-enter-rotate:initial;--tw-enter-translate-x:initial;--tw-enter-translate-y:initial;animation-name:enter;animation-duration:.15s}.data-\[state\=open\]\:fade-in-0[data-state=open]{--tw-enter-opacity:0}.data-\[state\=open\]\:zoom-in-95[data-state=open]{--tw-enter-scale:.95}.data-\[state\=selected\]\:bg-muted[data-state=selected]{background-color:var(--muted)}.data-\[state\=unchecked\]\:translate-x-0[data-state=unchecked]{--tw-translate-x:calc(var(--spacing)*0);translate:var(--tw-translate-x)var(--tw-translate-y)}.data-\[state\=unchecked\]\:bg-input[data-state=unchecked]{background-color:var(--input)}.data-\[variant\=destructive\]\:text-destructive-foreground[data-variant=destructive]{color:var(--destructive-foreground)}.data-\[variant\=destructive\]\:focus\:bg-destructive\/10[data-variant=destructive]:focus{background-color:color-mix(in oklab,var(--destructive)10%,transparent)}.data-\[variant\=destructive\]\:focus\:text-destructive-foreground[data-variant=destructive]:focus{color:var(--destructive-foreground)}@media (width>=40rem){.sm\:max-w-lg{max-width:var(--container-lg)}.sm\:flex-row{flex-direction:row}.sm\:justify-end{justify-content:flex-end}.sm\:text-left{text-align:left}}@media (width>=48rem){.md\:text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}}.dark\:focus-visible\:ring-destructive\/40:is(.dark *):focus-visible,.dark\:aria-invalid\:ring-destructive\/40:is(.dark *)[aria-invalid=true],.dark\:data-\[active\=true\]\:aria-invalid\:ring-destructive\/40:is(.dark *)[data-active=true][aria-invalid=true]{--tw-ring-color:color-mix(in oklab,var(--destructive)40%,transparent)}.dark\:data-\[variant\=destructive\]\:focus\:bg-destructive\/40:is(.dark *)[data-variant=destructive]:focus{background-color:color-mix(in oklab,var(--destructive)40%,transparent)}.\[\&_p\]\:leading-relaxed p{--tw-leading:var(--leading-relaxed);line-height:var(--leading-relaxed)}.\[\&_svg\]\:pointer-events-none svg{pointer-events:none}.\[\&_svg\]\:shrink-0 svg{flex-shrink:0}.\[\&_svg\:not\(\[class\*\=\'size-\'\]\)\]\:size-4 svg:not([class*=size-]){width:calc(var(--spacing)*4);height:calc(var(--spacing)*4)}.\[\&_svg\:not\(\[class\*\=\'text-\'\]\)\]\:text-muted-foreground svg:not([class*=text-]){color:var(--muted-foreground)}.\[\&_tr\]\:border-b tr{border-bottom-style:var(--tw-border-style);border-bottom-width:1px}.\[\&_tr\:last-child\]\:border-0 tr:last-child{border-style:var(--tw-border-style);border-width:0}.\[\&\:has\(\[role\=checkbox\]\)\]\:pr-0:has([role=checkbox]){padding-right:calc(var(--spacing)*0)}:is(.\*\:\[span\]\:last\:flex>*):is(span):last-child{display:flex}:is(.\*\:\[span\]\:last\:items-center>*):is(span):last-child{align-items:center}:is(.\*\:\[span\]\:last\:gap-2>*):is(span):last-child{gap:calc(var(--spacing)*2)}:is(.data-\[variant\=destructive\]\:\*\:\[svg\]\:\!text-destructive-foreground[data-variant=destructive]>*):is(svg){color:var(--destructive-foreground)!important}.\[\&\>\[role\=checkbox\]\]\:translate-y-\[2px\]>[role=checkbox]{--tw-translate-y:2px;translate:var(--tw-translate-x)var(--tw-translate-y)}.\[\&\>svg\]\:pointer-events-none>svg{pointer-events:none}.\[\&\>svg\]\:size-3>svg{width:calc(var(--spacing)*3);height:calc(var(--spacing)*3)}.\[\&\>svg\]\:size-4>svg{width:calc(var(--spacing)*4);height:calc(var(--spacing)*4)}.\[\&\>svg\]\:translate-y-0\.5>svg{--tw-translate-y:calc(var(--spacing)*.5);translate:var(--tw-translate-x)var(--tw-translate-y)}.\[\&\>svg\]\:text-current>svg{color:currentColor}.\[\&\>tr\]\:last\:border-b-0>tr:last-child{border-bottom-style:var(--tw-border-style);border-bottom-width:0}.\[\&\[data-state\=open\]\>svg\]\:rotate-180[data-state=open]>svg{rotate:180deg}@media (hover:hover){a.\[a\&\]\:hover\:bg-accent:hover{background-color:var(--accent)}a.\[a\&\]\:hover\:bg-destructive\/90:hover{background-color:color-mix(in oklab,var(--destructive)90%,transparent)}a.\[a\&\]\:hover\:bg-primary\/90:hover{background-color:color-mix(in oklab,var(--primary)90%,transparent)}a.\[a\&\]\:hover\:bg-secondary\/90:hover{background-color:color-mix(in oklab,var(--secondary)90%,transparent)}a.\[a\&\]\:hover\:text-accent-foreground:hover{color:var(--accent-foreground)}}}:host{--background:oklch(1 0 0);--foreground:oklch(.145 0 0);--card:oklch(1 0 0);--card-foreground:oklch(.145 0 0);--popover:oklch(1 0 0);--popover-foreground:oklch(.145 0 0);--primary:oklch(.205 0 0);--primary-foreground:oklch(.985 0 0);--secondary:oklch(.97 0 0);--secondary-foreground:oklch(.205 0 0);--muted:oklch(.97 0 0);--muted-foreground:oklch(.556 0 0);--accent:oklch(.97 0 0);--accent-foreground:oklch(.205 0 0);--destructive:oklch(.577 .245 27.325);--destructive-foreground:oklch(.577 .245 27.325);--border:oklch(.922 0 0);--input:oklch(.922 0 0);--ring:oklch(.708 0 0);--chart-1:oklch(.646 .222 41.116);--chart-2:oklch(.6 .118 184.704);--chart-3:oklch(.398 .07 227.392);--chart-4:oklch(.828 .189 84.429);--chart-5:oklch(.769 .188 70.08);--radius:10px;--sidebar:oklch(.985 0 0);--sidebar-foreground:oklch(.145 0 0);--sidebar-primary:oklch(.205 0 0);--sidebar-primary-foreground:oklch(.985 0 0);--sidebar-accent:oklch(.97 0 0);--sidebar-accent-foreground:oklch(.205 0 0);--sidebar-border:oklch(.922 0 0);--sidebar-ring:oklch(.708 0 0)}.dark{--background:oklch(.145 0 0);--foreground:oklch(.985 0 0);--card:oklch(.145 0 0);--card-foreground:oklch(.985 0 0);--popover:oklch(.145 0 0);--popover-foreground:oklch(.985 0 0);--primary:oklch(.985 0 0);--primary-foreground:oklch(.205 0 0);--secondary:oklch(.269 0 0);--secondary-foreground:oklch(.985 0 0);--muted:oklch(.269 0 0);--muted-foreground:oklch(.708 0 0);--accent:oklch(.269 0 0);--accent-foreground:oklch(.985 0 0);--destructive:oklch(.396 .141 25.723);--destructive-foreground:oklch(.637 .237 25.331);--border:oklch(.269 0 0);--input:oklch(.269 0 0);--ring:oklch(.556 0 0);--chart-1:oklch(.488 .243 264.376);--chart-2:oklch(.696 .17 162.48);--chart-3:oklch(.769 .188 70.08);--chart-4:oklch(.627 .265 303.9);--chart-5:oklch(.645 .246 16.439);--sidebar:oklch(.205 0 0);--sidebar-foreground:oklch(.985 0 0);--sidebar-primary:oklch(.488 .243 264.376);--sidebar-primary-foreground:oklch(.985 0 0);--sidebar-accent:oklch(.269 0 0);--sidebar-accent-foreground:oklch(.985 0 0);--sidebar-border:oklch(.269 0 0);--sidebar-ring:oklch(.439 0 0)}@keyframes enter{0%{opacity:var(--tw-enter-opacity,1);transform:translate3d(var(--tw-enter-translate-x,0),var(--tw-enter-translate-y,0),0)scale3d(var(--tw-enter-scale,1),var(--tw-enter-scale,1),var(--tw-enter-scale,1))rotate(var(--tw-enter-rotate,0))}}@keyframes exit{to{opacity:var(--tw-exit-opacity,1);transform:translate3d(var(--tw-exit-translate-x,0),var(--tw-exit-translate-y,0),0)scale3d(var(--tw-exit-scale,1),var(--tw-exit-scale,1),var(--tw-exit-scale,1))rotate(var(--tw-exit-rotate,0))}}@property --tw-translate-x{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-y{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-z{syntax:"*";inherits:false;initial-value:0}@property --tw-rotate-x{syntax:"*";inherits:false;initial-value:rotateX(0)}@property --tw-rotate-y{syntax:"*";inherits:false;initial-value:rotateY(0)}@property --tw-rotate-z{syntax:"*";inherits:false;initial-value:rotateZ(0)}@property --tw-skew-x{syntax:"*";inherits:false;initial-value:skewX(0)}@property --tw-skew-y{syntax:"*";inherits:false;initial-value:skewY(0)}@property --tw-space-y-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-space-x-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-leading{syntax:"*";inherits:false}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-tracking{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-outline-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-duration{syntax:"*";inherits:false}@property --tw-ease{syntax:"*";inherits:false}@property --tw-content{syntax:"*";inherits:false;initial-value:""}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{50%{opacity:.5}}@keyframes accordion-down{0%{height:0}to{height:var(--radix-accordion-content-height)}}@keyframes accordion-up{0%{height:var(--radix-accordion-content-height)}to{height:0}}@keyframes caret-blink{0%,70%,to{opacity:1}20%,50%{opacity:0}}</style></head><body><div></div></body></html></template></browser-mcp-container></body></html>

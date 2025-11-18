@@ -1,0 +1,334 @@
+
+	function num_to_wrd( numbr,element_numbertoword,element_type )
+	{
+		if( isNaN(numbr) )
+			return;
+			
+		var str=new String(+parseFloat(numbr).toFixed(4));
+		if( isNaN(str) )
+			return;	
+		
+		var finalString = '';
+		var finalw='';
+		var splits = str.split(".");
+		
+		var otherPortion = '';
+		var crorePortion = '';
+		if( splits[0].length > 7 )
+		{
+			otherPortion = splits[0].substring(splits[0].length - 7, splits[0].length);
+			crorePortion = splits[0].substring(0, splits[0].length - 7);
+		}
+		else
+		{
+			otherPortion = splits[0];
+		}
+		
+		//var splt=splits[0].split("");	
+		otherPortion = parseFloat(otherPortion);
+		otherPortion = new String(otherPortion);
+		var splt=otherPortion.split("");
+		var rev=splt.reverse();
+		
+		var once=['Zero', ' One', 'Two', 'Three', 'Four',  'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+		var twos=['Ten', ' Eleven', ' Twelve', ' Thirteen', ' Fourteen', ' Fifteen', ' Sixteen', ' Seventeen', ' Eighteen', ' Nineteen'];
+		var tens=[ '', 'Ten', ' Twenty', ' Thirty', ' Forty', ' Fifty', ' Sixty', ' Seventy', ' Eighty', ' Ninety' ];
+		var numlen=rev.length;
+		var word=new Array();	
+		
+		var j=0; 
+		for(i=0;i<numlen;i++)
+		{
+			  switch(i)
+			   {
+				case 0:
+					  if((rev[i]==0) || (rev[i+1]==1))
+					   {
+						  word[j]='';                    
+					   }
+					   else
+					   {
+						 word[j]=once[rev[i]];
+						}
+					   word[j]=word[j] ;
+					   
+					   break;
+				case 1:
+					ntw_abovetens();  
+					   break;
+				  case 2:
+					if(rev[i]==0)
+					{
+					  word[j]='';
+					} 
+				   else if((rev[i-1]==0) || (rev[i-2]==0) )
+					{
+					   word[j]=once[rev[i]]+" Hundred ";                
+					}
+					else 
+					{
+						word[j]=once[rev[i]]+" Hundred and";
+					} 
+				   break;
+				 case 3:
+						if(rev[i]==0 || rev[i+1]==1)
+					   {
+						  word[j]='';                    
+					   } 
+					   else
+					   {
+						 word[j]=once[rev[i]];
+					   }
+					if((rev[i+1]!=0) || (rev[i] > 0))
+					{
+						 word[j]= word[j]+" Thousand";
+					  }
+					  break;  
+				 case 4:
+					  ntw_abovetens(); 
+						break;  
+			   
+				  case 5:
+					   if((rev[i]==0) || (rev[i+1]==1))
+					   {
+						  word[j]='';                    
+					   } 
+					   else
+					   {
+						 word[j]=once[rev[i]];
+					   }
+					word[j]=word[j]+" Lakhs";
+					  break;  
+			  
+			   case 6:
+					  ntw_abovetens(); 
+						break;
+			 
+			  case 7:
+					   if((rev[i]==0) || (rev[i+1]==1))
+					   {
+						  word[j]='';                    
+					   } 
+					   else
+					   {
+						 word[j]=once[rev[i]];
+					   }
+				  word[j]= word[j]+" Crore";
+						break;  
+			  
+			   case 8:
+					  ntw_abovetens(); 
+						break;				 
+					   
+			   case 9:
+					   if((rev[i]==0) || (rev[i+1]==1))
+					   {
+						  word[j]='';                    
+					   } 
+					   else
+					   {
+						 word[j]=once[rev[i]];
+					   }
+				  word[j]= word[j]+" Arab";
+						break;  
+			  
+			   case 10:
+					  ntw_abovetens(); 
+						break;
+			   case 11:
+					   if((rev[i]==0) || (rev[i+1]==1))
+					   {
+						  word[j]='';                    
+					   } 
+					   else
+					   {
+						 word[j]=once[rev[i]];
+					   }
+				  word[j]= word[j]+" Kharab";
+						break;  
+			  
+			   case 12:
+					  ntw_abovetens(); 
+						break;
+
+			   case 13:
+					   if((rev[i]==0) || (rev[i+1]==1))
+					   {
+						  word[j]='';                    
+					   } 
+					   else
+					   {
+						 word[j]=once[rev[i]];
+					   }
+				  word[j]= word[j]+" Neel";
+						break;  
+			  
+			   case 14:
+					  ntw_abovetens(); 
+						break;
+						
+					 default:
+					   break;
+				  }
+		   
+			  j++;  
+		   
+		}   
+	
+		  
+	function ntw_abovetens()
+	{
+		if(rev[i]==0)
+		{
+			word[j]='';
+		} 
+		else if(rev[i]==1)
+		{
+			word[j]=twos[rev[i-1]];
+		}
+		else
+		{
+			word[j]=tens[rev[i]];
+		}
+	}
+		var revWord=new Array();
+		if( crorePortion != null && crorePortion.length > 0 )
+		{
+			var reverse=crorePortion.split("").reverse();
+			
+			j=0;
+			for(i=0;i<reverse.length;i++)
+			{
+				switch(i)
+			   {
+				case 0:
+					  if((reverse[i]==0) || (reverse[i+1]==1))
+					   {
+						  revWord[j]='';                    
+					   }
+					   else
+					   {
+						 revWord[j]=once[reverse[i]];
+						}
+					   revWord[j]=revWord[j] ;					   
+					   break;
+			    case 1:
+					ntw_aboveTens();  
+					   break;
+				  case 2:
+					if(reverse[i]==0)
+					{
+					  revWord[j]='';
+					} 
+				   else if((reverse[i-1]==0) || (reverse[i-2]==0) )
+					{
+					   revWord[j]=once[reverse[i]]+" Hundred ";                
+					}
+					else 
+					{
+						revWord[j]=once[reverse[i]]+" Hundred and";
+					} 
+				   break;
+				 case 3:
+						if(reverse[i]==0 || reverse[i+1]==1)
+					   {
+						  revWord[j]='';                    
+					   } 
+					   else
+					   {
+						 revWord[j]=once[reverse[i]];
+					   }
+					if((reverse[i+1]!=0) || (reverse[i] > 0))
+					{
+						 revWord[j]= revWord[j]+" Thousand";
+					  }
+					  break;  
+				 case 4:
+					  ntw_aboveTens(); 
+						break;  
+			   
+				  case 5:
+					   if((reverse[i]==0) || (reverse[i+1]==1))
+					   {
+						  revWord[j]='';                    
+					   } 
+					   else
+					   {
+						 revWord[j]=once[reverse[i]];
+					   }
+					revWord[j]=revWord[j]+" Lakhs";
+					  break;  
+			  
+			   case 6:
+					  ntw_aboveTens(); 
+						break;
+				default:
+					   break;
+				  }
+		   
+			  j++;  
+			}
+		}
+		
+		function ntw_aboveTens()
+		{
+			if(reverse[i]==0)
+			{
+				revWord[j]='';
+			} 
+			else if(reverse[i]==1)
+			{
+				revWord[j]=twos[reverse[i-1]];
+			}
+			else
+			{
+				revWord[j]=tens[reverse[i]];
+			}
+		}
+		
+		revWord.reverse();
+		var crorePortionString = '';
+		for(i=0;i<revWord.length;i++)
+		{
+		  crorePortionString = crorePortionString + ' ' + revWord[i];
+		}		
+		
+		word.reverse();
+		
+		if( otherPortion > 0 )
+		{
+			for(i=0;i<numlen;i++)
+			{
+			  finalw= finalw+ ' ' + word[i];
+			}
+		}
+		
+		if( numlen == 1 & rev[0]==0 && crorePortionString == '' )
+			finalw = once[0];
+		
+		if( splits.length > 1 )
+		{
+			finalw = finalw + ' Point';
+			var strSplits = splits[1].split("");
+			for( i=0; i<strSplits.length; i++)
+			{
+				finalw = finalw + ' ' + once[strSplits[i]];
+			}
+		}
+		
+		if( crorePortionString != '' )
+		{
+			finalw = crorePortionString + ' Crore ' + finalw;
+		}
+		
+		// return finalw + ' Only';
+	 if(element_type=="DIV")
+	 {
+		$('#'+element_numbertoword).html(finalw + ' Only');
+	 }
+	 else
+	 {
+		$('#'+element_numbertoword).val(finalw + ' Only'); 
+	 }
+		 
+	}

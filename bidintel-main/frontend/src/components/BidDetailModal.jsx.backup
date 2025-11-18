@@ -1,0 +1,217 @@
+/**
+ * BidDetailModal Component - Displays ALL 35+ fields from BID_DATA_FIELDS.md
+ *
+ * Reference: IMPLEMENTATION_GUIDE.md for complete field list
+ * Aligned with PhilGEPS actual HTML structure
+ */
+
+const BidDetailModal = ({ bid, onClose }) => {
+  if (!bid) return null;
+
+  const formatCurrency = (amount) => {
+    if (!amount) return 'N/A';
+    return new Intl.NumberFormat('en-PH', {
+      style: 'currency',
+      currency: 'PHP',
+      minimumFractionDigits: 0
+    }).format(amount);
+  };
+
+  const formatDate = (dateString) => {
+    if (!dateString) return 'N/A';
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
+
+  const getStatusColor = (status) => {
+    switch (status?.toLowerCase()) {
+      case 'open':
+        return 'bg-green-100 text-green-800';
+      case 'closed':
+        return 'bg-gray-100 text-gray-800';
+      case 'evaluation':
+        return 'bg-yellow-100 text-yellow-800';
+      default:
+        return 'bg-blue-100 text-blue-800';
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+        {/* Header */}
+        <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-start z-10">
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">{bid.title}</h2>
+            <div className="flex gap-4 text-sm text-gray-600">
+              <span>Ref: <strong>{bid.reference_number}</strong></span>
+              {bid.control_number && <span>Control: <strong>{bid.control_number}</strong></span>}
+            </div>
+          </div>
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-gray-600 text-2xl font-bold ml-4"
+          >
+            ×
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className="px-6 py-6">
+          {/* Status Badge */}
+          <div className="mb-6">
+            <span className={`inline-block px-4 py-2 text-sm font-semibold rounded-full ${getStatusColor(bid.status)}`}>
+              {bid.status}
+            </span>
+          </div>
+
+          {/* CRITICAL FIELDS Section */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4 border-b pb-2">
+              🔴 Critical Information
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <InfoField label="Classification" value={bid.classification} />
+              <InfoField label="Category" value={bid.category} />
+              <InfoField label="Procurement Mode" value={bid.procurement_mode} />
+              <InfoField label="Lot Type" value={bid.lot_type} />
+              <InfoField label="Approved Budget" value={formatCurrency(bid.approved_budget)} highlight />
+              <InfoField label="Bid Form Fee" value={formatCurrency(bid.bid_form_fee)} />
+              <InfoField label="Bid Validity" value={bid.bid_validity_days ? `${bid.bid_validity_days} days` : 'N/A'} />
+              <InfoField label="Procurement Rules" value={bid.procurement_rules} span="col-span-2" />
+            </div>
+          </div>
+
+          {/* TIMELINE Section */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4 border-b pb-2">
+              📅 Timeline
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <InfoField label="Published Date" value={formatDate(bid.publish_date)} />
+              <InfoField label="Closing Date" value={formatDate(bid.closing_date)} highlight />
+              <InfoField label="Date Created" value={formatDate(bid.date_created)} />
+              <InfoField label="Last Updated" value={formatDate(bid.date_last_updated)} />
+            </div>
+          </div>
+
+          {/* DELIVERY Section */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4 border-b pb-2">
+              🚚 Delivery Information
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <InfoField label="Delivery Location" value={bid.delivery_location} highlight />
+              <InfoField label="Delivery Period" value={bid.delivery_period} />
+              <InfoField label="Agency Address" value={bid.agency_address} span="col-span-2" />
+            </div>
+          </div>
+
+          {/* LINE ITEMS TABLE - CRITICAL */}
+          {bid.line_items && bid.line_items.length > 0 && (
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 border-b pb-2">
+                📦 Line Items (Field #26 - CRITICAL)
+              </h3>
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200 border border-gray-300">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r">Item No.</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r">UNSPSC</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r">Lot Name</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r">Description</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r">Quantity</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Unit</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {bid.line_items.map((item, index) => (
+                      <tr key={index} className="hover:bg-gray-50">
+                        <td className="px-4 py-3 text-sm text-gray-900 border-r">{item.item_number}</td>
+                        <td className="px-4 py-3 text-sm text-gray-600 border-r font-mono">{item.unspsc_code}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900 border-r">{item.lot_name}</td>
+                        <td className="px-4 py-3 text-sm text-gray-600 border-r">{item.lot_description}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900 border-r font-semibold">{item.quantity}</td>
+                        <td className="px-4 py-3 text-sm text-gray-600">{item.unit_of_measure}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* Description */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3 border-b pb-2">Description</h3>
+            <p className="text-gray-700 leading-relaxed whitespace-pre-line bg-gray-50 p-4 rounded-lg">{bid.description}</p>
+          </div>
+
+          {/* AGENCY Section */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4 border-b pb-2">
+              🏛️ Agency Information
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <InfoField label="Procuring Entity" value={bid.procuring_entity} span="col-span-2" />
+              <InfoField label="Contact Person" value={bid.contact_person} />
+              <InfoField label="Created By" value={bid.created_by} />
+              <InfoField label="Contact Email" value={bid.contact_email} />
+              <InfoField label="Contact Phone" value={bid.contact_phone} />
+              <InfoField label="Funding Source" value={bid.funding_source} span="col-span-2" />
+            </div>
+          </div>
+
+          {/* Meta Information */}
+          <div className="bg-gray-50 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Additional Information</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <span className="text-gray-500">Download Count: </span>
+                <span className="text-gray-900 font-medium">{bid.download_count || 0}</span>
+              </div>
+              <div>
+                <span className="text-gray-500">Scraped At: </span>
+                <span className="text-gray-900">{formatDate(bid.scraped_at)}</span>
+              </div>
+              <div className="col-span-2">
+                <span className="text-gray-500">PhilGEPS Link: </span>
+                <a href={bid.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">
+                  {bid.url} →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="sticky bottom-0 bg-gray-50 border-t border-gray-200 px-6 py-4">
+          <button
+            onClick={onClose}
+            className="w-full md:w-auto px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Helper component for consistent field display
+const InfoField = ({ label, value, highlight, span = "" }) => (
+  <div className={span}>
+    <h4 className="text-sm font-medium text-gray-500 mb-1">{label}</h4>
+    <p className={`text-base ${highlight ? 'text-red-600 font-semibold' : 'text-gray-900'}`}>
+      {value || 'N/A'}
+    </p>
+  </div>
+);
+
+export default BidDetailModal;

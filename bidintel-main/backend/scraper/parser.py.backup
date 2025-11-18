@@ -1,0 +1,234 @@
+"""HTML parser for extracting data from PhilGEPS pages."""
+
+from bs4 import BeautifulSoup
+from datetime import datetime
+from typing import Dict, List, Optional
+from utils.logger import logger
+import re
+
+
+class PhilGEPSParser:
+    """Parses PhilGEPS HTML pages to extract structured data."""
+
+    def __init__(self, html: str):
+        """
+        Initialize parser with HTML content.
+
+        Args:
+            html: HTML content to parse
+        """
+        self.soup = BeautifulSoup(html, 'lxml')
+
+    def parse_bid_notice(self) -> Dict:
+        """
+        Parse a bid notice detail page.
+
+        Returns:
+            dict: Extracted bid notice data
+        """
+        try:
+            logger.debug("Parsing bid notice...")
+
+            # This is a template - adjust selectors based on actual HTML structure
+            # You'll need to inspect the actual PhilGEPS pages to get correct selectors
+
+            data = {
+                'reference_number': self._extract_reference_number(),
+                'title': self._extract_title(),
+                'procuring_entity': self._extract_procuring_entity(),
+                'classification': self._extract_classification(),
+                'category': self._extract_category(),
+                'approved_budget': self._extract_budget(),
+                'status': self._extract_status(),
+                'publish_date': self._extract_publish_date(),
+                'closing_date': self._extract_closing_date(),
+                'description': self._extract_description(),
+                'contact_person': self._extract_contact_person(),
+                'contact_email': self._extract_contact_email(),
+                'contact_phone': self._extract_contact_phone(),
+                'delivery_period': self._extract_delivery_period(),
+                'scraped_at': datetime.utcnow()
+            }
+
+            logger.debug(f"Parsed bid notice: {data.get('reference_number')}")
+            return data
+
+        except Exception as e:
+            logger.error(f"Error parsing bid notice: {str(e)}")
+            raise
+
+    def parse_bid_list_page(self) -> List[Dict]:
+        """
+        Parse a page containing list of bid notices.
+
+        Returns:
+            list: List of bid notice summaries with URLs
+        """
+        try:
+            logger.debug("Parsing bid list page...")
+
+            bids = []
+
+            # Find all bid rows in the table
+            # Adjust selector based on actual structure
+            rows = self.soup.select('table.bid-list tbody tr')
+
+            for row in rows:
+                try:
+                    bid = {
+                        'reference_number': self._extract_text(row, '.reference-number'),
+                        'title': self._extract_text(row, '.title'),
+                        'procuring_entity': self._extract_text(row, '.entity'),
+                        'closing_date': self._parse_date(self._extract_text(row, '.closing-date')),
+                        'url': self._extract_link(row, 'a.view-details')
+                    }
+                    bids.append(bid)
+
+                except Exception as e:
+                    logger.warning(f"Error parsing bid row: {str(e)}")
+                    continue
+
+            logger.info(f"Parsed {len(bids)} bid notices from list")
+            return bids
+
+        except Exception as e:
+            logger.error(f"Error parsing bid list: {str(e)}")
+            return []
+
+    # Helper methods for extracting specific fields
+    # Adjust selectors based on actual PhilGEPS HTML structure
+
+    def _extract_reference_number(self) -> Optional[str]:
+        """Extract bid reference number."""
+        return self._extract_text(self.soup, '#reference-number, .reference-number')
+
+    def _extract_title(self) -> Optional[str]:
+        """Extract bid title."""
+        return self._extract_text(self.soup, 'h1.title, .bid-title')
+
+    def _extract_procuring_entity(self) -> Optional[str]:
+        """Extract procuring entity name."""
+        return self._extract_text(self.soup, '.procuring-entity, .entity-name')
+
+    def _extract_classification(self) -> Optional[str]:
+        """Extract classification (Goods/Services/Infrastructure)."""
+        return self._extract_text(self.soup, '.classification')
+
+    def _extract_category(self) -> Optional[str]:
+        """Extract category."""
+        return self._extract_text(self.soup, '.category')
+
+    def _extract_budget(self) -> Optional[float]:
+        """Extract approved budget."""
+        budget_text = self._extract_text(self.soup, '.approved-budget, .budget')
+        if budget_text:
+            # Extract numeric value from text like "PHP 1,234,567.89"
+            numbers = re.sub(r'[^\d.]', '', budget_text)
+            try:
+                return float(numbers)
+            except ValueError:
+                return None
+        return None
+
+    def _extract_status(self) -> Optional[str]:
+        """Extract bid status."""
+        return self._extract_text(self.soup, '.status, .bid-status')
+
+    def _extract_publish_date(self) -> Optional[datetime]:
+        """Extract publish date."""
+        date_text = self._extract_text(self.soup, '.publish-date, .date-published')
+        return self._parse_date(date_text)
+
+    def _extract_closing_date(self) -> Optional[datetime]:
+        """Extract closing date."""
+        date_text = self._extract_text(self.soup, '.closing-date, .deadline')
+        return self._parse_date(date_text)
+
+    def _extract_description(self) -> Optional[str]:
+        """Extract description."""
+        return self._extract_text(self.soup, '.description, .bid-description')
+
+    def _extract_contact_person(self) -> Optional[str]:
+        """Extract contact person."""
+        return self._extract_text(self.soup, '.contact-person')
+
+    def _extract_contact_email(self) -> Optional[str]:
+        """Extract contact email."""
+        return self._extract_text(self.soup, '.contact-email')
+
+    def _extract_contact_phone(self) -> Optional[str]:
+        """Extract contact phone."""
+        return self._extract_text(self.soup, '.contact-phone')
+
+    def _extract_delivery_period(self) -> Optional[str]:
+        """Extract delivery period."""
+        return self._extract_text(self.soup, '.delivery-period')
+
+    # Utility methods
+
+    @staticmethod
+    def _extract_text(soup: BeautifulSoup, selector: str) -> Optional[str]:
+        """
+        Extract text from element matching selector.
+
+        Args:
+            soup: BeautifulSoup object
+            selector: CSS selector
+
+        Returns:
+            str: Extracted text or None
+        """
+        element = soup.select_one(selector)
+        if element:
+            return element.get_text(strip=True)
+        return None
+
+    @staticmethod
+    def _extract_link(soup: BeautifulSoup, selector: str) -> Optional[str]:
+        """
+        Extract href from link element.
+
+        Args:
+            soup: BeautifulSoup object
+            selector: CSS selector
+
+        Returns:
+            str: URL or None
+        """
+        element = soup.select_one(selector)
+        if element:
+            return element.get('href')
+        return None
+
+    @staticmethod
+    def _parse_date(date_string: Optional[str]) -> Optional[datetime]:
+        """
+        Parse date string to datetime object.
+
+        Args:
+            date_string: Date string to parse
+
+        Returns:
+            datetime: Parsed datetime or None
+        """
+        if not date_string:
+            return None
+
+        # Try common date formats
+        # Adjust based on actual PhilGEPS date format
+        formats = [
+            '%Y-%m-%d %H:%M:%S',
+            '%Y-%m-%d',
+            '%m/%d/%Y',
+            '%d-%b-%Y',
+            '%B %d, %Y'
+        ]
+
+        for fmt in formats:
+            try:
+                return datetime.strptime(date_string.strip(), fmt)
+            except ValueError:
+                continue
+
+        logger.warning(f"Could not parse date: {date_string}")
+        return None

@@ -1,0 +1,136 @@
+function CustomAlert()
+{
+    this.render = function(headText,dialog,type,url=''){
+	var winW = window.innerWidth;
+	var winH = window.innerHeight; 
+	
+	$('#dialogoverlay').show();  
+	$("#dialogoverlay").css('height', winH);
+	var setLeft = (winW/2) - (550 * .5); 
+	
+	$("#dialogbox").css('top', 100);
+	$("#dialogbox").css('left', setLeft);
+
+	$('#dialogbox').removeClass(); 
+	var closeBtnClass='';
+	switch(type) 
+	{
+		case 'success': 
+			$('#dialogbox').addClass('panel panel-success fade in onesidedropshadow');
+			closeBtnClass="btn btn-success btn-md";
+			break;
+		case 'danger': 
+			$('#dialogbox').addClass('panel panel-danger onesidedropshadow');
+			closeBtnClass="btn btn-danger btn-md";
+			break;
+		case 'info':
+			$('#dialogbox').addClass('panel panel-info onesidedropshadow');
+			closeBtnClass="btn btn-info btn-md";
+			break; 
+		case 'warning':
+			$('#dialogbox').addClass('panel panel-warning onesidedropshadow');
+			closeBtnClass="btn btn-warning btn-md";
+			break;
+		case 'blue':
+			$('#dialogbox').addClass('panel panel-blue onesidedropshadow');
+			closeBtnClass="btn btn-blue btn-md";
+			break;
+		case 'default':
+			$('#dialogbox').addClass('panel panel-default onesidedropshadow');
+			closeBtnClass="btn btn-default btn-md";
+	} 
+	$('#dialogbox').show(); 
+	$('#dialogboxhead').html(headText); 
+	$('#dialogboxbody').html('<strong>' + dialog + '</strong>');  
+	
+		if(url!='')
+		{
+			$('#dialogboxfoot').html("<div style='float:right;' ><button style='float:right;' class='"+ closeBtnClass +"' onclick='nxtAlert.ok(\""+url+"\")'>OK</button></div>");
+		}
+		else{
+			$('#dialogboxfoot').html("<div style='float:right;' ><button style='float:right;' class='"+ closeBtnClass +"' onclick='nxtAlert.ok()'>OK</button></div>"); 
+		}
+    }
+	this.ok = function(url=''){
+		$('#dialogbox').removeClass();
+		$('#dialogbox').hide(); 
+		$('#dialogoverlay').hide(); 
+		 
+		if(url!='')
+		{
+			window.location.href = url;
+// 			location.reload(url);
+		}
+	}
+}
+
+ 
+function CustomConfirm()
+{
+	var parameters=null;
+	var callbackFunction = null;
+    this.setParam=function(param){parameters=param;};
+    this.render = function(headText,dialog,type,functionName){
+	var winW = window.innerWidth;
+	var winH = window.innerHeight; 
+	callbackFunction = functionName;
+	$('#dialogoverlay').show();  
+	$("#dialogoverlay").css('height', winH);
+	var setLeft = (winW/2) - (550 * .5); 
+	
+	$("#dialogbox").css('top', 100);
+	$("#dialogbox").css('left', setLeft);
+
+	$('#dialogbox').removeClass(); 
+	var closeBtnClass='';
+	switch(type) 
+	{
+		case 'success': 
+			$('#dialogbox').addClass('panel panel-success fade in onesidedropshadow');
+			closeBtnClass="btn btn-success btn-md";
+			break;
+		case 'danger': 
+			$('#dialogbox').addClass('panel panel-danger onesidedropshadow');
+			closeBtnClass="btn btn-danger btn-md";
+			break;
+		case 'info':
+			$('#dialogbox').addClass('panel panel-info onesidedropshadow');
+			closeBtnClass="btn btn-info btn-md";
+			break; 
+		case 'warning':
+			$('#dialogbox').addClass('panel panel-warning onesidedropshadow');
+			closeBtnClass="btn btn-warning btn-md";
+			break;
+		case 'default':
+			$('#dialogbox').addClass('panel panel-default onesidedropshadow');
+			closeBtnClass="btn btn-default btn-md";
+	} 
+	$('#dialogbox').show(); 
+	$('#dialogboxhead').html(headText); 
+	$('#dialogboxbody').html('<strong>' + dialog + '</strong>');  
+	
+		if(callbackFunction)
+		{
+			$('#dialogboxfoot').html("<div style='float:right;' ><button class='"+ closeBtnClass +"' onclick='nxtConfirm.ok()'>YES</button>&nbsp;&nbsp;<button class='"+ closeBtnClass +"' onclick='nxtConfirm.cancel()'>NO</button></div>");
+		}
+		else
+		{
+			$('#dialogboxfoot').html("<div style='float:right;' ><button class='"+ closeBtnClass +"' onclick='nxtConfirm.cancel()'>OK</button></div>");
+		}
+    }
+	this.ok = function(){
+		$('#dialogbox').removeClass();
+		$('#dialogbox').hide(); 
+		$('#dialogoverlay').hide(); 
+		 
+		if(callbackFunction)
+		{  
+			setTimeout (  callbackFunction(parameters), 1 ); 
+		} 
+	}
+	this.cancel = function(){
+		$('#dialogbox').removeClass();
+		$('#dialogbox').hide(); 
+		$('#dialogoverlay').hide();  
+	}
+}

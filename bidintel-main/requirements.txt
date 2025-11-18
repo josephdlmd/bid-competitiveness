@@ -1,0 +1,33 @@
+# FastAPI & Web Server
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+
+# Web Scraping & Browser Automation
+playwright==1.56.0
+requests==2.32.5
+
+# HTML Parsing
+beautifulsoup4==4.14.2
+lxml==6.0.2
+
+# Database
+sqlalchemy==2.0.44
+psycopg2-binary==2.9.11  # PostgreSQL adapter (optional, can use SQLite)
+
+# Job Scheduling (optional - for scheduled runs)
+APScheduler==3.11.1
+
+# Environment Variables
+python-dotenv==1.2.1
+
+# Logging & Monitoring
+loguru==0.7.3
+
+# Utilities
+python-dateutil==2.9.0.post0
+pytz==2025.2
+
+# CAPTCHA Solving (not needed for public scraper, but keeping for compatibility)
+# 2captcha-python==2.0.1
+# playwright-recaptcha==0.5.1

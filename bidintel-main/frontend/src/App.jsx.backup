@@ -1,0 +1,112 @@
+import { useState } from 'react';
+import BidTable from './components/BidTable';
+import SearchFilter from './components/SearchFilter';
+import BidDetailModal from './components/BidDetailModal';
+import { mockBids } from './data/mockBids';
+
+function App() {
+  const [filteredBids, setFilteredBids] = useState(mockBids);
+  const [selectedBid, setSelectedBid] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeFilters, setActiveFilters] = useState({
+    status: '',
+    classification: '',
+    procuring_entity: ''
+  });
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    applyFilters(term, activeFilters);
+  };
+
+  const handleFilter = (filters) => {
+    setActiveFilters(filters);
+    applyFilters(searchTerm, filters);
+  };
+
+  const applyFilters = (search, filters) => {
+    let filtered = [...mockBids];
+
+    // Apply search
+    if (search) {
+      const searchLower = search.toLowerCase();
+      filtered = filtered.filter(bid =>
+        bid.title.toLowerCase().includes(searchLower) ||
+        bid.reference_number.toLowerCase().includes(searchLower) ||
+        bid.procuring_entity.toLowerCase().includes(searchLower) ||
+        bid.description.toLowerCase().includes(searchLower) ||
+        bid.category.toLowerCase().includes(searchLower)
+      );
+    }
+
+    // Apply status filter
+    if (filters.status) {
+      filtered = filtered.filter(bid => bid.status === filters.status);
+    }
+
+    // Apply classification filter
+    if (filters.classification) {
+      filtered = filtered.filter(bid => bid.classification === filters.classification);
+    }
+
+    // Apply procuring entity filter
+    if (filters.procuring_entity) {
+      filtered = filtered.filter(bid => bid.procuring_entity === filters.procuring_entity);
+    }
+
+    setFilteredBids(filtered);
+  };
+
+  const handleBidClick = (bid) => {
+    setSelectedBid(bid);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedBid(null);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <h1 className="text-3xl font-bold text-gray-900">PhilGEPS Bid Opportunities</h1>
+          <p className="mt-1 text-sm text-gray-600">
+            Browse and search government procurement opportunities
+          </p>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Search and Filters */}
+        <SearchFilter onSearch={handleSearch} onFilter={handleFilter} />
+
+        {/* Results Count */}
+        <div className="mb-4">
+          <p className="text-sm text-gray-600">
+            Showing <span className="font-semibold text-gray-900">{filteredBids.length}</span> of{' '}
+            <span className="font-semibold text-gray-900">{mockBids.length}</span> opportunities
+          </p>
+        </div>
+
+        {/* Bid Table */}
+        {filteredBids.length > 0 ? (
+          <BidTable bids={filteredBids} onBidClick={handleBidClick} />
+        ) : (
+          <div className="bg-white rounded-lg shadow-md p-12 text-center">
+            <p className="text-gray-500 text-lg">No bid opportunities found matching your criteria.</p>
+            <p className="text-gray-400 text-sm mt-2">Try adjusting your search or filters.</p>
+          </div>
+        )}
+      </main>
+
+      {/* Bid Detail Modal */}
+      {selectedBid && (
+        <BidDetailModal bid={selectedBid} onClose={handleCloseModal} />
+      )}
+    </div>
+  );
+}
+
+export default App;
