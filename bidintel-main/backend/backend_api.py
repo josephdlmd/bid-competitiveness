@@ -3,7 +3,7 @@
 from fastapi import FastAPI, Query, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import func, extract
-from models.schemas import BidNotice, LineItem, ScrapingLog
+from models.schemas import BidNotice, LineItem, ScrapingLog, AwardedContract, AwardLineItem, AwardDocument
 from models.database import Database
 from datetime import datetime, timedelta
 from typing import Optional, Dict, Any
@@ -64,18 +64,33 @@ def root():
     """Root endpoint."""
     return {
         "message": "PhilGEPS Dashboard API",
-        "version": "1.0.0",
-        "endpoints": [
-            "/api/bids",
-            "/api/bids/{id}",
-            "/api/stats",
-            "/api/analytics",
-            "/api/logs",
-            "/api/scraper/config",
-            "/api/scraper/status",
-            "/api/scraper/run",
-            "/api/scraper/stop"
-        ]
+        "version": "2.0.0",
+        "endpoints": {
+            "bids": [
+                "/api/bids",
+                "/api/bids/{id}",
+                "/api/stats",
+                "/api/analytics"
+            ],
+            "awarded_contracts": [
+                "/api/awarded-contracts",
+                "/api/awarded-contracts/{award_notice_number}",
+                "/api/awarded-contracts/stats/summary",
+                "/api/awarded-contracts/analytics/top-winners",
+                "/api/awarded-contracts/analytics/by-agency",
+                "/api/awarded-contracts/analytics/trends"
+            ],
+            "scraper": [
+                "/api/scraper/config",
+                "/api/scraper/status",
+                "/api/scraper/run",
+                "/api/scraper/stop"
+            ],
+            "system": [
+                "/api/logs",
+                "/health"
+            ]
+        }
     }
 
 
@@ -740,6 +755,295 @@ def stop_scraper():
         "success": True,
         "message": "Scraper stop requested"
     }
+
+
+# ============================================================================
+# AWARDED CONTRACTS API ENDPOINTS
+# ============================================================================
+
+@app.get("/api/awarded-contracts")
+def get_awarded_contracts(
+    procuring_entity: Optional[str] = Query(None, description="Filter by procuring entity/agency"),
+    awardee: Optional[str] = Query(None, description="Filter by awardee/winner name"),
+    classification: Optional[str] = Query(None, description="Filter by classification (Goods, Services, Infrastructure)"),
+    category: Optional[str] = Query(None, description="Filter by business category"),
+    min_budget: Optional[float] = Query(None, description="Minimum approved budget (ABC)"),
+    max_budget: Optional[float] = Query(None, description="Maximum approved budget (ABC)"),
+    min_contract_amount: Optional[float] = Query(None, description="Minimum contract amount"),
+    max_contract_amount: Optional[float] = Query(None, description="Maximum contract amount"),
+    date_from: Optional[str] = Query(None, description="Award date from (ISO format)"),
+    date_to: Optional[str] = Query(None, description="Award date to (ISO format)"),
+    search: Optional[str] = Query(None, description="Search in title, awardee, agency"),
+    limit: int = Query(100, ge=1, le=1000, description="Results per page"),
+    offset: int = Query(0, ge=0, description="Pagination offset")
+):
+    """
+    List all awarded contracts with optional filtering.
+
+    Returns paginated list of awarded contracts with comprehensive filtering options.
+    """
+    try:
+        # Build filters
+        filters = {}
+        if procuring_entity:
+            filters['procuring_entity'] = procuring_entity
+        if awardee:
+            filters['awardee_name'] = awardee
+        if classification:
+            filters['classification'] = classification
+        if category:
+            filters['category'] = category
+        if date_from:
+            filters['date_from'] = datetime.fromisoformat(date_from)
+        if date_to:
+            filters['date_to'] = datetime.fromisoformat(date_to)
+        if min_budget:
+            filters['min_budget'] = min_budget
+        if max_budget:
+            filters['max_budget'] = max_budget
+        if min_contract_amount:
+            filters['min_contract_amount'] = min_contract_amount
+        if max_contract_amount:
+            filters['max_contract_amount'] = max_contract_amount
+        if search:
+            filters['search_term'] = search
+
+        # Get contracts
+        contracts = db.get_filtered_awarded_contracts(**filters)
+
+        # Apply pagination
+        total = len(contracts)
+        contracts_page = contracts[offset:offset + limit]
+
+        # Convert to dict for JSON response
+        results = []
+        for contract in contracts_page:
+            contract_dict = contract.to_dict()
+            # Add calculated savings
+            if contract.approved_budget and contract.contract_amount:
+                savings = contract.approved_budget - contract.contract_amount
+                savings_pct = (savings / contract.approved_budget) * 100
+                contract_dict['savings'] = savings
+                contract_dict['savings_percentage'] = savings_pct
+            results.append(contract_dict)
+
+        return {
+            "total": total,
+            "limit": limit,
+            "offset": offset,
+            "results": results
+        }
+
+    except Exception as e:
+        logger.error(f"Error getting awarded contracts: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/awarded-contracts/{award_notice_number}")
+def get_awarded_contract(award_notice_number: str):
+    """
+    Get a single awarded contract by award notice number.
+
+    Returns complete details including line items and documents.
+    """
+    try:
+        contract = db.get_awarded_contract_by_number(award_notice_number)
+        if not contract:
+            raise HTTPException(status_code=404, detail=f"Awarded contract {award_notice_number} not found")
+
+        # Convert to dict
+        result = contract.to_dict()
+
+        # Add savings calculation
+        if contract.approved_budget and contract.contract_amount:
+            savings = contract.approved_budget - contract.contract_amount
+            savings_pct = (savings / contract.approved_budget) * 100
+            result['savings'] = savings
+            result['savings_percentage'] = savings_pct
+
+        # Add line items
+        result['line_items'] = [item.to_dict() for item in contract.line_items]
+
+        # Add documents
+        result['documents'] = [doc.to_dict() for doc in contract.documents]
+
+        return result
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error getting awarded contract: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/awarded-contracts/stats/summary")
+def get_awarded_contracts_stats():
+    """
+    Get awarded contracts statistics.
+
+    Returns:
+    - Total number of contracts
+    - Total ABC and contract amounts
+    - Total savings
+    - Average savings percentage
+    - Unique awardees and agencies
+    """
+    try:
+        stats = db.get_award_stats()
+        return stats
+
+    except Exception as e:
+        logger.error(f"Error getting awarded contracts stats: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/awarded-contracts/analytics/top-winners")
+def get_top_winners(limit: int = Query(10, ge=1, le=100, description="Number of top winners")):
+    """
+    Get top winning companies/awardees.
+
+    Returns list of companies with most contracts won and total amounts.
+    """
+    try:
+        session = db.get_session()
+
+        # Query top winners by count and total amount
+        results = session.query(
+            AwardedContract.awardee_name,
+            func.count(AwardedContract.id).label('contract_count'),
+            func.sum(AwardedContract.contract_amount).label('total_amount'),
+            func.sum(AwardedContract.approved_budget).label('total_abc'),
+            func.avg(AwardedContract.contract_amount).label('avg_amount')
+        ).filter(
+            AwardedContract.awardee_name.isnot(None)
+        ).group_by(
+            AwardedContract.awardee_name
+        ).order_by(
+            func.count(AwardedContract.id).desc()
+        ).limit(limit).all()
+
+        session.close()
+
+        winners = []
+        for row in results:
+            total_savings = (row.total_abc or 0) - (row.total_amount or 0)
+            savings_pct = (total_savings / row.total_abc * 100) if row.total_abc else 0
+
+            winners.append({
+                'awardee_name': row.awardee_name,
+                'contract_count': row.contract_count,
+                'total_amount': float(row.total_amount) if row.total_amount else 0,
+                'total_abc': float(row.total_abc) if row.total_abc else 0,
+                'total_savings': float(total_savings),
+                'avg_savings_percentage': float(savings_pct),
+                'avg_contract_amount': float(row.avg_amount) if row.avg_amount else 0
+            })
+
+        return {"top_winners": winners}
+
+    except Exception as e:
+        logger.error(f"Error getting top winners: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/awarded-contracts/analytics/by-agency")
+def get_contracts_by_agency(limit: int = Query(10, ge=1, le=100)):
+    """
+    Get awarded contracts grouped by procuring entity/agency.
+
+    Returns agencies with most contracts and spending.
+    """
+    try:
+        session = db.get_session()
+
+        results = session.query(
+            AwardedContract.procuring_entity,
+            func.count(AwardedContract.id).label('contract_count'),
+            func.sum(AwardedContract.contract_amount).label('total_amount'),
+            func.sum(AwardedContract.approved_budget).label('total_abc'),
+            func.avg(AwardedContract.contract_amount).label('avg_amount')
+        ).filter(
+            AwardedContract.procuring_entity.isnot(None)
+        ).group_by(
+            AwardedContract.procuring_entity
+        ).order_by(
+            func.sum(AwardedContract.contract_amount).desc()
+        ).limit(limit).all()
+
+        session.close()
+
+        agencies = []
+        for row in results:
+            total_savings = (row.total_abc or 0) - (row.total_amount or 0)
+
+            agencies.append({
+                'procuring_entity': row.procuring_entity,
+                'contract_count': row.contract_count,
+                'total_amount': float(row.total_amount) if row.total_amount else 0,
+                'total_abc': float(row.total_abc) if row.total_abc else 0,
+                'total_savings': float(total_savings),
+                'avg_contract_amount': float(row.avg_amount) if row.avg_amount else 0
+            })
+
+        return {"agencies": agencies}
+
+    except Exception as e:
+        logger.error(f"Error getting contracts by agency: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/awarded-contracts/analytics/trends")
+def get_contract_trends(
+    period: str = Query("month", description="Period: day, week, month, year"),
+    limit: int = Query(12, ge=1, le=100)
+):
+    """
+    Get contract award trends over time.
+
+    Returns time series data of contracts and amounts.
+    """
+    try:
+        session = db.get_session()
+
+        # Determine grouping based on period
+        if period == "day":
+            time_group = func.date(AwardedContract.award_date)
+        elif period == "week":
+            time_group = func.strftime('%Y-W%W', AwardedContract.award_date)
+        elif period == "year":
+            time_group = extract('year', AwardedContract.award_date)
+        else:  # month (default)
+            time_group = func.strftime('%Y-%m', AwardedContract.award_date)
+
+        results = session.query(
+            time_group.label('period'),
+            func.count(AwardedContract.id).label('contract_count'),
+            func.sum(AwardedContract.contract_amount).label('total_amount'),
+            func.avg(AwardedContract.contract_amount).label('avg_amount')
+        ).filter(
+            AwardedContract.award_date.isnot(None)
+        ).group_by(
+            time_group
+        ).order_by(
+            time_group.desc()
+        ).limit(limit).all()
+
+        session.close()
+
+        trends = []
+        for row in results:
+            trends.append({
+                'period': str(row.period),
+                'contract_count': row.contract_count,
+                'total_amount': float(row.total_amount) if row.total_amount else 0,
+                'avg_contract_amount': float(row.avg_amount) if row.avg_amount else 0
+            })
+
+        return {"trends": list(reversed(trends))}  # Reverse for chronological order
+
+    except Exception as e:
+        logger.error(f"Error getting contract trends: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/health")

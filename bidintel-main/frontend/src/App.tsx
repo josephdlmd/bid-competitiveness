@@ -4,8 +4,10 @@ import OpportunityDashboard from './components/OpportunityDashboard';
 import UNSPSCIntelligence from './components/UNSPSCIntelligence';
 import AgencyIntelligence from './components/AgencyIntelligence';
 import ConfigurationPage from './pages/ConfigurationPage';
+import AwardedContractsPage from './pages/AwardedContractsPage';
+import AwardedAnalyticsPage from './pages/AwardedAnalyticsPage';
 
-type ViewType = 'index' | 'opportunities' | 'products' | 'agencies' | 'configuration';
+type ViewType = 'index' | 'opportunities' | 'products' | 'agencies' | 'awarded' | 'awarded-analytics' | 'configuration';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('index');
@@ -20,6 +22,10 @@ function App() {
         return <UNSPSCIntelligence />;
       case 'agencies':
         return <AgencyIntelligence />;
+      case 'awarded':
+        return <AwardedContractsPage />;
+      case 'awarded-analytics':
+        return <AwardedAnalyticsPage />;
       case 'configuration':
         return <ConfigurationPage />;
       default:
@@ -58,6 +64,28 @@ function App() {
                 >
                   Top Opportunities
                 </button>
+                <div className="border-l border-slate-300 h-5"></div>
+                <button
+                  onClick={() => setCurrentView('awarded')}
+                  className={`text-sm ${
+                    currentView === 'awarded'
+                      ? 'text-slate-900 font-medium'
+                      : 'text-slate-500 hover:text-slate-900'
+                  }`}
+                >
+                  🏆 Awarded Contracts
+                </button>
+                <button
+                  onClick={() => setCurrentView('awarded-analytics')}
+                  className={`text-sm ${
+                    currentView === 'awarded-analytics'
+                      ? 'text-slate-900 font-medium'
+                      : 'text-slate-500 hover:text-slate-900'
+                  }`}
+                >
+                  📊 Winners Analytics
+                </button>
+                <div className="border-l border-slate-300 h-5"></div>
                 <button
                   onClick={() => setCurrentView('products')}
                   className={`text-sm ${

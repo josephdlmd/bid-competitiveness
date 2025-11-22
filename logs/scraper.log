@@ -25,6 +25,7 @@
 2025-11-18 13:24:26 | INFO     | scraper.awarded_contracts_scraper:run:221 - Awarded contracts scraping completed in 19.96 seconds
 2025-11-18 13:24:26 | INFO     | scraper.awarded_contracts_scraper:run:222 - Workers: 1, Total: 0, New: 0, Skipped: 0, Errors: 0
 2025-11-18 13:24:26 | INFO     | scraper.awarded_contracts_scraper:run:223 - ============================================================
+<<<<<<< HEAD
 2025-11-22 15:38:06 | INFO     | models.database:_create_tables:26 - Database tables created/verified
 2025-11-22 15:38:47 | INFO     | models.database:_create_tables:26 - Database tables created/verified
 2025-11-22 15:38:51 | INFO     | models.database:_create_tables:26 - Database tables created/verified
@@ -238,3 +239,13 @@ Call log:
 2025-11-22 16:07:47 | INFO     | models.database:_create_tables:26 - Database tables created/verified
 2025-11-22 16:15:23 | INFO     | models.database:_create_tables:26 - Database tables created/verified
 2025-11-22 16:16:24 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+=======
+2025-11-22 08:45:00 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 08:45:05 | ERROR    | __main__:_detect_total_pages:266 - Error detecting total pages: Page.content: Target crashed 
+2025-11-22 08:45:05 | ERROR    | __main__:run:135 - Error scraping page 1: Page.content: Target crashed 
+2025-11-22 08:45:05 | ERROR    | __main__:run:135 - Error scraping page 2: Page.goto: Page crashed
+Call log:
+  - navigating to "https://philgeps.gov.ph/Indexes/viewMoreAward?page=2", waiting until "domcontentloaded"
+
+>>>>>>> ec31cf9466c8cf4c4a1e61a04d601badb190f5f3
+2025-11-22 17:29:00 | INFO     | models.database:_create_tables:26 - Database tables created/verified
