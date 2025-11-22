@@ -188,13 +188,21 @@ class PhilGEPSParser:
 
     def _extract_procuring_entity(self) -> Optional[str]:
         """Extract procuring entity name from detail page."""
-        # Pattern: <label>Client Agency: </label><br>CITY GOVERNMENT OF BACOOR
+        # Try Method 1: <center class="verdhana_bold_twelvepx">DUTY FREE PHILIPPINES CORPORATION</center>
+        center = self.soup.find('center', class_='verdhana_bold_twelvepx')
+        if center:
+            text = center.get_text(strip=True)
+            if text:
+                return text
+
+        # Try Method 2: <label>Client Agency: </label><br>CITY GOVERNMENT OF BACOOR
         label = self.soup.find('label', string=re.compile(r'Client Agency:'))
         if label:
             # Get next sibling text after <br>
             next_text = self._get_text_after_label(label)
             if next_text:
                 return next_text.strip()
+
         return None
 
     def _extract_classification(self) -> Optional[str]:
@@ -438,6 +446,14 @@ class PhilGEPSParser:
         Reference: BID_DATA_FIELDS.md Field #21
         Example: "Bacoor Government Center Bayanan, Bacoor, Cavite, Region IV-A"
         """
+        # Try Method 1: <center class="verdhana_twelvepx">Columbia Complex, Ninoy Aquino Avenue...</center>
+        center = self.soup.find('center', class_='verdhana_twelvepx')
+        if center:
+            text = center.get_text(strip=True)
+            if text:
+                return text
+
+        # Try Method 2: <label>Address: </label><br>...
         label = self.soup.find('label', string=re.compile(r'Address:', re.IGNORECASE))
         if label:
             # May need to concatenate multiple text nodes for full address
@@ -452,6 +468,7 @@ class PhilGEPSParser:
                 elif sibling.name:
                     break
             return ' '.join(address_parts) if address_parts else None
+
         return None
 
     def _extract_created_by(self) -> Optional[str]:
@@ -803,6 +820,9 @@ class PhilGEPSParser:
 
                 # LINE ITEMS (reuse existing)
                 'line_items': self._extract_line_items(),
+
+                # DOCUMENTS (View Document links)
+                'documents': self._extract_award_documents(),
 
                 # META
                 'scraped_at': datetime.now(timezone.utc)
@@ -1164,6 +1184,69 @@ class PhilGEPSParser:
         except Exception as e:
             logger.debug(f"Error extracting period of contract: {e}")
             return None
+
+    def _extract_award_documents(self) -> List[Dict]:
+        """
+        Extract document links from awarded contract page.
+
+        Looks for "View Document" links and other document downloads.
+
+        HTML Example:
+        <b>View Document</b> with href to document URL
+
+        Returns:
+            List[Dict]: List of document dictionaries with filename, url, type
+        """
+        documents = []
+
+        try:
+            # Method 1: Look for <b>View Document</b> links
+            view_doc_tags = self.soup.find_all('b', string=re.compile(r'View Document', re.I))
+            for tag in view_doc_tags:
+                # Find parent <a> tag
+                link = tag.find_parent('a')
+                if link:
+                    href = link.get('href', '').strip()
+                    if href:
+                        # Handle relative URLs
+                        if href.startswith('/'):
+                            href = f"https://philgeps.gov.ph{href}"
+                        elif not href.startswith('http'):
+                            href = f"https://philgeps.gov.ph/{href}"
+
+                        documents.append({
+                            'filename': 'Award Document',
+                            'document_url': href,
+                            'document_type': 'Award Document'
+                        })
+
+            # Method 2: Look for PDF links (alternative pattern)
+            pdf_links = self.soup.find_all('a', href=re.compile(r'\.pdf|document|download', re.I))
+            for link in pdf_links:
+                href = link.get('href', '').strip()
+                if not href or any(d['document_url'] == href for d in documents):
+                    continue
+
+                # Handle relative URLs
+                if href.startswith('/'):
+                    href = f"https://philgeps.gov.ph{href}"
+                elif not href.startswith('http'):
+                    href = f"https://philgeps.gov.ph/{href}"
+
+                filename = link.get_text(strip=True) or href.split('/')[-1]
+
+                documents.append({
+                    'filename': filename,
+                    'document_url': href,
+                    'document_type': self._guess_document_type(filename)
+                })
+
+            logger.debug(f"Extracted {len(documents)} award documents")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error extracting award documents: {str(e)}")
+            return []
 
     def _extract_proceed_date(self) -> Optional[datetime]:
         """
