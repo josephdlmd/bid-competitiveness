@@ -178,7 +178,15 @@ class TwoPageScraper:
                     continue
 
                 award_notice_number = award_link.get_text(strip=True)
-                award_url = "https://philgeps.gov.ph" + award_link.get('href', '')
+                href = award_link.get('href', '')
+
+                # Handle both relative and absolute URLs
+                if href.startswith('http'):
+                    award_url = href
+                elif href.startswith('/'):
+                    award_url = "https://philgeps.gov.ph" + href
+                else:
+                    award_url = "https://philgeps.gov.ph/" + href
 
                 # Extract title
                 title_cell = row.select_one('td:nth-of-type(2)')
