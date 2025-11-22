@@ -351,9 +351,17 @@ class PhilGEPSParser:
         Extract procurement mode (Field #11, line 582).
 
         Reference: BID_DATA_FIELDS.md Field #11
-        Example: "Public Bidding", "Limited Source Bidding"
+        Example: "Public Bidding", "Negotiated Procurement - Small Value Procurement (Sec. 53.9)"
+
+        HTML Example:
+        <label>Mode Of Procurement:</label>
+        Negotiated Procurement - Small Value Procurement (Sec. 53.9)
         """
-        label = self.soup.find('label', string=re.compile(r'Procurement Mode:', re.IGNORECASE))
+        # Try different label variations
+        label = self.soup.find('label', string=re.compile(r'Mode\s*Of\s*Procurement', re.IGNORECASE))
+        if not label:
+            label = self.soup.find('label', string=re.compile(r'Procurement\s*Mode', re.IGNORECASE))
+
         if label:
             return self._get_text_after_label(label)
         return None
