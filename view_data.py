@@ -118,6 +118,15 @@ def main():
         print(f"   Created By: {award.created_by or 'N/A'}")
         print(f"   Publish Date: {award.publish_date or 'N/A'}")
 
+        # Documents
+        if award.documents:
+            print(f"\n📄 DOCUMENTS ({len(award.documents)}):")
+            for doc in award.documents:
+                print(f"   • {doc.document_type or 'Document'}: {doc.filename}")
+                print(f"     URL: {doc.document_url}")
+        else:
+            print(f"\n📄 DOCUMENTS: None found")
+
     print("\n" + "="*80)
     print("✅ END OF DATA")
     print("="*80)
