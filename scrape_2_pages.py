@@ -49,25 +49,19 @@ class TwoPageScraper:
             print("\n📱 Launching browser...")
             browser = await playwright.chromium.launch(
                 headless=False,  # Visible mode for testing
-                args=[
-                    '--disable-blink-features=AutomationControlled',
-                    '--disable-dev-shm-usage',
-                    '--no-sandbox'
-                ]
+                args=self.stealth.get_launch_args()
             )
 
-            # Create context with stealth
+            # Create context with stealth options
             context = await browser.new_context(
-                viewport={'width': 1920, 'height': 1080},
-                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                **self.stealth.get_context_options()
             )
-
-            # Apply stealth to context
-            await self.stealth.apply_stealth_to_context(context)
 
             # Create page
             page = await context.new_page()
-            await self.stealth.apply_stealth_to_page(page)
+
+            # Apply stealth to page
+            await self.stealth.apply_stealth(page)
 
             try:
                 # Navigate to awards page
