@@ -25,3 +25,216 @@
 2025-11-18 13:24:26 | INFO     | scraper.awarded_contracts_scraper:run:221 - Awarded contracts scraping completed in 19.96 seconds
 2025-11-18 13:24:26 | INFO     | scraper.awarded_contracts_scraper:run:222 - Workers: 1, Total: 0, New: 0, Skipped: 0, Errors: 0
 2025-11-18 13:24:26 | INFO     | scraper.awarded_contracts_scraper:run:223 - ============================================================
+2025-11-22 15:38:06 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 15:38:47 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 15:38:51 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 15:39:43 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 15:41:14 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2113: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2113/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2113/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2093: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2093/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2093/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2112: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2112/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2112/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2063: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2063/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2063/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2062: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2062/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2062/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2061: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2061/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2061/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2060: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2060/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2060/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2059: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2059/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2059/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2058: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2058/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2058/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2057: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2057/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2057/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2056: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2056/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2056/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2053: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2053/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2053/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2095: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2095/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2095/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2080: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2080/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2080/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2065: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2065/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2065/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 1998: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1998/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1998/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 1997: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1997/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1997/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 1972: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1972/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1972/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 1959: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1959/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1959/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:25 | ERROR    | __main__:run:134 - Error scraping 2054: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2054/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2054/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1960: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1960/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1960/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1999: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1999/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1999/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1961: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1961/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1961/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1944: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1944/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1944/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1945: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1945/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1945/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1955: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1955/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1955/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1962: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1962/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1962/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1963: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1963/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1963/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1971: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1971/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1971/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 2092: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2092/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2092/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1949: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1949/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1949/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 2085: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2085/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2085/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1943: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1943/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1943/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 2089: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2089/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2089/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 2090: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2090/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2090/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 2091: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2091/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/2091/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1952: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1952/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1952/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1954: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1954/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1954/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1953: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1953/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1953/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:41:26 | ERROR    | __main__:run:134 - Error scraping 1951: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1951/MORE
+Call log:
+  - navigating to "https://philgeps.gov.phhttps//philgeps.gov.ph/Indexes/viewAwardNotice/1951/MORE", waiting until "domcontentloaded"
+
+2025-11-22 15:43:47 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 15:44:04 | ERROR    | __main__:run:134 - Error scraping 2113: 'NoneType' object is not subscriptable
+2025-11-22 15:44:06 | ERROR    | __main__:run:134 - Error scraping 2093: 'NoneType' object is not subscriptable
+2025-11-22 15:44:09 | ERROR    | __main__:run:134 - Error scraping 2112: 'NoneType' object is not subscriptable
+2025-11-22 15:44:11 | ERROR    | __main__:run:134 - Error scraping 2063: 'NoneType' object is not subscriptable
+2025-11-22 15:44:14 | ERROR    | __main__:run:134 - Error scraping 2062: 'NoneType' object is not subscriptable
+2025-11-22 15:44:16 | ERROR    | __main__:run:134 - Error scraping 2061: 'NoneType' object is not subscriptable
+2025-11-22 15:44:19 | ERROR    | __main__:run:134 - Error scraping 2060: 'NoneType' object is not subscriptable
+2025-11-22 15:44:22 | ERROR    | __main__:run:134 - Error scraping 2059: 'NoneType' object is not subscriptable
+2025-11-22 15:44:24 | ERROR    | __main__:run:134 - Error scraping 2058: 'NoneType' object is not subscriptable
+2025-11-22 15:44:27 | ERROR    | __main__:run:134 - Error scraping 2057: 'NoneType' object is not subscriptable
+2025-11-22 15:44:29 | ERROR    | __main__:run:134 - Error scraping 2056: 'NoneType' object is not subscriptable
+2025-11-22 15:44:32 | ERROR    | __main__:run:134 - Error scraping 2053: 'NoneType' object is not subscriptable
+2025-11-22 15:44:35 | ERROR    | __main__:run:134 - Error scraping 2095: 'NoneType' object is not subscriptable
+2025-11-22 15:44:37 | ERROR    | __main__:run:134 - Error scraping 2080: 'NoneType' object is not subscriptable
+2025-11-22 15:44:40 | ERROR    | __main__:run:134 - Error scraping 2065: 'NoneType' object is not subscriptable
+2025-11-22 15:44:42 | ERROR    | __main__:run:134 - Error scraping 1998: 'NoneType' object is not subscriptable
+2025-11-22 15:44:45 | ERROR    | __main__:run:134 - Error scraping 1997: 'NoneType' object is not subscriptable
+2025-11-22 15:44:48 | ERROR    | __main__:run:134 - Error scraping 1972: 'NoneType' object is not subscriptable
+2025-11-22 15:44:50 | ERROR    | __main__:run:134 - Error scraping 1959: 'NoneType' object is not subscriptable
+2025-11-22 15:44:53 | ERROR    | __main__:run:134 - Error scraping 2054: 'NoneType' object is not subscriptable
+2025-11-22 15:44:55 | ERROR    | __main__:run:134 - Error scraping 1960: 'NoneType' object is not subscriptable
+2025-11-22 15:44:58 | ERROR    | __main__:run:134 - Error scraping 1999: 'NoneType' object is not subscriptable
+2025-11-22 15:45:01 | ERROR    | __main__:run:134 - Error scraping 1961: 'NoneType' object is not subscriptable
+2025-11-22 15:45:03 | ERROR    | __main__:run:134 - Error scraping 1944: 'NoneType' object is not subscriptable
+2025-11-22 15:45:06 | ERROR    | __main__:run:134 - Error scraping 1945: 'NoneType' object is not subscriptable
+2025-11-22 15:45:09 | ERROR    | __main__:run:134 - Error scraping 1955: 'NoneType' object is not subscriptable
+2025-11-22 15:45:11 | ERROR    | __main__:run:134 - Error scraping 1962: 'NoneType' object is not subscriptable
+2025-11-22 15:45:14 | ERROR    | __main__:run:134 - Error scraping 1963: 'NoneType' object is not subscriptable
+2025-11-22 15:45:16 | ERROR    | __main__:run:134 - Error scraping 1971: 'NoneType' object is not subscriptable
+2025-11-22 15:45:19 | ERROR    | __main__:run:134 - Error scraping 2092: 'NoneType' object is not subscriptable
+2025-11-22 15:45:21 | ERROR    | __main__:run:134 - Error scraping 1949: 'NoneType' object is not subscriptable
+2025-11-22 15:45:24 | ERROR    | __main__:run:134 - Error scraping 2085: 'NoneType' object is not subscriptable
+2025-11-22 15:45:27 | ERROR    | __main__:run:134 - Error scraping 1943: 'NoneType' object is not subscriptable
+2025-11-22 15:45:29 | ERROR    | __main__:run:134 - Error scraping 2089: 'NoneType' object is not subscriptable
+2025-11-22 15:45:32 | ERROR    | __main__:run:134 - Error scraping 2090: 'NoneType' object is not subscriptable
+2025-11-22 15:45:34 | ERROR    | __main__:run:134 - Error scraping 2091: 'NoneType' object is not subscriptable
+2025-11-22 15:45:37 | ERROR    | __main__:run:134 - Error scraping 1952: 'NoneType' object is not subscriptable
+2025-11-22 15:45:39 | ERROR    | __main__:run:134 - Error scraping 1954: 'NoneType' object is not subscriptable
+2025-11-22 15:45:42 | ERROR    | __main__:run:134 - Error scraping 1953: 'NoneType' object is not subscriptable
+2025-11-22 15:45:45 | ERROR    | __main__:run:134 - Error scraping 1951: 'NoneType' object is not subscriptable
+2025-11-22 15:46:23 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 15:58:53 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 15:59:14 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 16:01:00 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 16:07:47 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 16:15:23 | INFO     | models.database:_create_tables:26 - Database tables created/verified
+2025-11-22 16:16:24 | INFO     | models.database:_create_tables:26 - Database tables created/verified
