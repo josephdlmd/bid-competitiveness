@@ -1,0 +1,20 @@
+# Web Framework
+fastapi==0.121.3
+uvicorn==0.38.0
+pydantic==2.12.4
+
+# Database
+sqlalchemy==2.0.44
+
+# Web Scraping
+playwright==1.56.0
+beautifulsoup4==4.14.2
+lxml==6.0.2
+
+# Utilities
+python-dotenv==1.2.1
+loguru==0.7.3
+
+# HTTP
+httpx==0.28.1
+requests==2.32.3
